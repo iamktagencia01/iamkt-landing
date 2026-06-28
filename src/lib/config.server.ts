@@ -19,8 +19,13 @@ import process from "node:process";
 export function getServerConfig() {
   return {
     nodeEnv: process.env.NODE_ENV,
-    // Add server-only values here, e.g.:
-    //   databaseUrl: process.env.DATABASE_URL,
-    //   stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+    smtp: {
+      host: process.env.ZOHO_SMTP_HOST ?? "smtp.zoho.com",
+      port: Number(process.env.ZOHO_SMTP_PORT) || 587,
+      user: process.env.ZOHO_SMTP_USER ?? "contacto@iamkt.co",
+      pass: process.env.ZOHO_SMTP_PASS ?? "",
+    },
+    contactEmail: process.env.CONTACT_EMAIL ?? "contacto@iamkt.co",
+    contactSender: process.env.CONTACT_SENDER ?? "IAmkt Landing",
   };
 }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { sendContactEmail } from "../lib/api/send-email.functions";
 import {
   Search,
   Smartphone,
@@ -921,6 +922,18 @@ function Footer() {
           >
             <Phone className="h-4 w-4" /> +57 322 857 0784
           </a>
+          <a
+            href="mailto:contacto@iamkt.co"
+            className="mt-2 flex items-center gap-2 text-sm text-white/80 hover:text-white"
+          >
+            <Mail className="h-4 w-4" /> contacto@iamkt.co
+          </a>
+          <a
+            href="mailto:ceo.marliodt@iamkt.co"
+            className="mt-2 flex items-center gap-2 text-sm text-white/80 hover:text-white"
+          >
+            <Mail className="h-4 w-4" /> ceo.marliodt@iamkt.co
+          </a>
         </div>
 
         <div>
@@ -1007,7 +1020,14 @@ function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = (data: ContactFormData) => {
+  const onSubmit = async (data: ContactFormData) => {
+    // Enviar correo vía SMTP Zoho
+    const result = await sendContactEmail({ data });
+    if (!result.success) {
+      console.error("Error al enviar correo:", result.error);
+    }
+
+    // Abrir WhatsApp con los datos
     const msg = `Hola IAmkt, quiero información:%0A%0A*Nombre:* ${data.nombre}%0A*Email:* ${data.email}%0A*Teléfono:* ${data.telefono}%0A*Servicio:* ${data.servicio}%0A*Mensaje:* ${data.mensaje}`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
     setSubmitted(true);
