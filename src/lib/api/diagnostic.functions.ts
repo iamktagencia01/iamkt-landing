@@ -202,7 +202,7 @@ Resumen: ${bottleneckCount} área(s) crítica(s) | ${teamSizeLabels[data.teamSiz
       await transporter.sendMail({
         from: `"${config.contactSender}" <${config.smtp.user}>`,
         to: config.contactEmail,
-        subject: `🧠 Nuevo diagnóstico: ${data.name} (${data.company}) — ${bottleneckCount} área(s) crítica(s)`,
+        subject: `🧠 Nuevo diagnóstico: ${data.name} — ${data.company} — ${bottleneckCount} área(s) crítica(s)`,
         html: htmlBody,
         text: textBody,
         replyTo: data.email,
