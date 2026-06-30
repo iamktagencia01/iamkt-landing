@@ -107,7 +107,6 @@ function Header({ onOpenWizard }: { onOpenWizard: () => void }) {
             ["Servicios", "#servicios"],
             ["Metodología", "#metodologia"],
             ["Por qué IAmkt", "#diferenciacion"],
-            ["Nosotros", "#nosotros"],
             ["FAQ", "#faq"],
           ].map(([label, href]) => (
             <a
@@ -672,46 +671,16 @@ function WhyIAmkt({ onOpenWizard }: { onOpenWizard: () => void }) {
           ))}
         </div>
 
-        <div className="mt-12 flex justify-center">
-          <button
-            onClick={onOpenWizard}
-            className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
-          >
-            <ClipboardList className="h-5 w-5" strokeWidth={2} />
-            Diagnóstico Gratuito — Empieza Aquí
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─── About ─── */
-
-function About() {
-  return (
-    <section
-      id="nosotros"
-      className="relative overflow-hidden py-20 text-white md:py-28"
-      style={{ backgroundColor: "oklch(0.13 0.06 265)" }}
-    >
-      <TechBackground density={35} />
-      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-5 md:px-8">
-        <div className="md:col-span-2">
-          <p className="text-sm font-semibold uppercase tracking-widest text-cyan-300">
-            Sobre nosotros
-          </p>
-          <h2 className="mt-3 text-center text-3xl font-bold leading-tight text-white md:text-4xl">
-            Arquitectos tecnológicos al servicio de tu negocio.
-          </h2>
-          <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+        <div className="mt-12 flex flex-col items-center gap-8">
+          {/* Perfil CEO */}
+          <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md">
             <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
               Liderazgo
             </p>
-            <p className="mt-2 text-justify text-lg font-bold text-white">
+            <p className="mt-2 text-lg font-bold text-white">
               Ing. Marlio Dario Damian Torres
             </p>
-            <p className="text-justify text-sm text-white/70">
+            <p className="text-sm text-white/70">
               CEO — Arquitecto Tecnológico Principal
             </p>
             <a
@@ -724,39 +693,14 @@ function About() {
               Conecta en Facebook
             </a>
           </div>
-        </div>
-        <div className="space-y-5 text-justify text-base leading-relaxed text-white/80 md:col-span-3">
-          <p>
-            En <strong className="text-white">Agencia IAmkt</strong>, tenemos
-            claro que la tecnología y la IA deben estar completamente al
-            servicio de tu negocio. Liderados por nuestro CEO, el{" "}
-            <strong className="text-white">Ing. Marlio</strong>, hemos dejado
-            atrás el marketing tradicional para convertirnos en tus verdaderos{" "}
-            <span className="text-accent font-semibold">
-              "arquitectos" tecnológicos
-            </span>
-            .
-          </p>
-          <p>
-            Entendemos que escalar una empresa requiere sistemas precisos y
-            eficientes. Por eso, vamos mucho más allá de las herramientas
-            convencionales: desarrollamos aplicaciones diseñadas a la medida
-            para optimizar tu organización, gestión y productividad. Además,
-            somos pioneros en la implementación de{" "}
-            <span className="text-accent font-semibold">
-              Agentes de Inteligencia Artificial
-            </span>{" "}
-            de vanguardia que actúan como un brazo operativo incansable.
-          </p>
-          <p>
-            Nuestra filosofía se basa en resolver problemas complejos de forma
-            sencilla. Decidimos combinar la ingeniería aplicada con
-            Inteligencia Artificial y Marketing Digital para crear soluciones
-            estratégicas para empresas que quieren crecer. Construimos la
-            maquinaria perfecta —desde la automatización hasta la adquisición
-            de clientes— para que tú te enfoques en dirigir y expandir tu
-            negocio.
-          </p>
+
+          <button
+            onClick={onOpenWizard}
+            className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
+          >
+            <ClipboardList className="h-5 w-5" strokeWidth={2} />
+            Diagnóstico Gratuito — Empieza Aquí
+          </button>
         </div>
       </div>
     </section>
@@ -1008,7 +952,6 @@ function Landing() {
         <Services onOpenWizard={() => setWizardOpen(true)} />
         <Methodology />
         <WhyIAmkt onOpenWizard={() => setWizardOpen(true)} />
-        <About />
         <FAQ onOpenWizard={() => setWizardOpen(true)} />
         <ContactSection onOpenWizard={() => setWizardOpen(true)} />
       </main>
