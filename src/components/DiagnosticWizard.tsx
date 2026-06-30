@@ -524,26 +524,26 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
       {/* Modal */}
       <div
         className={cn(
-          "relative w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 shadow-2xl",
+          "relative flex max-h-[85vh] w-full max-w-lg flex-col rounded-2xl border border-white/10 shadow-2xl",
           "backdrop-blur-xl transition-all duration-200",
           "bg-[oklch(0.11_0.05_265)]", // Slightly darker than the page bg
         )}
         style={{ boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}
       >
-        {/* Close button */}
+        {/* Close button — fixed inside the modal header */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-white/5 text-white/40 transition-colors hover:bg-white/10 hover:text-white/70"
+          className="sticky top-0 z-10 ml-auto mr-4 mt-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/5 text-white/40 transition-colors hover:bg-white/10 hover:text-white/70"
         >
           <X className="h-4 w-4" strokeWidth={2} />
         </button>
 
-        <div className="px-6 pb-6 pt-8">
+        <div className="overflow-y-auto px-6 pb-6">
           {/* Progress bar */}
           {!submitted && <ProgressBar currentStep={currentStep} />}
 
           {/* Animated content */}
-          <div className="relative min-h-[320px] overflow-hidden">
+          <div className="relative min-h-[320px]">
             <div
               className={cn(
                 "transition-all duration-300 ease-out",
