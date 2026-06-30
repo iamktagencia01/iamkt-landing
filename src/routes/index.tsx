@@ -26,9 +26,12 @@ import {
   ChevronUp,
   Mail,
   Send,
+  ClipboardList,
+  Sparkles,
 } from "lucide-react";
 import logoUrl from "@/assets/logo.png";
 import { TechBackground } from "@/components/TechBackground";
+import DiagnosticWizard from "@/components/DiagnosticWizard";
 
 const WHATSAPP_NUMBER = "573228570784";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -155,7 +158,7 @@ function Header() {
 
 /* ─── Hero ─── */
 
-function Hero() {
+function Hero({ onOpenWizard }: { onOpenWizard: () => void }) {
   return (
     <section
       id="inicio"
@@ -194,9 +197,23 @@ function Hero() {
             ⚡ Empieza hoy con un <span className="text-white">diagnóstico gratuito</span> — sin compromiso, sin costo.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <WhatsAppButton size="lg">
+            <button
+              onClick={onOpenWizard}
+              className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50 md:text-lg"
+            >
+              <ClipboardList className="h-5 w-5" strokeWidth={2.2} />
               Diagnóstico Gratuito — Empieza Aquí
-            </WhatsAppButton>
+              <Sparkles className="h-4 w-4 text-accent-foreground/70 transition-transform group-hover:rotate-12" strokeWidth={1.8} />
+            </button>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/10 hover:border-white/30"
+            >
+              <MessageCircle className="h-4 w-4" strokeWidth={2} />
+              O escribe por WhatsApp
+            </a>
           </div>
           <p className="mt-5 flex items-center gap-2 text-sm text-white/70">
             <Phone className="h-4 w-4 text-cyan-300" />
@@ -848,7 +865,7 @@ function FAQ() {
 
 /* ─── Contact / CTA Section ─── */
 
-function ContactSection() {
+function ContactSection({ onOpenWizard }: { onOpenWizard: () => void }) {
   return (
     <section
       className="relative overflow-hidden py-20 text-white md:py-24"
@@ -860,13 +877,17 @@ function ContactSection() {
           ¿Listo para construir tu maquinaria de crecimiento?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-white/80">
-          Agenda tu diagnóstico gratuito y descubre exactamente cómo la IA y
+          Completa nuestro diagnóstico gratuito y descubre exactamente cómo la IA y
           la ingeniería pueden multiplicar tus ventas.
         </p>
         <div className="mt-10 flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
-          <WhatsAppButton size="lg">
-            Agenda tu Diagnóstico Gratuito
-          </WhatsAppButton>
+          <button
+            onClick={onOpenWizard}
+            className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50 md:text-lg"
+          >
+            <ClipboardList className="h-5 w-5" strokeWidth={2.2} />
+            Iniciar Diagnóstico Gratuito
+          </button>
           <a
             href={`tel:+${WHATSAPP_NUMBER}`}
             className="inline-flex items-center gap-2 text-sm font-semibold text-white/80 transition-colors hover:text-accent"
@@ -1198,11 +1219,13 @@ function ContactForm() {
 /* ─── Landing (main) ─── */
 
 function Landing() {
+  const [wizardOpen, setWizardOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <Hero />
+        <Hero onOpenWizard={() => setWizardOpen(true)} />
         <Benefits />
         <Services />
         <Methodology />
@@ -1210,10 +1233,15 @@ function Landing() {
         <About />
         <FAQ />
         <ContactForm />
-        <ContactSection />
+        <ContactSection onOpenWizard={() => setWizardOpen(true)} />
       </main>
       <Footer />
       <WhatsAppFloating />
+
+      <DiagnosticWizard
+        open={wizardOpen}
+        onClose={() => setWizardOpen(false)}
+      />
     </div>
   );
 }
