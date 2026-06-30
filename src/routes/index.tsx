@@ -105,8 +105,6 @@ function Header({ onOpenWizard }: { onOpenWizard: () => void }) {
             ["Inicio", "#inicio"],
             ["Beneficios", "#beneficios"],
             ["Servicios", "#servicios"],
-            ["Metodología", "#metodologia"],
-            ["Por qué IAmkt", "#diferenciacion"],
             ["FAQ", "#faq"],
           ].map(([label, href]) => (
             <a
@@ -225,7 +223,7 @@ const BENEFITS = [
   },
 ];
 
-function Benefits() {
+function Benefits({ onOpenWizard }: { onOpenWizard: () => void }) {
   return (
     <section
       id="beneficios"
@@ -255,6 +253,54 @@ function Benefits() {
               </p>
             </article>
           ))}
+        </div>
+
+        {/* Metodología compacta */}
+        <div className="mt-16">
+          <p className="text-center text-xs font-semibold uppercase tracking-widest text-cyan-300">
+            Nuestro método
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-6 md:flex-nowrap md:gap-10">
+            {STEPS.map(({ icon: Icon, title }) => (
+              <div key={title} className="flex flex-col items-center text-center">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 text-accent">
+                  <Icon className="h-5 w-5" strokeWidth={1.75} />
+                </div>
+                <p className="mt-2 text-xs font-semibold text-white">{title}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Perfil CEO + CTA */}
+        <div className="mt-14 flex flex-col items-center gap-8">
+          <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md">
+            <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
+              Liderazgo
+            </p>
+            <p className="mt-2 text-lg font-bold text-white">
+              Ing. Marlio Dario Damian Torres
+            </p>
+            <p className="text-sm text-white/70">
+              CEO — Arquitecto Tecnológico Principal
+            </p>
+            <a
+              href="https://www.facebook.com/Ing.Marlio.CEO.IAmkt/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
+            >
+              <Facebook className="h-4 w-4" />
+              Conecta en Facebook
+            </a>
+          </div>
+          <button
+            onClick={onOpenWizard}
+            className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
+          >
+            <ClipboardList className="h-5 w-5" strokeWidth={2} />
+            Diagnóstico Gratuito — Empieza Aquí
+          </button>
         </div>
       </div>
     </section>
@@ -560,8 +606,6 @@ function Services({ onOpenWizard }: { onOpenWizard: () => void }) {
   );
 }
 
-/* ─── Methodology ─── */
-
 const STEPS = [
   {
     icon: Search,
@@ -584,128 +628,6 @@ const STEPS = [
     body: "Medimos resultados, ajustamos, mejoramos. El proyecto no termina con la entrega: termina cuando los resultados están y se sostienen en el tiempo.",
   },
 ];
-
-function Methodology() {
-  return (
-    <section
-      id="metodologia"
-      className="relative overflow-hidden py-20 text-white md:py-28"
-      style={{ backgroundColor: "oklch(0.13 0.06 265)" }}
-    >
-      <TechBackground density={35} />
-      <div className="relative mx-auto max-w-6xl px-4 md:px-8">
-        <SectionHeader
-          tag="Cómo trabajamos"
-          title="Método IAmkt"
-          subtitle="Un proceso de 4 fases que garantiza resultados medibles."
-        />
-        <div className="mt-14 grid gap-8 md:grid-cols-4">
-          {STEPS.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="relative">
-              <div className="flex flex-col items-center text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/15 text-accent">
-                  <Icon className="h-7 w-7" strokeWidth={1.75} />
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-white">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
-                  {body}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Why IAmkt (Differentiation) ─── */
-
-const DIFFS = [
-  {
-    title: "Triple expertise",
-    body: "Ingeniería aplicada, inteligencia artificial y marketing digital en una sola firma. No tienes que contratar tres proveedores para tener una solución completa.",
-  },
-  {
-    title: "Diagnóstico antes de ejecutar",
-    body: "No recomendamos herramientas, campañas o desarrollos sin entender primero el problema. Cada solución nace de un análisis real de tu negocio.",
-  },
-  {
-    title: "Resultados medibles",
-    body: "Cada solución tiene indicadores claros, retorno esperado y métricas de mejora. No trabajamos con corazonadas: trabajamos con datos.",
-  },
-  {
-    title: "Acompañamiento continuo",
-    body: "Operamos como socios tecnológicos, no como proveedores puntuales. Estamos en el día a día, no solo en la firma del contrato.",
-  },
-];
-
-function WhyIAmkt({ onOpenWizard }: { onOpenWizard: () => void }) {
-  return (
-    <section
-      id="diferenciacion"
-      className="relative overflow-hidden py-20 text-white md:py-28"
-      style={{ backgroundColor: "oklch(0.13 0.06 265)" }}
-    >
-      <TechBackground density={30} />
-      <div className="relative mx-auto max-w-6xl px-4 md:px-8">
-        <SectionHeader
-          tag="Diferenciación"
-          title="¿Por qué IAmkt?"
-          subtitle="Porque combinamos lo que otras agencias separan."
-        />
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {DIFFS.map(({ title, body }) => (
-            <div
-              key={title}
-              className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-accent/50"
-            >
-              <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
-              <div>
-                <h3 className="text-lg font-bold text-white">{title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-white/70">
-                  {body}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 flex flex-col items-center gap-8">
-          {/* Perfil CEO */}
-          <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md">
-            <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
-              Liderazgo
-            </p>
-            <p className="mt-2 text-lg font-bold text-white">
-              Ing. Marlio Dario Damian Torres
-            </p>
-            <p className="text-sm text-white/70">
-              CEO — Arquitecto Tecnológico Principal
-            </p>
-            <a
-              href="https://www.facebook.com/Ing.Marlio.CEO.IAmkt/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
-            >
-              <Facebook className="h-4 w-4" />
-              Conecta en Facebook
-            </a>
-          </div>
-
-          <button
-            onClick={onOpenWizard}
-            className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
-          >
-            <ClipboardList className="h-5 w-5" strokeWidth={2} />
-            Diagnóstico Gratuito — Empieza Aquí
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ─── FAQ ─── */
 
@@ -948,10 +870,8 @@ function Landing() {
       <Header onOpenWizard={() => setWizardOpen(true)} />
       <main>
         <Hero onOpenWizard={() => setWizardOpen(true)} />
-        <Benefits />
+        <Benefits onOpenWizard={() => setWizardOpen(true)} />
         <Services onOpenWizard={() => setWizardOpen(true)} />
-        <Methodology />
-        <WhyIAmkt onOpenWizard={() => setWizardOpen(true)} />
         <FAQ onOpenWizard={() => setWizardOpen(true)} />
         <ContactSection onOpenWizard={() => setWizardOpen(true)} />
       </main>
