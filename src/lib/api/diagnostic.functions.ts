@@ -6,7 +6,7 @@ import { getServerConfig } from "../config.server";
 export const sendDiagnosticEmail = createServerFn({ method: "POST" })
   .inputValidator(
     z.object({
-      bottleneck: z.string().min(1, "Selecciona una opción"),
+      bottleneck: z.array(z.string()).min(1, "Selecciona al menos una opción"),
       teamSize: z.string().min(1, "Selecciona una opción"),
       timeline: z.string().min(1, "Selecciona una opción"),
       name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -30,9 +30,11 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
 
     const bottleneckLabels: Record<string, string> = {
       manual_tasks: "Tareas manuales y desordenadas",
-      stalled_sales: "Ventas estancadas",
+      stalled_sales: "Ventas estancadas / Poco crecimiento",
       whatsapp_collapsed: "WhatsApp colapsado / Atención lenta",
       lack_software: "Falta de software a la medida",
+      lack_direction: "Falta de dirección estratégica",
+      want_ai: "Quiero implementar IA pero no sé cómo",
     };
 
     const teamSizeLabels: Record<string, string> = {
@@ -47,6 +49,19 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
       soon: "En 1-3 meses",
       exploring: "Solo estoy explorando",
     };
+
+    // Build bottleneck list HTML
+    const bottleneckItems = data.bottleneck
+      .map((b) => bottleneckLabels[b] || b)
+      .map((label) => `<li style="padding: 4px 0; font-size: 14px; color: #111827; font-weight: 600;">${label}</li>`)
+      .join("");
+
+    // Build bottleneck list text
+    const bottleneckText = data.bottleneck
+      .map((b) => `  - ${bottleneckLabels[b] || b}`)
+      .join("\n");
+
+    const bottleneckCount = data.bottleneck.length;
 
     const htmlBody = `
       <!DOCTYPE html>
@@ -69,12 +84,18 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
 
               <tr>
                 <td colspan="2" style="padding: 6px 0 12px;">
-                  <p style="margin: 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #087f99;">Paso 1 — Cuello de botella</p>
+                  <p style="margin: 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #087f99;">
+                    Paso 1 — Cuello(s) de botella (${bottleneckCount})
+                  </p>
                 </td>
               </tr>
               <tr>
-                <td style="padding: 8px 12px 8px 0; font-size: 13px; color: #6b7280; width: 100px; vertical-align: top;">Respuesta</td>
-                <td style="padding: 8px 0; font-size: 14px; color: #111827; font-weight: 600;">${bottleneckLabels[data.bottleneck] || data.bottleneck}</td>
+                <td style="padding: 8px 12px 8px 0; font-size: 13px; color: #6b7280; width: 100px; vertical-align: top;">Respuestas</td>
+                <td style="padding: 8px 0;">
+                  <ul style="margin: 0; padding-left: 18px; list-style-type: disc;">
+                    ${bottleneckItems}
+                  </ul>
+                </td>
               </tr>
 
               <tr><td colspan="2" style="border-top: 1px solid #e5e7eb; height: 16px;"></td></tr>
@@ -133,7 +154,17 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
             <!-- CTA -->
             <div style="margin-top: 28px; padding: 20px; background: #f0f9ff; border-radius: 12px; border-left: 4px solid #0891b2;">
               <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; color: #065a76;">📌 Próximo paso</p>
-              <p style="margin: 0; font-size: 13px; color: #374151;">Contactar a ${data.name} para coordinar el diagnóstico gratuito. Respuesta esperada: <strong>${timelineLabels[data.timeline] || data.timeline}</strong>.</p>
+              <p style="margin: 0; font-size: 13px; color: #374151;">Contactar a <strong>${data.name}</strong> de <strong>${data.company}</strong> para coordinar el diagnóstico gratuito. Urgencia: <strong>${timelineLabels[data.timeline] || data.timeline}</strong>.</p>
+            </div>
+
+            <!-- Diagnosis summary -->
+            <div style="margin-top: 16px; padding: 16px; background: #f8fafc; border-radius: 10px;">
+              <p style="margin: 0 0 4px; font-size: 12px; color: #64748b;">🧩 Resumen rápido</p>
+              <p style="margin: 0; font-size: 12px; color: #334155;">
+                <strong>${data.name}</strong> — ${teamSizeLabels[data.teamSize] || data.teamSize} |
+                ${bottleneckCount} área(s) crítica(s) identificada(s) |
+                Prioridad: ${timelineLabels[data.timeline] || data.timeline}
+              </p>
             </div>
 
           </div>
@@ -151,8 +182,11 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
 NUEVO DIAGNÓSTICO IAMKT
 ========================
 
-PASO 1 — Cuello de botella: ${bottleneckLabels[data.bottleneck] || data.bottleneck}
+PASO 1 — Cuello(s) de botella:
+${bottleneckText}
+
 PASO 2 — Tamaño del equipo: ${teamSizeLabels[data.teamSize] || data.teamSize}
+
 PASO 3 — Plazo: ${timelineLabels[data.timeline] || data.timeline}
 
 PASO 4 — Contacto
@@ -161,14 +195,14 @@ Empresa: ${data.company}
 WhatsApp: ${data.whatsapp}
 Email: ${data.email}
 
-Próximo paso: Contactar a ${data.name} para coordinar el diagnóstico gratuito.
+Resumen: ${bottleneckCount} área(s) crítica(s) | ${teamSizeLabels[data.teamSize] || data.teamSize} | Prioridad: ${timelineLabels[data.timeline] || data.timeline}
     `.trim();
 
     try {
       await transporter.sendMail({
         from: `"${config.contactSender}" <${config.smtp.user}>`,
         to: config.contactEmail,
-        subject: `🧠 Nuevo diagnóstico: ${data.name} — ${bottleneckLabels[data.bottleneck] || data.bottleneck}`,
+        subject: `🧠 Nuevo diagnóstico: ${data.name} (${data.company}) — ${bottleneckCount} área(s) crítica(s)`,
         html: htmlBody,
         text: textBody,
         replyTo: data.email,

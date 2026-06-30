@@ -19,6 +19,8 @@ import {
   Calendar,
   Search,
   SendHorizonal,
+  Compass,
+  BrainCircuit,
 } from "lucide-react";
 import { sendDiagnosticEmail } from "../lib/api/diagnostic.functions";
 import { cn } from "../lib/utils";
@@ -33,9 +35,11 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent
 const LABELS = {
   bottleneck: {
     manual_tasks: "Tareas manuales y desordenadas",
-    stalled_sales: "Ventas estancadas",
+    stalled_sales: "Ventas estancadas / Poco crecimiento",
     whatsapp_collapsed: "WhatsApp colapsado / Atención lenta",
     lack_software: "Falta de software a la medida",
+    lack_direction: "Falta de dirección estratégica",
+    want_ai: "Quiero implementar IA pero no sé cómo",
   },
   teamSize: {
     independent: "Independiente",
@@ -55,7 +59,7 @@ const LABELS = {
 type StepKey = "bottleneck" | "teamSize" | "timeline";
 
 interface WizardAnswers {
-  bottleneck: string | null;
+  bottleneck: string[];
   teamSize: string | null;
   timeline: string | null;
 }
@@ -72,6 +76,8 @@ interface StepConfig {
   key: StepKey;
   question: string;
   subtitle?: string;
+  hint?: string;
+  multiSelect?: boolean;
   options: {
     value: string;
     label: string;
@@ -84,32 +90,46 @@ const STEPS: StepConfig[] = [
   {
     step: 1,
     key: "bottleneck",
-    question: "¿Cuál es el principal cuello de botella en tu empresa actualmente?",
-    subtitle: "Identifica tu mayor obstáculo para crecer",
+    question: "¿Cuáles son los principales cuellos de botella en tu empresa actualmente?",
+    subtitle: "Identifica tus mayores obstáculos para crecer",
+    hint: "Puedes seleccionar una o varias opciones",
+    multiSelect: true,
     options: [
       {
         value: "manual_tasks",
         label: "Tareas manuales y desordenadas",
         icon: Bot,
-        description: "Procesos que consumen tiempo y recursos sin estructura",
+        description: "Procesos operativos que consumen tiempo y recursos sin estructura",
       },
       {
         value: "stalled_sales",
-        label: "Ventas estancadas",
+        label: "Ventas estancadas / Poco crecimiento",
         icon: TrendingUp,
-        description: "Dificultad para atraer y convertir clientes",
+        description: "Dificultad para atraer clientes nuevos y cerrar más ventas",
       },
       {
         value: "whatsapp_collapsed",
         label: "WhatsApp colapsado / Atención lenta",
         icon: MessageSquare,
-        description: "Alto volumen de mensajes sin respuesta oportuna",
+        description: "Alto volumen de mensajes sin respuesta oportuna ni seguimiento",
       },
       {
         value: "lack_software",
         label: "Falta de software a la medida",
         icon: Code2,
-        description: "Herramientas genéricas que no se adaptan a tu negocio",
+        description: "Herramientas genéricas que no se adaptan a tu flujo de trabajo",
+      },
+      {
+        value: "lack_direction",
+        label: "Falta de dirección estratégica",
+        icon: Compass,
+        description: "No sé por dónde empezar ni qué mejorar primero para crecer",
+      },
+      {
+        value: "want_ai",
+        label: "Quiero implementar IA pero no sé cómo",
+        icon: BrainCircuit,
+        description: "Sé que la inteligencia artificial puede ayudar pero no tengo el plan",
       },
     ],
   },
@@ -118,6 +138,7 @@ const STEPS: StepConfig[] = [
     key: "teamSize",
     question: "¿De qué tamaño es tu equipo actual?",
     subtitle: "Para dimensionar la solución adecuada",
+    multiSelect: false,
     options: [
       {
         value: "independent",
@@ -150,6 +171,7 @@ const STEPS: StepConfig[] = [
     key: "timeline",
     question: "¿Para cuándo necesitas implementar esta solución?",
     subtitle: "Para priorizar tu caso",
+    multiSelect: false,
     options: [
       {
         value: "asap",
@@ -331,7 +353,7 @@ function SuccessScreen() {
 export default function DiagnosticWizard({ open, onClose }: WizardProps) {
   const [currentStep, setCurrentStep] = useState(1);
   const [answers, setAnswers] = useState<WizardAnswers>({
-    bottleneck: null,
+    bottleneck: [],
     teamSize: null,
     timeline: null,
   });
@@ -351,7 +373,7 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
   useEffect(() => {
     if (open) {
       setCurrentStep(1);
-      setAnswers({ bottleneck: null, teamSize: null, timeline: null });
+      setAnswers({ bottleneck: [], teamSize: null, timeline: null });
       setFormData({ name: "", company: "", whatsapp: "", email: "" });
       setFormErrors({});
       setSubmitting(false);
@@ -384,16 +406,42 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
   }, [open]);
 
   const handleSelect = useCallback(
-    (key: StepKey, value: string) => {
-      setAnswers((prev) => ({ ...prev, [key]: value }));
+    (key: StepKey, value: string, multiSelect?: boolean) => {
       setAnimDir("forward");
-      // Auto-advance after a brief delay for visual feedback
-      setTimeout(() => {
-        setCurrentStep((prev) => Math.min(prev + 1, 4));
-      }, 200);
+
+      if (multiSelect) {
+        // Toggle: add or remove from array
+        setAnswers((prev) => {
+          const current = prev[key] as string[];
+          const exists = current.includes(value);
+          return {
+            ...prev,
+            [key]: exists
+              ? current.filter((v) => v !== value)
+              : [...current, value],
+          };
+        });
+      } else {
+        // Single select: set and auto-advance
+        setAnswers((prev) => ({ ...prev, [key]: value }));
+        setTimeout(() => {
+          setCurrentStep((prev) => Math.min(prev + 1, 4));
+        }, 200);
+      }
     },
     [],
   );
+
+  const goNext = useCallback(() => {
+    setAnimDir("forward");
+    if (currentStep < 3) {
+      // Validate multi-select step has at least one selection
+      if (currentStep === 1 && answers.bottleneck.length === 0) return;
+      setCurrentStep((prev) => prev + 1);
+    } else {
+      setCurrentStep(4);
+    }
+  }, [currentStep, answers.bottleneck]);
 
   const goBack = useCallback(() => {
     if (currentStep > 1) {
@@ -424,7 +472,7 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
       return;
     }
 
-    if (!answers.bottleneck || !answers.teamSize || !answers.timeline) {
+    if (answers.bottleneck.length === 0 || !answers.teamSize || !answers.timeline) {
       setSubmitError("Faltan respuestas de pasos anteriores. Por favor vuelve a empezar.");
       return;
     }
@@ -524,6 +572,13 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
                     )}
                   </div>
 
+                  {/* Hint for multi-select */}
+                  {currentStepConfig.hint && (
+                    <p className="mt-3 text-center text-xs text-cyan-300/70">
+                      {currentStepConfig.hint}
+                    </p>
+                  )}
+
                   {/* Options */}
                   <div className="mt-5 space-y-2.5">
                     {currentStepConfig.options.map((opt) => (
@@ -532,23 +587,48 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
                         label={opt.label}
                         description={opt.description}
                         icon={opt.icon}
-                        selected={answers[currentStepConfig.key] === opt.value}
-                        onClick={() => handleSelect(currentStepConfig.key, opt.value)}
+                        selected={
+                          currentStepConfig.multiSelect
+                            ? (answers[currentStepConfig.key] as string[]).includes(opt.value)
+                            : answers[currentStepConfig.key] === opt.value
+                        }
+                        onClick={() => handleSelect(currentStepConfig.key, opt.value, currentStepConfig.multiSelect)}
                       />
                     ))}
                   </div>
 
-                  {/* Back button */}
-                  {!isFirstStep && (
-                    <button
-                      type="button"
-                      onClick={goBack}
-                      className="mt-4 flex items-center gap-1.5 text-xs font-medium text-white/50 transition-colors hover:text-white/80"
-                    >
-                      <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2} />
-                      Paso anterior
-                    </button>
-                  )}
+                  {/* Footer: Continue / Back */}
+                  <div className="mt-4 flex items-center justify-between">
+                    {!isFirstStep ? (
+                      <button
+                        type="button"
+                        onClick={goBack}
+                        className="flex items-center gap-1.5 text-xs font-medium text-white/50 transition-colors hover:text-white/80"
+                      >
+                        <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2} />
+                        Paso anterior
+                      </button>
+                    ) : (
+                      <div /> // spacer
+                    )}
+
+                    {currentStepConfig.multiSelect && (
+                      <button
+                        type="button"
+                        onClick={goNext}
+                        disabled={answers.bottleneck.length === 0}
+                        className={cn(
+                          "inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-xs font-semibold transition-all",
+                          answers.bottleneck.length > 0
+                            ? "bg-accent text-accent-foreground hover:-translate-y-0.5"
+                            : "bg-white/5 text-white/30 cursor-not-allowed",
+                        )}
+                      >
+                        Siguiente
+                        <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
+                      </button>
+                    )}
+                  </div>
                 </div>
               ) : (
                 /* Step 4: Contact form */
