@@ -63,29 +63,6 @@ export const Route = createFileRoute("/")({
 
 /* ─── Shared Components ─── */
 
-function WhatsAppButton({
-  children,
-  size = "md",
-}: {
-  children: React.ReactNode;
-  size?: "md" | "lg";
-}) {
-  const sizeClass =
-    size === "lg" ? "px-8 py-4 text-base md:text-lg" : "px-5 py-3 text-sm";
-  return (
-    <a
-      href={WHATSAPP_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`group inline-flex items-center gap-2 rounded-xl bg-accent font-semibold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:shadow-accent/50 hover:-translate-y-0.5 ${sizeClass}`}
-    >
-      <MessageCircle className="h-5 w-5" strokeWidth={2.2} />
-      <span>{children}</span>
-      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-    </a>
-  );
-}
-
 function SectionHeader({
   tag,
   title,
@@ -112,7 +89,7 @@ function SectionHeader({
 
 /* ─── Header ─── */
 
-function Header() {
+function Header({ onOpenWizard }: { onOpenWizard: () => void }) {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
@@ -142,15 +119,13 @@ function Header() {
             </a>
           ))}
         </nav>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={onOpenWizard}
           className="hidden items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5 md:inline-flex"
         >
-          <MessageCircle className="h-4 w-4" />
-          WhatsApp
-        </a>
+          <ClipboardList className="h-4 w-4" strokeWidth={2} />
+          Comienza Tu Diagnóstico Gratuito
+        </button>
       </div>
     </header>
   );
@@ -552,7 +527,7 @@ function ServiceCard({
   );
 }
 
-function Services() {
+function Services({ onOpenWizard }: { onOpenWizard: () => void }) {
   return (
     <section
       id="servicios"
@@ -573,9 +548,13 @@ function Services() {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <WhatsAppButton size="lg">
-            ¿Cuál necesitas? Hablemos
-          </WhatsAppButton>
+          <button
+            onClick={onOpenWizard}
+            className="group inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
+          >
+            <ClipboardList className="h-5 w-5" strokeWidth={2} />
+            ¿Cuál necesitas? Diagnóstico Gratis aquí
+          </button>
         </div>
       </div>
     </section>
@@ -662,7 +641,7 @@ const DIFFS = [
   },
 ];
 
-function WhyIAmkt() {
+function WhyIAmkt({ onOpenWizard }: { onOpenWizard: () => void }) {
   return (
     <section
       id="diferenciacion"
@@ -691,6 +670,16 @@ function WhyIAmkt() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={onOpenWizard}
+            className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
+          >
+            <ClipboardList className="h-5 w-5" strokeWidth={2} />
+            Diagnóstico Gratuito — Empieza Aquí
+          </button>
         </div>
       </div>
     </section>
@@ -803,7 +792,7 @@ const FAQS = [
   },
 ];
 
-function FAQ() {
+function FAQ({ onOpenWizard }: { onOpenWizard: () => void }) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
@@ -844,19 +833,17 @@ function FAQ() {
             </div>
           ))}
         </div>
-        <div className="mt-10 text-center">
+        <div className="mt-10 flex flex-col items-center gap-4">
           <p className="text-sm text-white/60">
-            ¿Otra pregunta? Escríbenos directo al WhatsApp
+            ¿Otra pregunta? Descubre exactamente qué necesita tu empresa
           </p>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
+          <button
+            onClick={onOpenWizard}
+            className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
           >
-            <MessageCircle className="h-4 w-4" />
-            Pregunta por WhatsApp
-          </a>
+            <ClipboardList className="h-4 w-4" strokeWidth={2} />
+            Diagnóstico Gratuito — Empieza Aquí
+          </button>
         </div>
       </div>
     </section>
@@ -1005,216 +992,7 @@ function WhatsAppFloating() {
   );
 }
 
-/* ─── Contact Form ─── */
 
-const contactSchema = z.object({
-  nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
-  email: z.string().email("Ingresa un correo válido"),
-  telefono: z.string().min(7, "Ingresa un teléfono válido"),
-  servicio: z.string().min(1, "Selecciona un servicio"),
-  mensaje: z
-    .string()
-    .min(10, "Escribe al menos 10 caracteres")
-    .max(500, "Máximo 500 caracteres"),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-
-const SERVICIOS = [
-  "Diagnóstico y Estrategia",
-  "Desarrollo de Aplicaciones",
-  "Agentes de IA",
-  "Automatización de Procesos",
-  "Marketing Digital",
-  "WhatsApp Business",
-  "No sé exactamente",
-];
-
-function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-  });
-
-  const onSubmit = async (data: ContactFormData) => {
-    // Enviar correo vía SMTP Zoho
-    const result = await sendContactEmail({ data });
-    if (!result.success) {
-      console.error("Error al enviar correo:", result.error);
-    }
-
-    // Abrir WhatsApp con los datos
-    const msg = `Hola IAmkt, quiero información:%0A%0A*Nombre:* ${data.nombre}%0A*Email:* ${data.email}%0A*Teléfono:* ${data.telefono}%0A*Servicio:* ${data.servicio}%0A*Mensaje:* ${data.mensaje}`;
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
-    setSubmitted(true);
-  };
-
-  if (submitted) {
-    return (
-      <section
-        id="contacto"
-        className="relative overflow-hidden py-20 text-white md:py-28"
-        style={{ backgroundColor: "oklch(0.13 0.06 265)" }}
-      >
-        <div className="relative mx-auto max-w-2xl px-4 text-center md:px-8">
-          <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-10 backdrop-blur-md">
-            <CheckCircle2 className="mx-auto h-14 w-14 text-emerald-400" strokeWidth={1.5} />
-            <h3 className="mt-5 text-2xl font-bold text-white">¡Mensaje listo!</h3>
-            <p className="mt-3 text-base text-white/70">
-              Te redirigimos a WhatsApp con tus datos. Solo confirma y envía.
-            </p>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5"
-            >
-              <MessageCircle className="h-5 w-5" />
-              Ir a WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section
-      id="contacto"
-      className="relative overflow-hidden py-20 text-white md:py-28"
-      style={{ backgroundColor: "oklch(0.13 0.06 265)" }}
-    >
-      <TechBackground density={45} />
-      <div className="relative mx-auto max-w-6xl px-4 md:px-8">
-        <SectionHeader
-          tag="Contáctanos"
-          title="Cuéntanos sobre tu proyecto"
-          subtitle="Déjanos tus datos y te contactaremos en menos de 24 horas para agendar tu diagnóstico gratuito."
-        />
-
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="mx-auto mt-12 max-w-2xl space-y-5"
-          noValidate
-        >
-          <div className="grid gap-5 md:grid-cols-2">
-            <div>
-              <label className="mb-1.5 block text-sm font-medium text-white/80">
-                Nombre completo
-              </label>
-              <input
-                {...register("nombre")}
-                placeholder="Tu nombre"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 backdrop-blur-sm transition-all focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-              />
-              {errors.nombre && (
-                <p className="mt-1 text-xs text-red-400">
-                  {errors.nombre.message}
-                </p>
-              )}
-            </div>
-            <div>
-              <label className="mb-1.5 block text-sm font-medium text-white/80">
-                Correo electrónico
-              </label>
-              <input
-                {...register("email")}
-                type="email"
-                placeholder="tu@email.com"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 backdrop-blur-sm transition-all focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-              />
-              {errors.email && (
-                <p className="mt-1 text-xs text-red-400">
-                  {errors.email.message}
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            <div>
-              <label className="mb-1.5 block text-sm font-medium text-white/80">
-                Teléfono
-              </label>
-              <input
-                {...register("telefono")}
-                placeholder="+57 300 123 4567"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 backdrop-blur-sm transition-all focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-              />
-              {errors.telefono && (
-                <p className="mt-1 text-xs text-red-400">
-                  {errors.telefono.message}
-                </p>
-              )}
-            </div>
-            <div>
-              <label className="mb-1.5 block text-sm font-medium text-white/80">
-                Servicio de interés
-              </label>
-              <select
-                {...register("servicio")}
-                className="w-full rounded-xl border border-white/10 bg-[oklch(0.15_0.06_265)] px-4 py-3 text-white backdrop-blur-sm transition-all focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-              >
-                <option value="" className="bg-[oklch(0.15_0.06_265)]">
-                  Selecciona una opción
-                </option>
-                {SERVICIOS.map((s) => (
-                  <option
-                    key={s}
-                    value={s}
-                    className="bg-[oklch(0.15_0.06_265)]"
-                  >
-                    {s}
-                  </option>
-                ))}
-              </select>
-              {errors.servicio && (
-                <p className="mt-1 text-xs text-red-400">
-                  {errors.servicio.message}
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div>
-            <label className="mb-1.5 block text-sm font-medium text-white/80">
-              Mensaje
-            </label>
-            <textarea
-              {...register("mensaje")}
-              rows={4}
-              placeholder="Cuéntanos brevemente qué necesitas..."
-              className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 backdrop-blur-sm transition-all focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-            />
-            {errors.mensaje && (
-              <p className="mt-1 text-xs text-red-400">
-                {errors.mensaje.message}
-              </p>
-            )}
-          </div>
-
-          <button
-            type="submit"
-            className="w-full rounded-xl bg-accent px-6 py-3.5 font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
-          >
-            Enviar mensaje
-            <ArrowRight className="ml-2 inline h-4 w-4" />
-          </button>
-
-          <p className="text-center text-xs text-white/50">
-            Al enviar aceptas que te contactemos vía WhatsApp o correo
-            electrónico. No hacemos spam. Tus datos están seguros.
-          </p>
-        </form>
-      </div>
-    </section>
-  );
-}
 
 /* ─── Landing (main) ─── */
 
@@ -1223,16 +1001,15 @@ function Landing() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header onOpenWizard={() => setWizardOpen(true)} />
       <main>
         <Hero onOpenWizard={() => setWizardOpen(true)} />
         <Benefits />
-        <Services />
+        <Services onOpenWizard={() => setWizardOpen(true)} />
         <Methodology />
-        <WhyIAmkt />
+        <WhyIAmkt onOpenWizard={() => setWizardOpen(true)} />
         <About />
-        <FAQ />
-        <ContactForm />
+        <FAQ onOpenWizard={() => setWizardOpen(true)} />
         <ContactSection onOpenWizard={() => setWizardOpen(true)} />
       </main>
       <Footer />
