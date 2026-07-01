@@ -90,7 +90,7 @@ const STEPS: StepConfig[] = [
   {
     step: 1,
     key: "bottleneck",
-    question: "¿Cuáles son los principales cuellos de botella en tu empresa actualmente?",
+    question: "¿Cuáles son los principales cuellos de botella en tu Empresa y/o Negocio actualmente?",
     subtitle: "Identifica tus mayores obstáculos para crecer",
     hint: "Puedes seleccionar una o varias opciones",
     multiSelect: true,
