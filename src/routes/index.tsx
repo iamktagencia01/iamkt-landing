@@ -816,7 +816,7 @@ function Footer() {
           </p>
           <div className="mt-3 flex flex-col gap-2 text-sm">
             <a
-              href="https://www.facebook.com/profile.php?id=1294484958"
+              href="https://www.facebook.com/iamktco"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white/80 hover:text-white"
