@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -864,6 +864,17 @@ function WhatsAppFloating() {
 
 function Landing() {
   const [wizardOpen, setWizardOpen] = useState(false);
+
+  // Auto-open wizard when URL has ?diagnostico=1 (para Facebook CTA)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("diagnostico") === "1") {
+      setWizardOpen(true);
+      // Clean param from URL without reloading
+      const cleanUrl = window.location.pathname + window.location.hash;
+      window.history.replaceState({}, "", cleanUrl);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
