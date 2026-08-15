@@ -17,6 +17,7 @@ import {
   DollarSign,
   Phone,
   Facebook,
+  Instagram,
   ArrowRight,
   CheckCircle2,
   Target,
@@ -28,10 +29,18 @@ import {
   Send,
   ClipboardList,
   Sparkles,
+  Menu,
+  X,
 } from "lucide-react";
 import logoUrl from "@/assets/logo.png";
 import { TechBackground } from "@/components/TechBackground";
 import DiagnosticWizard from "@/components/DiagnosticWizard";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 const WHATSAPP_NUMBER = "573228570784";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -90,6 +99,13 @@ function SectionHeader({
 /* ─── Header ─── */
 
 function Header({ onOpenWizard }: { onOpenWizard: () => void }) {
+  const NAV_ITEMS = [
+    ["Inicio", "#inicio"],
+    ["Beneficios", "#beneficios"],
+    ["Servicios", "#servicios"],
+    ["FAQ", "#faq"],
+  ] as const;
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
@@ -100,13 +116,10 @@ function Header({ onOpenWizard }: { onOpenWizard: () => void }) {
             className="h-10 w-auto"
           />
         </a>
+
+        {/* Menú escritorio */}
         <nav className="hidden items-center gap-8 md:flex">
-          {[
-            ["Inicio", "#inicio"],
-            ["Beneficios", "#beneficios"],
-            ["Servicios", "#servicios"],
-            ["FAQ", "#faq"],
-          ].map(([label, href]) => (
+          {NAV_ITEMS.map(([label, href]) => (
             <a
               key={href}
               href={href}
@@ -116,6 +129,8 @@ function Header({ onOpenWizard }: { onOpenWizard: () => void }) {
             </a>
           ))}
         </nav>
+
+        {/* CTA escritorio */}
         <button
           onClick={onOpenWizard}
           className="hidden items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5 md:inline-flex"
@@ -123,6 +138,39 @@ function Header({ onOpenWizard }: { onOpenWizard: () => void }) {
           <ClipboardList className="h-4 w-4" strokeWidth={2} />
           Comienza Tu Diagnóstico Gratuito
         </button>
+
+        {/* Menú móvil — hamburguesa + sheet */}
+        <Sheet>
+          <SheetTrigger className="inline-flex items-center justify-center rounded-md p-2 text-foreground/80 transition-colors hover:text-accent md:hidden">
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Abrir menú</span>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[280px] bg-background/95 backdrop-blur-xl">
+            <div className="mt-10 flex flex-col gap-2">
+              {NAV_ITEMS.map(([label, href]) => (
+                <SheetClose asChild key={href}>
+                  <a
+                    href={href}
+                    className="rounded-lg px-4 py-3 text-lg font-semibold text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
+                  >
+                    {label}
+                  </a>
+                </SheetClose>
+              ))}
+            </div>
+            <div className="mt-6 border-t border-border/40 px-4 pt-6">
+              <SheetClose asChild>
+                <button
+                  onClick={onOpenWizard}
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5"
+                >
+                  <ClipboardList className="h-4 w-4" strokeWidth={2} />
+                  Diagnóstico Gratuito
+                </button>
+              </SheetClose>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );
@@ -822,6 +870,14 @@ function Footer() {
               className="inline-flex items-center gap-2 text-white/80 hover:text-white"
             >
               <Facebook className="h-4 w-4" /> IAmkt Agencia
+            </a>
+            <a
+              href="https://www.instagram.com/iamkt.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white"
+            >
+              <Instagram className="h-4 w-4" /> Instagram @iamkt.co
             </a>
             <a
               href="https://www.facebook.com/Ing.Marlio.CEO.IAmkt/"
