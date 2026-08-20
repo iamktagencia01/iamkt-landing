@@ -47,6 +47,124 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent
   "Hola IAmkt, quiero agendar mi diagnóstico gratuito.",
 )}`;
 
+const FAQS = [
+  {
+    q: "¿Cuánto cuesta un diagnóstico?",
+    a: "El diagnóstico inicial es gratuito. Incluye una revisión de tu situación actual, identificación de oportunidades y un plan de acción recomendado. Sin compromiso.",
+  },
+  {
+    q: "¿En cuánto tiempo veo resultados?",
+    a: "Depende del servicio. Las automatizaciones básicas pueden estar listas en 3-5 días. Una campaña de marketing optimizada empieza a mostrar resultados en las primeras 2 semanas. Los desarrollos a medida tienen plazos que definimos juntos en la fase de diseño.",
+  },
+  {
+    q: "¿Trabajan con empresas pequeñas?",
+    a: "Sí. De hecho, la mayoría de nuestros clientes son PyMEs y negocios locales que quieren dar el salto digital. Tenemos soluciones escalables para presupuestos ajustados y planes de crecimiento progresivo.",
+  },
+  {
+    q: "¿Necesito tener presencia digital para empezar?",
+    a: "No. Muchos clientes llegan sin sitio web, sin redes estructuradas o sin estrategia digital. Parte de nuestro trabajo es construir desde cero cuando hace falta.",
+  },
+  {
+    q: "¿Ofrecen soporte después de la implementación?",
+    a: "Sí. Todos nuestros servicios incluyen soporte post-entrega y opción de acompañamiento continuo (IAmkt Partner) para asegurar que las soluciones sigan funcionando y mejorando con el tiempo.",
+  },
+  {
+    q: "¿Cómo empiezo?",
+    a: "Escribenos al WhatsApp. Te hacemos unas preguntas rápidas para entender tu situación y coordinamos un diagnóstico gratuito. Sin formularios largos ni llamadas incómodas.",
+  },
+];
+
+const GEO_SERVICES = [
+  {
+    name: "IA Aplicada y Agentes Autónomos",
+    description: "Programación de agentes de IA autónomos como trabajadores virtuales para empresas: atención, análisis y tareas repetitivas sin supervisión constante.",
+  },
+  {
+    name: "Optimización y Automatización de Procesos",
+    description: "Flujos de trabajo, scripts e integración de APIs para reducir errores operativos y liberar horas de trabajo manual.",
+  },
+  {
+    name: "Marketing Digital, Publicidad y Posicionamiento",
+    description: "Sistemas de adquisición, estrategias de conversión, copywriting y campañas de ads segmentadas orientadas a resultados medibles.",
+  },
+  {
+    name: "Desarrollo de Aplicaciones a la Medida",
+    description: "Módulos de código y aplicaciones para optimizar la organización y productividad de cada empresa.",
+  },
+  {
+    name: "WhatsApp Business y Automatización",
+    description: "Webhooks, embudos de venta conversacionales e integración con CRMs para vender y atender desde WhatsApp.",
+  },
+];
+
+const geoJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://iamkt.co/#org",
+      name: "IAmkt",
+      alternateName: "IAmkt — Arquitectos Tecnológicos",
+      description:
+        "Agencia de ingeniería aplicada, inteligencia artificial y marketing digital. Automatización, agentes de IA, desarrollo de software, WhatsApp Business y estrategias de crecimiento para empresas.",
+      url: "https://iamkt.co/",
+      sameAs: [
+        "https://www.facebook.com/iamktco",
+        "https://www.instagram.com/iamkt.co",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+57-322-857-0784",
+        contactType: "sales",
+        availableLanguage: ["es", "en"],
+      },
+      areaServed: { "@type": "Country", name: "Colombia" },
+      knowsAbout: [
+        "Inteligencia Artificial aplicada",
+        "Agentes autónomos de IA",
+        "Automatización de procesos",
+        "Marketing digital",
+        "Desarrollo de software a la medida",
+        "WhatsApp Business",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://iamkt.co/#website",
+      url: "https://iamkt.co/",
+      name: "IAmkt",
+      inLanguage: "es",
+      publisher: { "@id": "https://iamkt.co/#org" },
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://iamkt.co/#webpage",
+      url: "https://iamkt.co/",
+      name: "IAmkt — Arquitectos Tecnológicos para Empresas que Quieren Crecer",
+      description:
+        "Agencia de ingeniería aplicada, inteligencia artificial y marketing digital. Automatización, agentes de IA, desarrollo de software y estrategias de crecimiento para empresas.",
+      isPartOf: { "@id": "https://iamkt.co/#website" },
+      about: { "@id": "https://iamkt.co/#org" },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://iamkt.co/#faq",
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+    ...GEO_SERVICES.map((s) => ({
+      "@type": "Service",
+      name: s.name,
+      description: s.description,
+      provider: { "@id": "https://iamkt.co/#org" },
+      areaServed: { "@type": "Country", name: "Colombia" },
+    })),
+  ],
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -66,6 +184,12 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://iamkt.co/" },
     ],
     links: [{ rel: "canonical", href: "https://iamkt.co/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(geoJsonLd),
+      },
+    ],
   }),
   component: Landing,
 });
@@ -678,33 +802,6 @@ const STEPS = [
 ];
 
 /* ─── FAQ ─── */
-
-const FAQS = [
-  {
-    q: "¿Cuánto cuesta un diagnóstico?",
-    a: "El diagnóstico inicial es gratuito. Incluye una revisión de tu situación actual, identificación de oportunidades y un plan de acción recomendado. Sin compromiso.",
-  },
-  {
-    q: "¿En cuánto tiempo veo resultados?",
-    a: "Depende del servicio. Las automatizaciones básicas pueden estar listas en 3-5 días. Una campaña de marketing optimizada empieza a mostrar resultados en las primeras 2 semanas. Los desarrollos a medida tienen plazos que definimos juntos en la fase de diseño.",
-  },
-  {
-    q: "¿Trabajan con empresas pequeñas?",
-    a: "Sí. De hecho, la mayoría de nuestros clientes son PyMEs y negocios locales que quieren dar el salto digital. Tenemos soluciones escalables para presupuestos ajustados y planes de crecimiento progresivo.",
-  },
-  {
-    q: "¿Necesito tener presencia digital para empezar?",
-    a: "No. Muchos clientes llegan sin sitio web, sin redes estructuradas o sin estrategia digital. Parte de nuestro trabajo es construir desde cero cuando hace falta.",
-  },
-  {
-    q: "¿Ofrecen soporte después de la implementación?",
-    a: "Sí. Todos nuestros servicios incluyen soporte post-entrega y opción de acompañamiento continuo (IAmkt Partner) para asegurar que las soluciones sigan funcionando y mejorando con el tiempo.",
-  },
-  {
-    q: "¿Cómo empiezo?",
-    a: "Escribenos al WhatsApp. Te hacemos unas preguntas rápidas para entender tu situación y coordinamos un diagnóstico gratuito. Sin formularios largos ni llamadas incómodas.",
-  },
-];
 
 function FAQ({ onOpenWizard }: { onOpenWizard: () => void }) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
