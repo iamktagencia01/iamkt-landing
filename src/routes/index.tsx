@@ -35,6 +35,7 @@ import {
 import logoUrl from "@/assets/logo.png";
 import { TechBackground } from "@/components/TechBackground";
 import DiagnosticWizard from "@/components/DiagnosticWizard";
+import { Header } from "@/components/Header";
 import {
   Sheet,
   SheetTrigger,
@@ -71,6 +72,22 @@ const FAQS = [
   {
     q: "¿Cómo empiezo?",
     a: "Escribenos al WhatsApp. Te hacemos unas preguntas rápidas para entender tu situación y coordinamos un diagnóstico gratuito. Sin formularios largos ni llamadas incómodas.",
+  },
+  {
+    q: "¿Usan IA generativa en los proyectos o solo herramientas tradicionales?",
+    a: "Ambas. La IA generativa es parte central de nuestro stack (agentes autónomos, automatización, análisis), pero la combinamos con herramientas tradicionales cuando son la opción más estable y rentable para el cliente. Priorizamos resultados, no tecnología por moda.",
+  },
+  {
+    q: "¿Qué diferencia a IAmkt de una agencia de marketing tradicional?",
+    a: "Somos arquitectos tecnológicos: combinamos ingeniería, inteligencia artificial y marketing digital. No solo creamos campañas, también construimos los sistemas, automatizaciones y agentes de IA que las sostienen. Es una agencia + un equipo de desarrollo en uno.",
+  },
+  {
+    q: "¿Cuánto tarda una implementación de automatización?",
+    a: "Las automatizaciones básicas pueden estar listas en 3-5 días. Las integraciones con CRM o sistemas existentes suelen tomar 1-3 semanas, y los desarrollos a medida tienen plazos que definimos juntos en la fase de diseño. Siempre empezamos con una prueba piloto para validar rápido.",
+  },
+  {
+    q: "¿Trabajan con empresas fuera de Colombia?",
+    a: "Sí. Atendemos clientes en varios países de Latinoamérica y Estados Unidos. El diagnóstico y la implementación se hacen 100% remotos, y las soluciones se adaptan al mercado y las regulaciones de cada país.",
   },
 ];
 
@@ -221,84 +238,6 @@ function SectionHeader({
 }
 
 /* ─── Header ─── */
-
-function Header({ onOpenWizard }: { onOpenWizard: () => void }) {
-  const NAV_ITEMS = [
-    ["Inicio", "#inicio"],
-    ["Beneficios", "#beneficios"],
-    ["Servicios", "#servicios"],
-    ["FAQ", "#faq"],
-  ] as const;
-
-  return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
-        <a href="#inicio" className="flex items-center gap-2">
-          <img
-            src={logoUrl}
-            alt="IAmkt — Agencia de Ingeniería, IA y Marketing Digital"
-            className="h-10 w-auto"
-          />
-        </a>
-
-        {/* Menú escritorio */}
-        <nav className="hidden items-center gap-8 md:flex">
-          {NAV_ITEMS.map(([label, href]) => (
-            <a
-              key={href}
-              href={href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-accent"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-
-        {/* CTA escritorio */}
-        <button
-          onClick={onOpenWizard}
-          className="hidden items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5 md:inline-flex"
-        >
-          <ClipboardList className="h-4 w-4" strokeWidth={2} />
-          Comienza Tu Diagnóstico Gratuito
-        </button>
-
-        {/* Menú móvil — hamburguesa + sheet */}
-        <Sheet>
-          <SheetTrigger className="inline-flex items-center justify-center rounded-md p-2 text-foreground/80 transition-colors hover:text-accent md:hidden">
-            <Menu className="h-6 w-6" />
-            <span className="sr-only">Abrir menú</span>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[280px] bg-background/95 backdrop-blur-xl">
-            <div className="mt-10 flex flex-col gap-2">
-              {NAV_ITEMS.map(([label, href]) => (
-                <SheetClose asChild key={href}>
-                  <a
-                    href={href}
-                    className="rounded-lg px-4 py-3 text-lg font-semibold text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
-                  >
-                    {label}
-                  </a>
-                </SheetClose>
-              ))}
-            </div>
-            <div className="mt-6 border-t border-border/40 px-4 pt-6">
-              <SheetClose asChild>
-                <button
-                  onClick={onOpenWizard}
-                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5"
-                >
-                  <ClipboardList className="h-4 w-4" strokeWidth={2} />
-                  Diagnóstico Gratuito
-                </button>
-              </SheetClose>
-            </div>
-          </SheetContent>
-        </Sheet>
-      </div>
-    </header>
-  );
-}
 
 /* ─── Hero ─── */
 
