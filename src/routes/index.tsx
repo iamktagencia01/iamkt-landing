@@ -63,9 +63,9 @@ export const Route = createFileRoute("/")({
           "Transformamos negocios combinando ingeniería, inteligencia artificial y marketing digital. Soluciones estratégicas con resultados medibles.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://iamkt.lovable.app" },
+      { property: "og:url", content: "https://iamkt.co/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://iamkt.co/" }],
   }),
   component: Landing,
 });
