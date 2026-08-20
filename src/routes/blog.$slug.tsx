@@ -2,7 +2,19 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { TechBackground } from "@/components/TechBackground";
 import { getPostBySlug, type Block } from "@/lib/posts";
-import { ArrowLeft, ArrowRight, CalendarDays, Clock, MessageCircle } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  BarChart3,
+  CalendarDays,
+  CheckCircle2,
+  Clock,
+  Database,
+  MessageCircle,
+  Sparkles,
+  Workflow,
+} from "lucide-react";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -144,6 +156,127 @@ function renderBlock(block: Block, key: number) {
   }
 }
 
+function AgentHeroVisual() {
+  return (
+    <div className="relative mt-10 overflow-hidden rounded-3xl border border-cyan-200/15 bg-slate-950/60 p-4 shadow-2xl shadow-cyan-950/30 backdrop-blur md:p-6">
+      <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-cyan-400/15 blur-3xl" />
+      <div className="absolute -bottom-24 left-12 h-48 w-48 rounded-full bg-blue-600/20 blur-3xl" />
+      <div className="relative grid gap-4 md:grid-cols-[1fr_1.2fr_1fr] md:items-center">
+        <div className="space-y-3">
+          {[
+            [MessageCircle, "WhatsApp", "Conversaciones"],
+            [Database, "CRM", "Datos limpios"],
+          ].map(([Icon, title, detail]) => (
+            <div
+              key={title as string}
+              className="rounded-2xl border border-white/10 bg-white/[0.07] p-3"
+            >
+              <div className="flex items-center gap-3">
+                <span className="rounded-xl bg-cyan-300/15 p-2 text-cyan-200">
+                  <Icon className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="text-xs font-bold text-white">{title as string}</p>
+                  <p className="text-[11px] text-white/50">{detail as string}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="relative flex min-h-44 flex-col items-center justify-center rounded-3xl border border-cyan-200/25 bg-gradient-to-b from-cyan-300/15 to-blue-500/10 p-5 text-center shadow-[0_0_45px_rgba(34,211,238,0.12)]">
+          <div className="absolute inset-x-5 top-1/2 h-px bg-gradient-to-r from-transparent via-cyan-200/50 to-transparent" />
+          <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full border border-cyan-100/50 bg-cyan-200/15 shadow-[0_0_35px_rgba(103,232,249,0.3)]">
+            <Sparkles className="h-9 w-9 text-cyan-100" />
+          </div>
+          <p className="relative z-10 mt-3 text-sm font-bold text-white">Agente de IA</p>
+          <p className="relative z-10 mt-1 text-[11px] text-cyan-100/70">
+            Planifica · decide · ejecuta
+          </p>
+        </div>
+        <div className="space-y-3">
+          {[
+            [BarChart3, "Reportes", "Decisiones"],
+            [Workflow, "Automatización", "Acciones"],
+          ].map(([Icon, title, detail]) => (
+            <div
+              key={title as string}
+              className="rounded-2xl border border-white/10 bg-white/[0.07] p-3"
+            >
+              <div className="flex items-center gap-3">
+                <span className="rounded-xl bg-blue-300/15 p-2 text-blue-200">
+                  <Icon className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="text-xs font-bold text-white">{title as string}</p>
+                  <p className="text-[11px] text-white/50">{detail as string}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <p className="relative mt-5 text-center text-xs text-white/45">
+        Un objetivo en el centro. Varias herramientas conectadas. Una acción medible.
+      </p>
+    </div>
+  );
+}
+
+function ImpactStrip() {
+  return (
+    <div className="my-10 grid gap-3 sm:grid-cols-3">
+      {[
+        ["24/7", "Disponibilidad", "Sin horarios ni pausas"],
+        ["3 pasos", "Para empezar", "Detectar, definir, probar"],
+        ["1 objetivo", "Por piloto", "Medir antes de escalar"],
+      ].map(([value, label, detail]) => (
+        <div
+          key={label}
+          className="rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 to-blue-500/5 p-4"
+        >
+          <p className="text-2xl font-extrabold tracking-tight text-cyan-500">{value}</p>
+          <p className="mt-1 text-sm font-bold text-foreground">{label}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{detail}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ComparisonCards() {
+  return (
+    <div className="my-8 grid gap-4 md:grid-cols-2">
+      <div className="rounded-2xl border border-border/60 bg-muted/30 p-5">
+        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+          Responde
+        </p>
+        <h3 className="mt-2 text-xl font-bold">Chatbot</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Sigue un guion y se detiene cuando la conversación sale de las opciones previstas.
+        </p>
+        <div className="mt-4 space-y-2 text-sm text-muted-foreground">
+          <p>• Reacciona a una pregunta</p>
+          <p>• Trabaja con respuestas fijas</p>
+          <p>• No ejecuta acciones</p>
+        </div>
+      </div>
+      <div className="rounded-2xl border border-cyan-400/40 bg-cyan-400/10 p-5 shadow-lg shadow-cyan-500/5">
+        <p className="text-xs font-bold uppercase tracking-widest text-cyan-600">Resuelve</p>
+        <h3 className="mt-2 text-xl font-bold">Agente de IA</h3>
+        <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+          Recibe un objetivo, consulta herramientas, decide el siguiente paso y escala cuando
+          corresponde.
+        </p>
+        <div className="mt-4 space-y-2 text-sm text-foreground/75">
+          <p>• Planifica una respuesta</p>
+          <p>• Usa tus datos y sistemas</p>
+          <p>• Ejecuta y mide acciones</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const WHATSAPP_URL = `https://wa.me/573228570784?text=${encodeURIComponent(
   "Hola IAmkt, leí el artículo del blog y quiero mi diagnóstico gratuito.",
 )}`;
@@ -156,7 +289,10 @@ function PostView() {
       <Header ctaHref="/?diagnostico=1" />
 
       {/* Hero del artículo */}
-      <section className="relative overflow-hidden text-white" style={{ backgroundColor: "oklch(0.13 0.06 265)" }}>
+      <section
+        className="relative overflow-hidden text-white"
+        style={{ backgroundColor: "oklch(0.13 0.06 265)" }}
+      >
         <TechBackground />
         <div className="relative mx-auto max-w-3xl px-4 py-16 md:px-8 md:py-20">
           <Link
@@ -185,22 +321,33 @@ function PostView() {
               {post.readTime} de lectura
             </span>
           </div>
+          <AgentHeroVisual />
         </div>
       </section>
 
       {/* Contenido */}
       <article className="mx-auto max-w-3xl px-4 py-12 md:px-8">
-        <div className="space-y-5">{post.content.map((block, i) => renderBlock(block, i))}</div>
+        <div className="space-y-5">
+          {post.slug === "que-es-un-agente-de-ia" && <ImpactStrip />}
+          {post.content.map((block, i) => {
+            if (post.slug === "que-es-un-agente-de-ia" && block.t === "table" && i === 2) {
+              return <ComparisonCards key={i} />;
+            }
+            return renderBlock(block, i);
+          })}
+        </div>
 
         {/* CTA final */}
         <div
           className="mt-14 rounded-2xl p-8 text-center text-white md:p-10"
           style={{ backgroundColor: "oklch(0.13 0.06 265)" }}
         >
-          <h2 className="text-2xl font-bold md:text-3xl">¿Quieres implementar esto en tu empresa?</h2>
+          <h2 className="text-2xl font-bold md:text-3xl">
+            ¿Quieres implementar esto en tu empresa?
+          </h2>
           <p className="mx-auto mt-3 max-w-lg text-white/70">
-            En IAmkt convertimos estas guías en soluciones reales. El diagnóstico inicial
-            es gratuito y sin compromiso.
+            En IAmkt convertimos estas guías en soluciones reales. El diagnóstico inicial es
+            gratuito y sin compromiso.
           </p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
@@ -221,7 +368,10 @@ function PostView() {
         </div>
 
         <div className="mt-10 text-center">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:underline">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:underline"
+          >
             <ArrowLeft className="h-4 w-4" /> Ver más artículos
           </Link>
         </div>
