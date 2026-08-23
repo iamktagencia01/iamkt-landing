@@ -222,6 +222,25 @@ function AgentHeroVisual() {
   );
 }
 
+function AutomationHeroVisual() {
+  const steps = ["Cliente escribe", "Sistema clasifica", "Equipo actúa", "Resultado medible"];
+  return (
+    <div className="relative mt-10 overflow-hidden rounded-3xl border border-cyan-200/15 bg-slate-950/60 p-5 shadow-2xl shadow-cyan-950/30 backdrop-blur md:p-7">
+      <div className="absolute -right-16 -top-20 h-52 w-52 rounded-full bg-cyan-400/15 blur-3xl" />
+      <p className="relative text-center text-xs font-bold uppercase tracking-[0.25em] text-cyan-200/80">De tarea repetitiva a flujo automático</p>
+      <div className="relative mt-6 grid gap-2 md:grid-cols-4 md:items-center">
+        {steps.map((step, index) => (
+          <div key={step} className="flex items-center gap-2 md:block md:text-center">
+            <div className="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-cyan-200/25 bg-cyan-300/10 text-lg font-extrabold text-cyan-100">{index + 1}</div>
+            <p className="text-sm font-semibold text-white md:mt-3">{step}</p>
+            {index < steps.length - 1 && <ArrowDown className="ml-auto h-4 w-4 text-cyan-300/60 md:mx-auto md:mt-3 md:rotate-[-90deg]" />}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ImpactStrip() {
   return (
     <div className="my-10 grid gap-3 sm:grid-cols-3">
@@ -321,7 +340,7 @@ function PostView() {
               {post.readTime} de lectura
             </span>
           </div>
-          <AgentHeroVisual />
+          {post.slug === "que-es-un-agente-de-ia" ? <AgentHeroVisual /> : <AutomationHeroVisual />}
         </div>
       </section>
 
