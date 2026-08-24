@@ -138,7 +138,7 @@ export const POSTS: Post[] = [
     title: "Automatización para PyMEs: 7 procesos que puedes automatizar sin contratar más personal",
     description:
       "La automatización no es solo para grandes empresas. Estos 7 procesos pueden automatizarse en cualquier PyME con herramientas accesibles y presupuesto ajustado.",
-    date: "2026-08-27",
+    date: "2026-08-23",
     category: "Automatización",
     readTime: "5 min",
     published: true,
@@ -280,33 +280,249 @@ export const POSTS: Post[] = [
     title: "WhatsApp Business: cómo crear un embudo conversacional que venda mientras duermes",
     description:
       "Tus clientes ya están en WhatsApp. Aprende a convertir ese canal en una máquina de ventas con un embudo conversacional bien diseñado.",
-    date: "2026-09-03",
+    date: "2026-08-23",
     category: "WhatsApp Business",
     readTime: "5 min",
-    published: false,
-    content: [],
+    published: true,
+    content: [
+      {
+        t: "p",
+        x: "Un embudo conversacional en WhatsApp es un sistema que acompaña a una persona desde su primera pregunta hasta la compra o el agendamiento, usando conversaciones útiles y reglas claras. No consiste en enviar mensajes masivos: consiste en responder rápido, entender la intención del cliente y entregar el caso a un asesor cuando hace falta.",
+      },
+      {
+        t: "quote",
+        x: "WhatsApp no vende por sí solo. Vende cuando cada conversación tiene un siguiente paso claro.",
+      },
+      { t: "h2", x: "Las etapas de un embudo conversacional" },
+      {
+        t: "table",
+        head: ["Etapa", "Qué debe hacer el sistema", "Indicador"],
+        rows: [
+          ["Entrada", "Recibir la consulta y saludar con contexto", "Tiempo de primera respuesta"],
+          ["Calificación", "Identificar necesidad, presupuesto y urgencia", "Leads calificados"],
+          ["Orientación", "Resolver dudas y recomendar la opción adecuada", "Conversaciones que avanzan"],
+          ["Conversión", "Cotizar, cobrar o agendar con instrucciones claras", "Ventas o citas"],
+          ["Seguimiento", "Recordar el siguiente paso sin perseguir al cliente", "Recuperación de oportunidades"],
+        ],
+      },
+      { t: "h2", x: "1. Diseña la entrada: respuesta rápida y expectativa correcta" },
+      {
+        t: "p",
+        x: "El primer mensaje debe confirmar que la consulta fue recibida y explicar qué puede resolver el canal. Una bienvenida breve con opciones concretas reduce la fricción: comprar, pedir una cotización, consultar disponibilidad o hablar con un asesor. Evita menús interminables; tres o cuatro caminos suelen ser suficientes.",
+      },
+      { t: "h2", x: "2. Califica sin convertir la conversación en un interrogatorio" },
+      {
+        t: "p",
+        x: "La calificación debe recoger solo la información que cambia la decisión comercial. Según el negocio, puede incluir producto o servicio de interés, ciudad, cantidad, fecha deseada y rango de presupuesto. Haz una pregunta a la vez y permite que el cliente pida una persona en cualquier momento.",
+      },
+      {
+        t: "ul",
+        x: [
+          "Usa lenguaje natural y respuestas cortas, no formularios disfrazados.",
+          "Guarda las respuestas en el CRM para que el asesor no repita preguntas.",
+          "Define una ruta de prioridad para clientes listos para comprar o con solicitudes urgentes.",
+          "Escala a una persona cuando haya reclamos, negociación, datos sensibles o una excepción.",
+        ],
+      },
+      { t: "h2", x: "3. Conecta catálogo, agenda y pagos" },
+      {
+        t: "p",
+        x: "El embudo se vuelve útil cuando puede consultar información real. Conecta el catálogo o la base de servicios, verifica disponibilidad, propone horarios y entrega un enlace de pago confiable. Si el sistema no puede confirmar un dato, debe decirlo y derivar el caso, nunca inventar una respuesta.",
+      },
+      { t: "h2", x: "4. Automatiza el seguimiento con permiso" },
+      {
+        t: "p",
+        x: "Una oportunidad no siempre se pierde por falta de interés: a veces el cliente necesita tiempo o se distrae. Programa uno o dos recordatorios relacionados con la conversación original, incluye una salida sencilla y detén los mensajes cuando la persona compre, responda que no está interesada o pida no recibir más comunicaciones.",
+      },
+      { t: "h2", x: "Errores que dañan la conversión" },
+      {
+        t: "ol",
+        x: [
+          "Responder con un texto genérico que no reconoce lo que el cliente preguntó.",
+          "Ocultar la opción de hablar con una persona.",
+          "Prometer precios, inventario o tiempos sin consultar una fuente actualizada.",
+          "Enviar promociones sin consentimiento o sin respetar las solicitudes de salida.",
+          "Medir mensajes enviados en lugar de conversaciones calificadas, ventas y tiempos de atención.",
+        ],
+      },
+      { t: "h2", x: "Métricas mínimas para saber si funciona" },
+      {
+        t: "p",
+        x: "Mide el tiempo de primera respuesta, la tasa de calificación, el porcentaje de conversaciones que llega a cotización, la conversión a venta y el tiempo que un asesor dedica a cada caso. También revisa conversaciones fallidas cada semana: allí aparecen las preguntas que faltan y las reglas que deben mejorar.",
+      },
+      {
+        t: "p",
+        x: "En IAmkt diseñamos embudos conversacionales para WhatsApp conectados con los procesos y herramientas reales de cada empresa. El primer paso es mapear las preguntas frecuentes, los momentos de intervención humana y el resultado que quieres medir.",
+      },
+    ],
   },
   {
     slug: "cuanto-cuesta-marketing-digital-colombia",
     title: "¿Cuánto cuesta el marketing digital en Colombia? Guía de precios 2026",
     description:
       "Rangos reales de precios por servicio de marketing digital en Colombia: community management, pauta, SEO, desarrollo y automatización. Qué incluye cada uno y cómo evitar sobrepagar.",
-    date: "2026-09-10",
+    date: "2026-08-23",
     category: "Marketing Digital",
     readTime: "7 min",
-    published: false,
-    content: [],
+    published: true,
+    content: [
+      {
+        t: "p",
+        x: "El costo del marketing digital en Colombia depende del objetivo, el nivel de especialización y la inversión en medios. No es lo mismo publicar contenido para mantener presencia que construir un sistema de captación con pauta, SEO, automatización y medición. Esta guía presenta rangos orientativos para 2026 y explica qué revisar antes de comparar propuestas.",
+      },
+      {
+        t: "quote",
+        x: "Una propuesta barata puede ser costosa si no define qué resultado, entregables y mediciones incluye.",
+      },
+      { t: "h2", x: "Rangos de precios de marketing digital en Colombia" },
+      {
+        t: "table",
+        head: ["Servicio", "Rango mensual orientativo", "Qué suele incluir"],
+        rows: [
+          ["Community management", "$800.000 – $2.500.000 COP", "Calendario, piezas, publicaciones y moderación básica"],
+          ["Pauta digital", "$1.000.000 – $4.000.000 COP + inversión", "Configuración, campañas, optimización y reporte"],
+          ["SEO", "$1.500.000 – $5.000.000 COP", "Auditoría, contenidos, optimización técnica y seguimiento"],
+          ["Página web o landing", "$2.000.000 – $10.000.000 COP", "Diseño, desarrollo, analítica y puesta en producción"],
+          ["Automatización e IA", "$2.000.000 – $12.000.000 COP", "Diagnóstico, integración, pruebas y capacitación"],
+        ],
+      },
+      { t: "h2", x: "1. Community management: presencia y conversación" },
+      {
+        t: "p",
+        x: "El servicio básico suele cubrir estrategia editorial, diseño de piezas, redacción, publicación y respuesta a comentarios. El precio sube cuando se necesitan videos frecuentes, sesiones de fotografía, atención extendida, varias redes o una estrategia enfocada en generar leads. Pregunta cuántas piezas, revisiones y canales están incluidos.",
+      },
+      { t: "h2", x: "2. Publicidad digital: el servicio no es el presupuesto" },
+      {
+        t: "p",
+        x: "En pauta digital hay dos costos separados: los honorarios de gestión y el dinero que se paga a Meta, Google u otra plataforma. Una empresa puede invertir desde $500.000 COP al mes para validar una oferta local, pero el presupuesto correcto depende del ticket, el margen, la zona y el costo aceptable por cliente. Nunca confundas inversión publicitaria con la tarifa de operación.",
+      },
+      { t: "h2", x: "3. SEO: una inversión acumulativa" },
+      {
+        t: "p",
+        x: "El SEO combina investigación de búsquedas, contenido útil, estructura técnica, enlaces internos y medición. Es normal que los resultados tarden más que una campaña de anuncios, pero los activos creados pueden seguir atrayendo visitas después de publicarse. Desconfía de quien prometa posiciones exactas o resultados garantizados en pocos días.",
+      },
+      { t: "h2", x: "4. Web, landing y conversión" },
+      {
+        t: "p",
+        x: "Una landing enfocada en una campaña puede costar menos que un sitio corporativo completo. El presupuesto aumenta si incluye textos estratégicos, identidad visual, integraciones, panel administrativo, analítica, SEO técnico o funcionalidades a la medida. El entregable debe especificar dominio, hosting, mantenimiento, propiedad del código y soporte posterior.",
+      },
+      { t: "h2", x: "5. Automatización e inteligencia artificial" },
+      {
+        t: "p",
+        x: "La automatización se cotiza mejor por proceso que por número de herramientas. Un flujo sencillo de formularios y correo puede ser económico; una solución conectada a WhatsApp, CRM, inventario y pagos exige más diseño, pruebas y controles. Además del desarrollo inicial, considera el costo mensual de APIs, mensajes, almacenamiento y modelos de IA.",
+      },
+      { t: "h2", x: "Qué debe incluir una buena propuesta" },
+      {
+        t: "ul",
+        x: [
+          "Objetivo de negocio y métrica principal, no solo una lista de publicaciones.",
+          "Alcance exacto: canales, cantidad de piezas, campañas, reuniones y entregables.",
+          "Responsabilidades del cliente y del proveedor, incluidos tiempos de aprobación.",
+          "Presupuesto de medios separado de honorarios, impuestos y costos de terceros.",
+          "Forma de reporte, frecuencia de revisión y condiciones para cancelar o escalar.",
+        ],
+      },
+      { t: "h2", x: "Cómo elegir sin sobrepagar" },
+      {
+        t: "ol",
+        x: [
+          "Define qué quieres conseguir en los próximos 90 días: visibilidad, leads, ventas o eficiencia.",
+          "Pide dos o tres propuestas con el mismo alcance para comparar de forma justa.",
+          "Solicita ejemplos de trabajo y pregunta cómo medirán el resultado.",
+          "Empieza con un alcance controlado y una revisión mensual basada en datos.",
+        ],
+      },
+      {
+        t: "p",
+        x: "En IAmkt combinamos marketing, desarrollo y automatización para que la inversión digital se conecte con una meta medible. Podemos ayudarte a separar lo urgente de lo importante y a construir una primera fase acorde con el presupuesto y la capacidad operativa de tu empresa.",
+      },
+    ],
   },
   {
     slug: "ia-en-el-agro-colombiano",
     title: "IA en el agro colombiano: automatización y agricultura de precisión para pequeños y medianos productores",
     description:
       "El campo colombiano está listo para la tecnología. Casos concretos de IA aplicada al agro: riego, monitoreo de cultivos, trazabilidad y ventas digitales con retorno real.",
-    date: "2026-09-17",
+    date: "2026-08-23",
     category: "IA + Agro",
     readTime: "6 min",
-    published: false,
-    content: [],
+    published: true,
+    content: [
+      {
+        t: "p",
+        x: "La inteligencia artificial en el agro colombiano no empieza necesariamente con drones o maquinaria autónoma. Empieza con mejores decisiones: saber cuándo regar, detectar cambios en un cultivo, ordenar los registros de campo y conectar la producción con compradores. Para pequeños y medianos productores, la tecnología debe resolver un problema concreto y pagar su costo con ahorro, productividad o mejores ventas.",
+      },
+      {
+        t: "quote",
+        x: "La mejor tecnología agrícola es la que el productor puede usar, entender y convertir en una decisión rentable.",
+      },
+      { t: "h2", x: "¿Qué significa usar IA en el agro?" },
+      {
+        t: "p",
+        x: "La IA analiza datos para encontrar patrones, hacer predicciones o recomendar acciones. En una finca puede trabajar con registros de lluvia, temperatura, humedad del suelo, imágenes, costos, inventario y precios. No reemplaza el conocimiento del productor: lo organiza y lo complementa para reducir decisiones basadas únicamente en intuición.",
+      },
+      { t: "h2", x: "4 aplicaciones con retorno potencial" },
+      { t: "h3", x: "1. Riego y fertilización más precisos" },
+      {
+        t: "p",
+        x: "Con datos de clima, suelo y etapa del cultivo, un sistema puede recomendar cuándo revisar o ajustar el riego y detectar sectores que se comportan distinto. La recomendación debe validarse en campo, pero evita regar por rutina y ayuda a priorizar visitas donde hay señales de estrés.",
+      },
+      { t: "h3", x: "2. Monitoreo de cultivos e identificación temprana" },
+      {
+        t: "p",
+        x: "Fotografías tomadas por el equipo, cámaras o imágenes satelitales pueden compararse para localizar cambios de color, vigor o cobertura. La IA sirve como sistema de alerta; el diagnóstico agronómico y la decisión de tratamiento siguen siendo responsabilidad de personal competente.",
+      },
+      { t: "h3", x: "3. Trazabilidad y control de costos" },
+      {
+        t: "p",
+        x: "Registrar lote, labor, insumo, fecha, responsable y resultado permite conocer el costo real por unidad producida. Un asistente puede ordenar notas de voz o formularios, detectar registros incompletos y generar reportes para comparar campañas sin reconstruir la información desde cuadernos dispersos.",
+      },
+      { t: "h3", x: "4. Pronóstico de demanda y ventas digitales" },
+      {
+        t: "p",
+        x: "Cuando se combinan históricos de venta, calendario, volumen disponible y conversaciones con compradores, es posible planear mejor cosecha, empaque y distribución. WhatsApp y un catálogo actualizado también ayudan a vender directamente y a reducir la dependencia de un solo intermediario.",
+      },
+      { t: "h2", x: "Datos mínimos para comenzar" },
+      {
+        t: "table",
+        head: ["Dato", "Ejemplo", "Para qué sirve"],
+        rows: [
+          ["Producción", "Lote, variedad, fecha y cantidad", "Comparar rendimientos"],
+          ["Clima y suelo", "Lluvia, temperatura y humedad", "Apoyar decisiones de manejo"],
+          ["Labores e insumos", "Actividad, costo y responsable", "Calcular costos reales"],
+          ["Ventas", "Cliente, precio, volumen y fecha", "Planear demanda y comercialización"],
+        ],
+      },
+      {
+        t: "p",
+        x: "No es necesario tener todos los sensores desde el primer día. Un registro consistente en una hoja de cálculo o formulario puede ser más valioso que muchos dispositivos cuyos datos nadie revisa. La prioridad es definir qué decisión se quiere mejorar y qué información hace falta para tomarla.",
+      },
+      { t: "h2", x: "Ruta de implementación para una finca o empresa agropecuaria" },
+      {
+        t: "ol",
+        x: [
+          "Elige un problema medible: consumo de agua, pérdidas, costos, trazabilidad o ventas.",
+          "Organiza tres a seis meses de datos disponibles y define quién los registrará.",
+          "Prueba una solución en un lote, producto o canal comercial antes de escalar.",
+          "Compara el resultado con una línea base y documenta qué decisiones cambió la herramienta.",
+          "Escala solo cuando el equipo pueda operar el sistema y el retorno sea visible.",
+        ],
+      },
+      { t: "h2", x: "Riesgos que deben controlarse" },
+      {
+        t: "ul",
+        x: [
+          "Datos incompletos o sesgados que producen recomendaciones poco confiables.",
+          "Dependencia de una plataforma sin copias de seguridad ni posibilidad de exportar la información.",
+          "Promesas de diagnóstico automático que ignoran la validación de un profesional del agro.",
+          "Exposición de datos productivos, comerciales o personales sin permisos definidos.",
+        ],
+      },
+      {
+        t: "p",
+        x: "En IAmkt ayudamos a convertir necesidades agrícolas en sistemas simples de registro, análisis y automatización. El punto de partida es un diagnóstico del proceso, los datos disponibles y la decisión que debe mejorar; después se diseña un piloto que el equipo pueda usar en la operación diaria.",
+      },
+    ],
   },
 ];
 
