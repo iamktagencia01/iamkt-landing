@@ -94,6 +94,12 @@ function BlogIndex() {
                 params={{ slug: post.slug }}
                 className="group flex flex-col rounded-xl border border-border/60 bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10"
               >
+                <img
+                  src={post.image}
+                  alt={post.imageAlt}
+                  loading="lazy"
+                  className="-mx-6 -mt-6 mb-6 aspect-[3/2] w-[calc(100%+3rem)] rounded-t-xl object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
                 <div className="flex items-center gap-3 text-xs text-muted-foreground">
                   <span className="rounded-full bg-accent/10 px-3 py-1 font-semibold text-accent">
                     {post.category}

@@ -33,6 +33,8 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:description", content: post.description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
+        { property: "og:image", content: `https://iamkt.co${post.image}` },
+        { property: "og:image:alt", content: post.imageAlt },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -43,6 +45,7 @@ export const Route = createFileRoute("/blog/$slug")({
             "@type": "Article",
             headline: post.title,
             description: post.description,
+            image: `https://iamkt.co${post.image}`,
             datePublished: post.date,
             dateModified: post.date,
             inLanguage: "es",
@@ -342,7 +345,9 @@ function PostView() {
               {post.readTime} de lectura
             </span>
           </div>
-          {post.slug === "que-es-un-agente-de-ia" ? <AgentHeroVisual /> : <AutomationHeroVisual />}
+          <div className="relative mt-10 overflow-hidden rounded-3xl border border-white/15 bg-slate-950/60 shadow-2xl shadow-cyan-950/30">
+            <img src={post.image} alt={post.imageAlt} className="aspect-[3/2] w-full object-cover" />
+          </div>
         </div>
       </section>
 

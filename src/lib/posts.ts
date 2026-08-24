@@ -14,6 +14,8 @@ export type Post = {
   slug: string;
   title: string;
   description: string;
+  image: string;
+  imageAlt: string;
   date: string;
   category: string;
   readTime: string;
@@ -27,6 +29,8 @@ export const POSTS: Post[] = [
     title: "¿Qué es un agente de IA y cómo puede trabajar en tu empresa?",
     description:
       "Un agente de IA es un trabajador virtual que planifica, decide y ejecuta tareas de forma autónoma. Te explicamos qué es, qué hace en la práctica, qué necesitas para implementarlo y cuánto cuesta.",
+    image: "/blog/agente-ia.png",
+    imageAlt: "Centro de operaciones con inteligencia artificial conectado a CRM, agenda y analítica",
     date: "2026-08-20",
     category: "IA Aplicada",
     readTime: "6 min",
@@ -138,6 +142,8 @@ export const POSTS: Post[] = [
     title: "Automatización para PyMEs: 7 procesos que puedes automatizar sin contratar más personal",
     description:
       "La automatización no es solo para grandes empresas. Estos 7 procesos pueden automatizarse en cualquier PyME con herramientas accesibles y presupuesto ajustado.",
+    image: "/blog/automatizacion.png",
+    imageAlt: "Flujo visual de automatización que convierte tareas repetitivas en resultados medibles",
     date: "2026-08-23",
     category: "Automatización",
     readTime: "5 min",
@@ -280,6 +286,8 @@ export const POSTS: Post[] = [
     title: "WhatsApp Business: cómo crear un embudo conversacional que venda mientras duermes",
     description:
       "Tus clientes ya están en WhatsApp. Aprende a convertir ese canal en una máquina de ventas con un embudo conversacional bien diseñado.",
+    image: "/blog/whatsapp.png",
+    imageAlt: "Smartphone conectado a un flujo de conversaciones y oportunidades comerciales",
     date: "2026-08-23",
     category: "WhatsApp Business",
     readTime: "5 min",
@@ -361,6 +369,8 @@ export const POSTS: Post[] = [
     title: "¿Cuánto cuesta el marketing digital en Colombia? Guía de precios 2026",
     description:
       "Rangos reales de precios por servicio de marketing digital en Colombia: community management, pauta, SEO, desarrollo y automatización. Qué incluye cada uno y cómo evitar sobrepagar.",
+    image: "/blog/marketing-digital.png",
+    imageAlt: "Estrategia de marketing digital representada como un recorrido de audiencia a crecimiento medible",
     date: "2026-08-23",
     category: "Marketing Digital",
     readTime: "7 min",
@@ -443,6 +453,8 @@ export const POSTS: Post[] = [
     title: "IA en el agro colombiano: automatización y agricultura de precisión para pequeños y medianos productores",
     description:
       "El campo colombiano está listo para la tecnología. Casos concretos de IA aplicada al agro: riego, monitoreo de cultivos, trazabilidad y ventas digitales con retorno real.",
+    image: "/blog/ia-agro.png",
+    imageAlt: "Productor consultando datos de agricultura de precisión en un cultivo colombiano",
     date: "2026-08-23",
     category: "IA + Agro",
     readTime: "6 min",
