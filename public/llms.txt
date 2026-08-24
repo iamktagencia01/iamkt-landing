@@ -1,0 +1,36 @@
+# IAmkt
+
+> Agencia de ingeniería aplicada, inteligencia artificial y marketing digital con sede en Colombia. Ayudamos a empresas a automatizar procesos, implementar agentes de IA, vender por WhatsApp y crecer con marketing digital medible.
+
+## Información general
+
+- Nombre: IAmkt (Arquitectos Tecnológicos para Empresas que Quieren Crecer)
+- Qué hace: combina ingeniería aplicada, IA y marketing digital para resolver problemas reales de negocio con soluciones medibles.
+- Dónde trabaja: Colombia. Atención remota a todo el país y presencial en Bogotá.
+- Público: pequeñas y medianas empresas (PyMEs), restaurantes, empresas agrícolas, comercios y organizaciones que quieren digitalizar y automatizar su operación.
+- Contacto: WhatsApp +57 322 857 0784 · contacto@iamkt.co
+- Redes: facebook.com/iamktco · instagram.com/iamkt.co
+
+## Servicios
+
+1. IA Aplicada y Agentes Autónomos: programación de agentes de IA autónomos como trabajadores virtuales para atención, análisis y tareas repetitivas sin supervisión constante.
+2. Optimización y Automatización de Procesos: flujos de trabajo, scripts e integración de APIs para reducir errores operativos y liberar horas de trabajo manual.
+3. Marketing Digital, Publicidad y Posicionamiento: sistemas de adquisición, estrategias de conversión, copywriting y campañas de ads segmentadas orientadas a resultados medibles.
+4. Desarrollo de Aplicaciones a la Medida: módulos de código y aplicaciones para optimizar la organización y productividad de cada empresa.
+5. WhatsApp Business y Automatización: webhooks, embudos de venta conversacionales e integración con CRMs para vender y atender desde WhatsApp.
+6. Consultoría en Datos y Procesos: organización de información, mejora de procesos y estructuración operativa para empresas y entidades.
+7. Diagnóstico inicial gratuito: identificación de oportunidades de automatización y digitalización sin costo ni compromiso.
+
+## Blog
+
+- ¿Qué es un agente de IA y cómo puede trabajar en tu empresa? — https://iamkt.co/blog/que-es-un-agente-de-ia
+- Automatización para PyMEs: 7 procesos que puedes automatizar sin contratar más personal — https://iamkt.co/blog/automatizacion-para-pymes-7-procesos
+- WhatsApp Business: cómo crear un embudo conversacional que venda mientras duermes — https://iamkt.co/blog/whatsapp-business-embudo-conversacional
+- ¿Cuánto cuesta el marketing digital en Colombia? Guía de precios 2026 — https://iamkt.co/blog/cuanto-cuesta-marketing-digital-colombia
+- IA en el agro colombiano: automatización y agricultura de precisión — https://iamkt.co/blog/ia-en-el-agro-colombiano
+- Atención al cliente con IA en Colombia: cómo atender 24/7 y reducir costos — https://iamkt.co/blog/atencion-al-cliente-con-ia-colombia
+
+## Datos clave
+
+- Precios orientativos de servicios digitales en Colombia: https://iamkt.co/blog/cuanto-cuesta-marketing-digital-colombia
+- El diagnóstico inicial es gratuito y sin compromiso: https://iamkt.co/?diagnostico=1

@@ -801,6 +801,144 @@ export const POSTS: Post[] = [
       },
     ],
   },
+  {
+    slug: "seo-geo-aeo-posicionamiento-2026",
+    title: "SEO, GEO y AEO: cómo posicionar tu empresa en Google, ChatGPT y redes sociales en 2026",
+    description:
+      "El posicionamiento ya no es solo Google: SEO, GEO y AEO, más las redes sociales. Guía práctica 2026 para que tu empresa aparezca en buscadores, en las respuestas de la IA y en redes con reconocimiento real.",
+    image: "/blog-images/posicionamiento-2026.png",
+    imageAlt: "Estrategia de posicionamiento que conecta búsqueda en Google, respuestas de IA y redes sociales",
+    date: "2026-08-24",
+    category: "Posicionamiento",
+    readTime: "8 min",
+    published: true,
+    content: [
+      {
+        t: "p",
+        x: "Posicionar una empresa en 2026 ya no significa solo aparecer en Google. Hoy hay tres frentes que trabajan juntos: el SEO clásico para buscadores, el GEO para aparecer en las respuestas de la inteligencia artificial, el AEO para ser la respuesta citada, y las redes sociales como fuente de reconocimiento y confianza. Esta guía explica cada uno y cómo aplicarlos a una empresa en Colombia.",
+      },
+      {
+        t: "quote",
+        x: "Ya no basta con aparecer en Google: tu empresa también tiene que aparecer en las respuestas de la IA y en las redes donde tu cliente te busca.",
+      },
+      { t: "h2", x: "Los tres frentes del posicionamiento en 2026" },
+      {
+        t: "table",
+        head: ["Frente", "Qué es", "Dónde aparece tu empresa", "Ejemplo"],
+        rows: [
+          ["SEO", "Optimización para buscadores clásicos", "Resultados de enlaces en Google y Bing", "\"agencia de marketing en Bogotá\""],
+          ["GEO", "Optimización para motores de respuesta generados por IA", "Respuestas de ChatGPT, Gemini, Perplexity y el modo IA de Google", "Que ChatGPT recomiende tu empresa"],
+          ["AEO", "Estructura para que la IA te cite como la respuesta", "Respuestas de IA con tu sitio como fuente", "Que tu página responda la pregunta exacta"],
+        ],
+      },
+      { t: "h2", x: "SEO: la base que sigue funcionando" },
+      {
+        t: "p",
+        x: "El SEO no murió: cambió. Sigue siendo el punto de partida porque la mayoría del tráfico web aún viene de búsquedas clásicas, y porque los propios motores de IA se alimentan de páginas bien indexadas. La base es la misma de siempre: sitio rápido y seguro (HTTPS), sitemap, indexación, contenido útil y enlaces internos claros. Si tu empresa no aparece en Google, difícilmente aparecerá en las respuestas de la IA.",
+      },
+      { t: "h2", x: "GEO: aparecer en las respuestas de la IA" },
+      {
+        t: "p",
+        x: "Cada vez más personas le preguntan directamente a ChatGPT, Gemini o Perplexity antes de abrir Google. Estos asistentes construyen sus respuestas citando fuentes, y citan a quienes escriben de forma clara, directa y bien estructurada. El GEO (Generative Engine Optimization) es exactamente eso: preparar tu contenido para que la IA lo entienda, lo use y te mencione.",
+      },
+      {
+        t: "ul",
+        x: [
+          "Responder preguntas reales con definiciones directas y párrafos auto-contenidos.",
+          "Usar preguntas y respuestas (FAQ) con el lenguaje exacto del cliente.",
+          "Estructurar datos con schema: organización, servicios, preguntas frecuentes.",
+          "Publicar contenido con cifras y datos verificables que la IA pueda citar.",
+          "Mantener información consistente sobre qué haces, para quién y en qué zona.",
+        ],
+      },
+      {
+        t: "p",
+        x: "La IA ya recomienda negocios como un asesor de confianza, igual que un [agente de IA](/blog/que-es-un-agente-de-ia) atiende a tus clientes por ti: si no entiende tu página, no te va a recomendar.",
+      },
+      { t: "h2", x: "AEO: ser la respuesta, no un enlace más" },
+      {
+        t: "p",
+        x: "El AEO (Answer Engine Optimization) es la capa técnica del GEO: estructurar la página para que, cuando la IA busque una respuesta, encuentre la tuya como la más clara. Son prácticas concretas y medibles, no magia.",
+      },
+      {
+        t: "ul",
+        x: [
+          "Un archivo llms.txt en tu sitio: un resumen legible por máquinas con quién eres y qué ofreces.",
+          "Schema de preguntas frecuentes (FAQPage) y de servicios en cada página relevante.",
+          "Títulos que repitan la pregunta exacta del cliente, no frases creativas vacías.",
+          "Enlaces internos entre artículos para que la IA recorra tu contenido con contexto.",
+          "Una respuesta directa en los primeros párrafos, antes de la explicación larga.",
+        ],
+      },
+      {
+        t: "p",
+        x: "Una empresa que además atiende con IA, como explicamos en nuestra guía de [atención al cliente con IA en Colombia](/blog/atencion-al-cliente-con-ia-colombia), cierra el círculo: la IA te encuentra, te recomienda y te atiende.",
+      },
+      { t: "h2", x: "Por qué las redes sociales importan para posicionar" },
+      {
+        t: "p",
+        x: "Las redes no son solo un canal de venta: son una señal de reconocimiento y confianza que alimenta los tres frentes anteriores. Cuando tu marca aparece en Instagram, Facebook o LinkedIn con un perfil completo y consistente, pasa algo importante: la gente te busca por nombre, lo que refuerza tu autoridad frente a Google y frente a la IA, que también rastrea redes y menciones.",
+      },
+      {
+        t: "ul",
+        x: [
+          "Reconocimiento: una marca que se ve activa genera más búsquedas de nombre y más clics.",
+          "Confianza: perfiles completos con contacto, horarios y reseñas mejoran la percepción.",
+          "Consistencia: el mismo nombre, logo, contacto y enlaces en todos los perfiles fortalecen la identidad digital.",
+          "Contenido distribuido: cada publicación es una entrada más que la IA y Google pueden rastrear.",
+          "Prueba social: interacciones y seguidores reales respaldan la promesa de tu sitio web.",
+        ],
+      },
+      {
+        t: "p",
+        x: "Para una empresa colombiana, empezar por Instagram y Facebook con información alineada a la web, más un perfil de Google Business bien completo, es la combinación de reconocimiento local más efectiva.",
+      },
+      { t: "h2", x: "Plan práctico para posicionar tu empresa en 2026" },
+      {
+        t: "ol",
+        x: [
+          "Asegura la base técnica: web rápida, HTTPS, sitemap, robots.txt e indexación en Google (SEO).",
+          "Publica contenido que responda las preguntas reales de tus clientes, con FAQ y datos concretos (GEO).",
+          "Estructura tu sitio para máquinas: schema de servicios y FAQ, llms.txt y enlaces internos (AEO).",
+          "Activa tus redes con perfil completo y consistente, y publica con regularidad (reconocimiento).",
+          "Mide con datos: Search Console para búsquedas, y pregúntale a ChatGPT, Gemini y Perplexity si te recomiendan (GEO).",
+        ],
+      },
+      { t: "h2", x: "Errores que frenan el posicionamiento" },
+      {
+        t: "ol",
+        x: [
+          "Creer que el SEO murió y abandonar la base técnica.",
+          "Enfocarse solo en palabras clave sin responder las preguntas del cliente.",
+          "Ignorar las redes porque \"no venden directo\": pierdes reconocimiento y confianza.",
+          "No estructurar datos: sin schema, la IA tiene que adivinar qué hace tu empresa.",
+          "Medir solo clics: el tráfico de la IA genera pocos clics, pero mucha recomendación.",
+        ],
+      },
+      {
+        t: "p",
+        x: "En IAmkt aplicamos los tres frentes a nuestra propia presencia y a la de nuestros clientes: base SEO, contenido y estructura para la IA, y acompañamiento para construir reconocimiento en redes. El diagnóstico inicial es gratuito y sirve para saber por dónde empezar según tu tipo de negocio y tu mercado.",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Qué diferencia hay entre SEO, GEO y AEO?",
+        a: "El SEO optimiza para buscadores clásicos como Google, el GEO optimiza para que la IA te recomiende en sus respuestas (ChatGPT, Gemini, Perplexity), y el AEO estructura tu sitio para que la IA te cite como la respuesta directa.",
+      },
+      {
+        q: "¿El SEO sigue funcionando en 2026?",
+        a: "Sí. Sigue siendo la base del tráfico web y los motores de IA se alimentan de páginas bien indexadas. Lo que cambió es que ya no es el único frente: hay que sumar GEO, AEO y presencia en redes.",
+      },
+      {
+        q: "¿Cómo sé si la IA me recomienda?",
+        a: "Haz la prueba directa: pregúntale a ChatGPT, Gemini y Perplexity algo como \"mejor agencia de marketing en Bogotá\" o la consulta típica de tu cliente, y revisa si tu empresa aparece y si te citan.",
+      },
+      {
+        q: "¿Las redes sociales ayudan al posicionamiento?",
+        a: "Sí, de forma indirecta pero importante: generan búsquedas de marca, señales de confianza y contenido adicional que Google y la IA pueden rastrear. Perfiles completos y consistentes refuerzan el reconocimiento.",
+      },
+    ],
+  },
 ];
 
 export function getPublishedPosts(): Post[] {
