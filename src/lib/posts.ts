@@ -651,6 +651,156 @@ export const POSTS: Post[] = [
       },
     ],
   },
+  {
+    slug: "atencion-al-cliente-con-ia-colombia",
+    title: "Atención al cliente con IA en Colombia: cómo atender 24/7 y reducir costos sin perder calidad",
+    description:
+      "Guía para implementar atención al cliente con IA en Colombia: qué resuelve, cuánto cuesta, cómo empezar por WhatsApp y qué errores evitar. Con rangos de precio y pasos prácticos.",
+    image: "/blog-images/atencion-cliente.png",
+    imageAlt: "Centro de atención al cliente con IA disponible 24/7 conectado a chat, métricas y equipos",
+    date: "2026-08-24",
+    category: "Atención al Cliente",
+    readTime: "7 min",
+    published: true,
+    content: [
+      {
+        t: "p",
+        x: "La atención al cliente con IA consiste en sistemas que responden, clasifican y resuelven consultas frecuentes de forma inmediata, con reglas claras y escalamiento a una persona cuando hace falta. No se trata de reemplazar a los asesores: se trata de que la empresa responda rápido siempre, incluso fuera de horario, y de que el equipo humano atienda solo los casos que realmente lo requieren.",
+      },
+      {
+        t: "quote",
+        x: "El cliente no pide hablar con una máquina: pide que le respondan rápido, bien y cuando lo necesita.",
+      },
+      { t: "h2", x: "¿Qué es la atención al cliente con IA y qué resuelve?" },
+      {
+        t: "p",
+        x: "En la práctica es un asistente que entiende la consulta, consulta información real de tu negocio y responde con la mejor opción disponible: un horario, un precio, un estado de pedido o una cita. Resuelve las preguntas repetitivas que hoy consumen la jornada del equipo y deja documentado cada caso para que nadie pierda el contexto.",
+      },
+      { t: "h2", x: "Qué puede hacer hoy un sistema de atención con IA" },
+      {
+        t: "ul",
+        x: [
+          "Responder al instante las preguntas frecuentes: horarios, precios, disponibilidad, requisitos y ubicación.",
+          "Clasificar la conversación y entregar el caso a la persona o área correcta con todo el contexto.",
+          "Agendar citas, confirmar reservas y enviar recordatorios automáticos.",
+          "Dar seguimiento a pedidos, cotizaciones y facturas sin que el cliente tenga que repetir su historia.",
+          "Escalar a un humano en el momento exacto: reclamos, negociación, casos sensibles o excepciones.",
+          "Dejar un resumen de cada interacción para que el equipo sepa qué pasó y qué sigue.",
+        ],
+      },
+      {
+        t: "p",
+        x: "Cuando el asistente además ejecuta acciones sobre tus sistemas, como actualizar el CRM o enviar una cotización, ya estás hablando de un [agente de IA](/blog/que-es-un-agente-de-ia).",
+      },
+      { t: "h2", x: "Beneficios medibles para una empresa colombiana" },
+      {
+        t: "p",
+        x: "La atención con IA se justifica cuando cambia indicadores concretos. Estos son los que más se mueven en una implementación típica:",
+      },
+      {
+        t: "table",
+        head: ["Indicador", "Sin IA", "Con IA"],
+        rows: [
+          ["Tiempo de primera respuesta", "Minutos u horas según horario", "Segundos, las 24 horas"],
+          ["Cobertura horaria", "Solo jornada laboral", "24/7 sin costos de turnos extra"],
+          ["Costo por conversación simple", "Horas de un asesor", "Fracción de una hora de asesor"],
+          ["Consistencia de la respuesta", "Depende de la persona y el día", "Misma información y tono siempre"],
+          ["Carga del equipo humano", "Repetir lo mismo cada semana", "Solo casos complejos y de alto valor"],
+        ],
+      },
+      { t: "h2", x: "Por qué WhatsApp es el punto de partida en Colombia" },
+      {
+        t: "p",
+        x: "WhatsApp es la aplicación de mensajería más usada por los colombianos, y la mayoría de las empresas ya recibe pedidos, preguntas y reclamos por ahí. En lugar de sumar otro canal, la IA se instala donde el cliente ya está: responde en el mismo chat, con el mismo número, y pasa la conversación a un asesor sin cambiar de aplicación.",
+      },
+      {
+        t: "p",
+        x: "Para que el canal no sea solo respuestas sueltas, conviene estructurarlo como un [embudo conversacional en WhatsApp](/blog/whatsapp-business-embudo-conversacional), donde cada conversación tiene un siguiente paso claro hasta la venta o la cita.",
+      },
+      { t: "h2", x: "Cómo implementarlo en 5 pasos" },
+      {
+        t: "ol",
+        x: [
+          "Mapea las preguntas y los flujos reales: qué preguntan, quién responde hoy y qué información necesitan para resolver.",
+          "Define reglas de escalamiento: qué casos pasan a un humano, con qué urgencia y a qué persona o área.",
+          "Conecta el canal con tus sistemas: WhatsApp, agenda, catálogo, CRM o base de datos para responder con datos reales.",
+          "Prueba con supervisión: las primeras semanas el equipo revisa respuestas, corrige reglas y afina el tono.",
+          "Mide y ajusta: tiempo de respuesta, casos resueltos sin intervención, satisfacción y carga del equipo.",
+        ],
+      },
+      {
+        t: "p",
+        x: "El paso 1 y el paso 4 son los que definen el éxito: esta guía de [automatización para PyMEs](/blog/automatizacion-para-pymes-7-procesos) explica cómo elegir el proceso correcto y cómo validar un piloto sin riesgo.",
+      },
+      { t: "h2", x: "¿Cuánto cuesta la atención al cliente con IA en Colombia?" },
+      {
+        t: "p",
+        x: "Los rangos orientativos para 2026 dependen de la complejidad. La inversión inicial cubre el diseño del flujo y la configuración; lo mensual cubre el proveedor de IA, mensajes y mantenimiento según el volumen.",
+      },
+      {
+        t: "table",
+        head: ["Modalidad", "Implementación (COP)", "Operación mensual (COP)", "Ideal para"],
+        rows: [
+          ["Bot de preguntas frecuentes", "$800.000 – $2.000.000", "$200.000 – $500.000", "Horarios, información y respuestas básicas"],
+          ["Atención conectada a WhatsApp y CRM", "$2.000.000 – $5.000.000", "$500.000 – $1.500.000", "Negocios con volumen y seguimiento comercial"],
+          ["Agente avanzado multicanal", "Desde $5.000.000", "$1.500.000 en adelante", "Operaciones con varios procesos y canales"],
+        ],
+      },
+      {
+        t: "p",
+        x: "Para dimensionar el presupuesto completo de tu presencia digital, incluyendo web, pauta y contenido, puedes comparar con nuestra guía de [precios de marketing digital en Colombia](/blog/cuanto-cuesta-marketing-digital-colombia).",
+      },
+      { t: "h2", x: "Errores que arruinan la experiencia" },
+      {
+        t: "ol",
+        x: [
+          "No ofrecer salida a un humano: el cliente termina atrapado en el menú y abandona frustrado.",
+          "Responder con textos genéricos que no reconocen lo que la persona preguntó.",
+          "Prometer precios, inventario o tiempos sin consultar una fuente actualizada.",
+          "Ignorar permisos y solicitudes de no recibir más mensajes.",
+          "Medir solo mensajes enviados en lugar de casos resueltos, satisfacción y tiempo de atención.",
+        ],
+      },
+      { t: "h2", x: "¿Cuándo conviene un humano y cuándo una máquina?" },
+      {
+        t: "table",
+        head: ["Situación", "Quién responde mejor"],
+        rows: [
+          ["Pregunta frecuente con respuesta definida", "IA, al instante"],
+          ["Seguimiento de pedido o cotización", "IA con acceso a datos reales"],
+          ["Agendamiento y recordatorios", "IA conectada a la agenda"],
+          ["Reclamo, negociación o caso delicado", "Humano, con el contexto del chat"],
+          ["Cliente VIP o decisión de alto valor", "Humano, priorizado por la IA"],
+        ],
+      },
+      {
+        t: "p",
+        x: "La regla simple: la máquina responde lo que ya tiene respuesta, y el humano recibe los casos donde la conversación vale más que la velocidad.",
+      },
+      {
+        t: "p",
+        x: "En IAmkt implementamos atención al cliente con IA conectada a WhatsApp, agenda y CRM, con reglas de escalamiento claras y acompañamiento en las primeras semanas. El diagnóstico inicial es gratuito: mapeamos tus preguntas frecuentes, tus momentos de intervención humana y el indicador que quieres mejorar.",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Qué es la atención al cliente con IA?",
+        a: "Es un sistema que responde, clasifica y resuelve consultas frecuentes de forma inmediata con reglas claras, consulta información real del negocio y escala a un humano cuando el caso lo requiere.",
+      },
+      {
+        q: "¿La atención con IA reemplaza a los asesores humanos?",
+        a: "No. Absorbe las preguntas repetitivas para que el equipo atienda los casos complejos y de alto valor con todo el contexto. El objetivo es velocidad 24/7 sin perder calidad en la relación con el cliente.",
+      },
+      {
+        q: "¿Cuánto cuesta implementar atención al cliente con IA en Colombia?",
+        a: "Entre $800.000 y $2.000.000 COP para un bot de preguntas frecuentes, de $2.000.000 a $5.000.000 conectado a WhatsApp y CRM, y desde $5.000.000 para un agente avanzado multicanal. La operación mensual depende del proveedor de IA y el volumen.",
+      },
+      {
+        q: "¿Qué métricas indican que la atención con IA funciona?",
+        a: "Tiempo de primera respuesta, porcentaje de casos resueltos sin intervención humana, satisfacción del cliente, conversaciones escaladas correctamente y carga real del equipo de atención.",
+      },
+    ],
+  },
 ];
 
 export function getPublishedPosts(): Post[] {
