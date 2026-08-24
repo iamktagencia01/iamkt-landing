@@ -228,7 +228,7 @@ function AutomationHeroVisual() {
     <div className="relative mt-10 overflow-hidden rounded-3xl border border-cyan-200/15 bg-slate-950/60 p-5 shadow-2xl shadow-cyan-950/30 backdrop-blur md:p-7">
       <div className="absolute -right-16 -top-20 h-52 w-52 rounded-full bg-cyan-400/15 blur-3xl" />
       <p className="relative text-center text-xs font-bold uppercase tracking-[0.25em] text-cyan-200/80">De tarea repetitiva a flujo automático</p>
-      <div className="relative mt-6 grid gap-2 md:grid-cols-4 md:items-center">
+      <div className="relative mt-6 grid gap-2 md:grid-cols-4 md:items-start">
         {steps.map((step, index) => (
           <div key={step} className="flex items-center gap-2 md:block md:text-center">
             <div className="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-cyan-200/25 bg-cyan-300/10 text-lg font-extrabold text-cyan-100">{index + 1}</div>
@@ -314,15 +314,17 @@ function PostView() {
       >
         <TechBackground />
         <div className="relative mx-auto max-w-3xl px-4 py-16 md:px-8 md:py-20">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-accent"
-          >
-            <ArrowLeft className="h-4 w-4" /> Volver al blog
-          </Link>
-          <p className="mt-6 inline-block rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-200">
-            {post.category}
-          </p>
+          <div className="space-y-5">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-accent"
+            >
+              <ArrowLeft className="h-4 w-4" /> Volver al blog
+            </Link>
+            <p className="w-fit rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-200">
+              {post.category}
+            </p>
+          </div>
           <h1 className="mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight md:text-4xl lg:text-5xl">
             {post.title}
           </h1>
