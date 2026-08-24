@@ -20,6 +20,7 @@ export type Post = {
   category: string;
   readTime: string;
   published: boolean;
+  faq: { q: string; a: string }[];
   content: Block[];
 };
 
@@ -68,6 +69,10 @@ export const POSTS: Post[] = [
         x: "No hace falta fantasear con robots: los agentes de IA ya trabajan en tareas concretas y medibles. Estos son cinco ejemplos que cualquier PyME puede implementar en semanas, no en meses.",
       },
       {
+        t: "p",
+        x: "Si aún no tienes claro qué procesos conviene automatizar primero, nuestra guía de [automatización para PyMEs](/blog/automatizacion-para-pymes-7-procesos) te muestra siete candidatas concretas con criterios para elegir la primera.",
+      },
+      {
         t: "ol",
         x: [
           "Atender WhatsApp y calificar clientes: responde al instante, responde preguntas frecuentes, agenda citas y pasa a un humano solo cuando el cliente está listo para comprar.",
@@ -103,6 +108,10 @@ export const POSTS: Post[] = [
         x: "Los precios varían según el alcance, pero estos rangos dan una referencia real del mercado colombiano. Incluyen implementación y configuración; la operación mensual depende del proveedor de IA y del volumen de uso.",
       },
       {
+        t: "p",
+        x: "Para comparar con el resto de servicios digitales del mercado, revisa nuestra guía de [precios de marketing digital en Colombia](/blog/cuanto-cuesta-marketing-digital-colombia).",
+      },
+      {
         t: "table",
         head: ["Tipo de agente", "Implementación (COP)", "Ejemplo de uso"],
         rows: [
@@ -134,6 +143,24 @@ export const POSTS: Post[] = [
       {
         t: "p",
         x: "En IAmkt diseñamos e implementamos agentes de IA a la medida de cada negocio, desde la identificación del proceso hasta la puesta en marcha y el acompañamiento continuo. Si quieres saber qué tarea de tu empresa es la mejor candidata para empezar, el diagnóstico inicial es gratuito y sin compromiso.",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Qué es un agente de IA?",
+        a: "Es un programa que usa inteligencia artificial para realizar tareas de forma autónoma: planifica, decide y ejecuta dentro de reglas definidas, sin que una persona supervise cada paso. Funciona como un trabajador virtual disponible 24/7.",
+      },
+      {
+        q: "¿Cuál es la diferencia entre un chatbot y un agente de IA?",
+        a: "El chatbot reacciona con respuestas predefinidas y se detiene cuando la conversación sale del guion. El agente recibe un objetivo, usa herramientas como el CRM, WhatsApp o la base de datos, y escala a un humano cuando corresponde.",
+      },
+      {
+        q: "¿Qué tareas puede hacer un agente de IA en una PyME?",
+        a: "Atender WhatsApp y calificar clientes, dar seguimiento a cotizaciones y facturas pendientes, generar reportes de ventas e inventario, gestionar agenda y recordatorios, y mantener el CRM actualizado con datos limpios.",
+      },
+      {
+        q: "¿Cuánto cuesta implementar un agente de IA en Colombia?",
+        a: "Entre $500.000 y $1.500.000 COP para un agente simple, de $1.500.000 a $4.000.000 para uno intermedio con integración a CRM, y desde $4.000.000 para soluciones avanzadas a la medida con varias herramientas y procesos complejos.",
       },
     ],
   },
@@ -168,6 +195,10 @@ export const POSTS: Post[] = [
       {
         t: "p",
         x: "Un asistente puede responder preguntas frecuentes, identificar qué necesita cada persona y clasificar la conversación antes de entregarla a un vendedor. Así el equipo recibe oportunidades mejor organizadas y el cliente no queda esperando una respuesta básica.",
+      },
+      {
+        t: "p",
+        x: "Cuando el asistente no solo clasifica, sino que ejecuta tareas con tus sistemas, ya estás hablando de un [agente de IA](/blog/que-es-un-agente-de-ia).",
       },
       {
         t: "h3",
@@ -242,7 +273,7 @@ export const POSTS: Post[] = [
       {
         t: "ul",
         x: [
-          "WhatsApp Business o un canal de mensajería para atención y seguimiento.",
+          "[WhatsApp Business](/blog/whatsapp-business-embudo-conversacional) o un canal de mensajería para atención y seguimiento.",
           "Un CRM para centralizar clientes, oportunidades y tareas comerciales.",
           "Google Sheets, Excel o una base de datos para conservar información estructurada.",
           "Conectores y APIs para unir formularios, correo, agenda, pagos y reportes.",
@@ -278,6 +309,24 @@ export const POSTS: Post[] = [
       {
         t: "p",
         x: "En IAmkt ayudamos a identificar qué procesos tienen mayor retorno, conectamos las herramientas existentes y dejamos reglas que el equipo pueda entender y supervisar. El diagnóstico inicial es gratuito y sirve para priorizar una primera automatización con sentido para tu empresa.",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Qué es la automatización para PyMEs?",
+        a: "Es diseñar sistemas que ejecutan tareas repetitivas con reglas claras, liberando tiempo del equipo para vender, atender y tomar decisiones. No reemplaza personas: elimina el trabajo mecánico.",
+      },
+      {
+        q: "¿Qué procesos conviene automatizar primero?",
+        a: "Los que combinan alta frecuencia, reglas estables y un costo visible cuando fallan. Una tarea diaria que consume cinco minutos representa más de 30 horas al mes y es mucho mejor candidata que una tarea ocasional.",
+      },
+      {
+        q: "¿Qué herramientas se necesitan para empezar?",
+        a: "WhatsApp Business o un canal de mensajería, un CRM para centralizar clientes, una base de datos como Google Sheets o Excel, conectores y APIs para unir sistemas, y un asistente de IA cuando hay que interpretar lenguaje o clasificar casos.",
+      },
+      {
+        q: "¿La automatización reemplaza empleados?",
+        a: "No. Quita tareas repetitivas para que las personas se concentren en lo que de verdad mueve el negocio: vender, atender y decidir. El objetivo es productividad, no reducción de plantilla.",
       },
     ],
   },
@@ -324,6 +373,10 @@ export const POSTS: Post[] = [
         x: "La calificación debe recoger solo la información que cambia la decisión comercial. Según el negocio, puede incluir producto o servicio de interés, ciudad, cantidad, fecha deseada y rango de presupuesto. Haz una pregunta a la vez y permite que el cliente pida una persona en cualquier momento.",
       },
       {
+        t: "p",
+        x: "Guardar esas respuestas en el CRM sin que el asesor repita preguntas es exactamente lo que hace un [agente de IA](/blog/que-es-un-agente-de-ia) por tu equipo.",
+      },
+      {
         t: "ul",
         x: [
           "Usa lenguaje natural y respuestas cortas, no formularios disfrazados.",
@@ -361,6 +414,24 @@ export const POSTS: Post[] = [
       {
         t: "p",
         x: "En IAmkt diseñamos embudos conversacionales para WhatsApp conectados con los procesos y herramientas reales de cada empresa. El primer paso es mapear las preguntas frecuentes, los momentos de intervención humana y el resultado que quieres medir.",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Qué es un embudo conversacional en WhatsApp?",
+        a: "Es un sistema que acompaña a la persona desde su primera pregunta hasta la compra o el agendamiento, con respuestas útiles y reglas claras, y que escala el caso a un asesor cuando hace falta.",
+      },
+      {
+        q: "¿Es lo mismo enviar mensajes masivos?",
+        a: "No. El embudo responde según la intención de cada persona, guarda el contexto en el CRM y respeta los permisos. El mensaje masivo ignora la conversación y daña la confianza del cliente.",
+      },
+      {
+        q: "¿Qué métricas indican que el embudo funciona?",
+        a: "El tiempo de primera respuesta, la cantidad de leads calificados, las conversaciones que llegan a cotización, la conversión a venta y el tiempo que dedica un asesor por caso.",
+      },
+      {
+        q: "¿Cuándo debe intervenir una persona?",
+        a: "En reclamos, negociación, datos sensibles o excepciones a las reglas. El sistema debe ofrecer siempre una salida clara hacia un humano, nunca encerrar al cliente en un menú.",
       },
     ],
   },
@@ -421,6 +492,10 @@ export const POSTS: Post[] = [
         t: "p",
         x: "La automatización se cotiza mejor por proceso que por número de herramientas. Un flujo sencillo de formularios y correo puede ser económico; una solución conectada a WhatsApp, CRM, inventario y pagos exige más diseño, pruebas y controles. Además del desarrollo inicial, considera el costo mensual de APIs, mensajes, almacenamiento y modelos de IA.",
       },
+      {
+        t: "p",
+        x: "Un [agente de IA](/blog/que-es-un-agente-de-ia) bien configurado puede absorber varios de esos procesos y reportar resultados sin intervención diaria, lo que cambia la ecuación de costo a largo plazo.",
+      },
       { t: "h2", x: "Qué debe incluir una buena propuesta" },
       {
         t: "ul",
@@ -445,6 +520,24 @@ export const POSTS: Post[] = [
       {
         t: "p",
         x: "En IAmkt combinamos marketing, desarrollo y automatización para que la inversión digital se conecte con una meta medible. Podemos ayudarte a separar lo urgente de lo importante y a construir una primera fase acorde con el presupuesto y la capacidad operativa de tu empresa.",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuánto cuesta el community management en Colombia?",
+        a: "Entre $800.000 y $2.500.000 COP al mes, según la cantidad de piezas, canales, frecuencia y nivel de atención. El precio sube cuando se incluyen videos, fotografía o una estrategia enfocada en generar leads.",
+      },
+      {
+        q: "¿Cuánto cuesta una página web en Colombia?",
+        a: "Entre $2.000.000 y $10.000.000 COP según el alcance: una landing enfocada cuesta menos que un sitio corporativo completo con integraciones, panel administrativo, analítica y SEO técnico.",
+      },
+      {
+        q: "¿Cuánto invertir en pauta digital?",
+        a: "La inversión en medios es aparte de los honorarios de gestión. Desde $500.000 COP al mes puede validarse una oferta local, pero el monto correcto depende del ticket, el margen y el costo aceptable por cliente.",
+      },
+      {
+        q: "¿Qué debe incluir una buena propuesta de marketing digital?",
+        a: "Objetivo de negocio y métrica principal, alcance exacto, responsabilidades de ambas partes, presupuesto de medios separado de honorarios, y una forma de reporte con frecuencia de revisión y condiciones claras.",
       },
     ],
   },
@@ -494,6 +587,10 @@ export const POSTS: Post[] = [
         t: "p",
         x: "Cuando se combinan históricos de venta, calendario, volumen disponible y conversaciones con compradores, es posible planear mejor cosecha, empaque y distribución. WhatsApp y un catálogo actualizado también ayudan a vender directamente y a reducir la dependencia de un solo intermediario.",
       },
+      {
+        t: "p",
+        x: "Un [embudo conversacional en WhatsApp](/blog/whatsapp-business-embudo-conversacional) permite organizar esa venta directa con catálogo, cotización y seguimiento sin depender de un asesor disponible todo el día.",
+      },
       { t: "h2", x: "Datos mínimos para comenzar" },
       {
         t: "table",
@@ -533,6 +630,24 @@ export const POSTS: Post[] = [
       {
         t: "p",
         x: "En IAmkt ayudamos a convertir necesidades agrícolas en sistemas simples de registro, análisis y automatización. El punto de partida es un diagnóstico del proceso, los datos disponibles y la decisión que debe mejorar; después se diseña un piloto que el equipo pueda usar en la operación diaria.",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cómo se usa la IA en el agro colombiano?",
+        a: "Para mejorar decisiones concretas: riego y fertilización más precisos, alertas tempranas en cultivos, trazabilidad y control de costos, y pronóstico de demanda con ventas digitales.",
+      },
+      {
+        q: "¿Qué datos se necesitan para empezar?",
+        a: "Producción (lote, variedad, fechas y cantidades), clima y suelo, labores e insumos con sus costos, y ventas. Un registro consistente en una hoja de cálculo vale más que muchos sensores cuyos datos nadie revisa.",
+      },
+      {
+        q: "¿La IA reemplaza al agrónomo?",
+        a: "No. La IA alerta y organiza la información; el diagnóstico agronómico y la decisión de tratamiento siguen siendo responsabilidad de personal competente.",
+      },
+      {
+        q: "¿Por dónde empezar con IA en una finca?",
+        a: "Elegir un problema medible, organizar tres a seis meses de datos disponibles, probar una solución en un lote o canal comercial, comparar contra una línea base y escalar solo cuando el retorno sea visible.",
       },
     ],
   },

@@ -1,7 +1,15 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import type { ReactNode } from "react";
+import { useMemo } from "react";
 import { Header } from "@/components/Header";
 import { TechBackground } from "@/components/TechBackground";
-import { getPostBySlug, type Block } from "@/lib/posts";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { getPostBySlug, getPublishedPosts, type Block } from "@/lib/posts";
 import {
   ArrowDown,
   ArrowLeft,
@@ -42,24 +50,40 @@ export const Route = createFileRoute("/blog/$slug")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Article",
-            headline: post.title,
-            description: post.description,
-            image: `https://iamkt.co${post.image}`,
-            datePublished: post.date,
-            dateModified: post.date,
-            inLanguage: "es",
-            author: {
-              "@type": "Person",
-              name: "IAmkt — Ing. Marlio Dario Damian Torres",
-              url: "https://iamkt.co/",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "IAmkt",
-              url: "https://iamkt.co/",
-            },
-            mainEntityOfPage: url,
+            "@graph": [
+              {
+                "@type": "Article",
+                headline: post.title,
+                description: post.description,
+                image: `https://iamkt.co${post.image}`,
+                datePublished: post.date,
+                dateModified: post.date,
+                inLanguage: "es",
+                author: {
+                  "@type": "Person",
+                  name: "IAmkt — Ing. Marlio Dario Damian Torres",
+                  url: "https://iamkt.co/",
+                },
+                publisher: {
+                  "@type": "Organization",
+                  name: "IAmkt",
+                  url: "https://iamkt.co/",
+                },
+                mainEntityOfPage: url,
+              },
+              ...(post.faq.length > 0
+                ? [
+                    {
+                      "@type": "FAQPage",
+                      mainEntity: post.faq.map((f) => ({
+                        "@type": "Question",
+                        name: f.q,
+                        acceptedAnswer: { "@type": "Answer", text: f.a },
+                      })),
+                    },
+                  ]
+                : []),
+            ],
           }),
         },
       ],
@@ -68,12 +92,45 @@ export const Route = createFileRoute("/blog/$slug")({
   component: PostView,
 });
 
+function renderInline(text: string): ReactNode[] {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, i) => {
+    const m = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(part);
+    if (!m) return part;
+    const [, label, url] = m;
+    const blogMatch = /^\/blog\/([^/]+)\/?$/.exec(url);
+    if (blogMatch) {
+      return (
+        <Link
+          key={i}
+          to="/blog/$slug"
+          params={{ slug: blogMatch[1] }}
+          className="font-semibold text-accent underline underline-offset-4 transition-colors hover:text-accent/80"
+        >
+          {label}
+        </Link>
+      );
+    }
+    return (
+      <a
+        key={i}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-semibold text-accent underline underline-offset-4 transition-colors hover:text-accent/80"
+      >
+        {label}
+      </a>
+    );
+  });
+}
+
 function renderBlock(block: Block, key: number) {
   switch (block.t) {
     case "p":
       return (
         <p key={key} className="text-base leading-relaxed text-foreground/85 md:text-lg">
-          {block.x}
+          {renderInline(block.x)}
         </p>
       );
     case "h2":
@@ -97,7 +154,7 @@ function renderBlock(block: Block, key: number) {
           {block.x.map((li, i) => (
             <li key={i} className="flex gap-3 text-base leading-relaxed text-foreground/85">
               <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-              <span>{li}</span>
+              <span>{renderInline(li)}</span>
             </li>
           ))}
         </ul>
@@ -110,7 +167,7 @@ function renderBlock(block: Block, key: number) {
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/15 text-sm font-bold text-accent">
                 {i + 1}
               </span>
-              <span>{li}</span>
+              <span>{renderInline(li)}</span>
             </li>
           ))}
         </ol>
@@ -305,6 +362,12 @@ const WHATSAPP_URL = `https://wa.me/573228570784?text=${encodeURIComponent(
 
 function PostView() {
   const post = Route.useLoaderData();
+  const related = useMemo(() => {
+    const others = getPublishedPosts().filter((p) => p.slug !== post.slug);
+    const sameCat = others.filter((p) => p.category === post.category);
+    const rest = others.filter((p) => p.category !== post.category);
+    return [...sameCat, ...rest].slice(0, 3);
+  }, [post.slug, post.category]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -363,6 +426,31 @@ function PostView() {
           })}
         </div>
 
+        {/* Preguntas frecuentes */}
+        {post.faq.length > 0 && (
+          <section className="mt-14">
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+              Preguntas frecuentes
+            </h2>
+            <Accordion type="single" collapsible className="mt-6">
+              {post.faq.map((f, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`faq-${i}`}
+                  className="border-border/40"
+                >
+                  <AccordionTrigger className="text-base font-semibold text-foreground">
+                    {f.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-foreground/85">
+                    {f.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </section>
+        )}
+
         {/* CTA final */}
         <div
           className="mt-14 rounded-2xl p-8 text-center text-white md:p-10"
@@ -392,6 +480,41 @@ function PostView() {
             </a>
           </div>
         </div>
+
+        {related.length > 0 && (
+          <section className="mt-14">
+            <h2 className="text-center text-xl font-bold tracking-tight">
+              Sigue leyendo
+            </h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {related.map((p) => (
+                <Link
+                  key={p.slug}
+                  to="/blog/$slug"
+                  params={{ slug: p.slug }}
+                  className="group overflow-hidden rounded-2xl border border-border/60 bg-muted/20 transition-colors hover:border-accent/50"
+                >
+                  <div className="aspect-[3/2] overflow-hidden">
+                    <img
+                      src={p.image}
+                      alt={p.imageAlt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+                      {p.category}
+                    </p>
+                    <h3 className="mt-1.5 line-clamp-2 text-sm font-bold leading-snug text-foreground">
+                      {p.title}
+                    </h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         <div className="mt-10 text-center">
           <Link
