@@ -71,6 +71,58 @@ function BlogIndex() {
         </div>
       </section>
 
+      {/* Casos de éxito destacados */}
+      <section className="mx-auto max-w-6xl px-4 pt-16 md:px-8">
+        <div className="rounded-2xl border border-border/60 bg-muted/30 p-6 md:p-8">
+          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-accent">
+                Prueba social
+              </p>
+              <h2 className="mt-1 text-2xl font-extrabold tracking-tight">Casos de éxito reales</h2>
+              <p className="mt-2 max-w-xl text-sm text-foreground/85">
+                Dos implementaciones a la medida con estimaciones de ahorro en horas y dinero,
+                basadas en promedios del sector.
+              </p>
+            </div>
+            <Link
+              to="/casos-de-exito"
+              className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5"
+            >
+              Ver casos de éxito <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <Link
+              to="/casos-de-exito"
+              className="group rounded-xl border border-border/60 bg-card p-5 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10"
+            >
+              <h3 className="font-bold text-foreground transition-colors group-hover:text-accent">
+                Monarca Gastro Bar
+              </h3>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                Menú QR + gestión de restaurante: pedidos directos a cocina, caja y reportes
+                automáticos. Cero comandas en papel.
+              </p>
+              <p className="mt-3 text-lg font-extrabold text-accent">150–175 h/mes · $2.5–6M/mes</p>
+            </Link>
+            <Link
+              to="/casos-de-exito"
+              className="group rounded-xl border border-border/60 bg-card p-5 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10"
+            >
+              <h3 className="font-bold text-foreground transition-colors group-hover:text-accent">
+                Dasagro 360
+              </h3>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                CRM para agroinsumos con 5 almacenes: orden, factura, inventario y contabilidad
+                en un solo flujo. Atención en minutos.
+              </p>
+              <p className="mt-3 text-lg font-extrabold text-accent">250–275 h/mes · $3.5–6M/mes</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Lista de artículos */}
       <section className="mx-auto max-w-6xl px-4 py-16 md:px-8">
         {posts.length === 0 ? (

@@ -50,6 +50,12 @@ export function Header({
           >
             Blog
           </Link>
+          <Link
+            to="/casos-de-exito"
+            className="text-sm font-medium text-foreground/80 transition-colors hover:text-accent"
+          >
+            Casos de éxito
+          </Link>
         </nav>
 
         {/* CTA escritorio */}
@@ -95,6 +101,14 @@ export function Header({
                   className="rounded-lg px-4 py-3 text-lg font-semibold text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
                 >
                   Blog
+                </Link>
+              </SheetClose>
+              <SheetClose asChild>
+                <Link
+                  to="/casos-de-exito"
+                  className="rounded-lg px-4 py-3 text-lg font-semibold text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
+                >
+                  Casos de éxito
                 </Link>
               </SheetClose>
             </div>
