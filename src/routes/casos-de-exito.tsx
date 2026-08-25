@@ -329,7 +329,31 @@ function CasosPage() {
         {/* ═══════════ COMPARATIVA ═══════════ */}
         <section className="mt-16">
           <SectionTitle>Resumen comparativo</SectionTitle>
-          <div className="mt-4 overflow-x-auto rounded-xl border border-border/60">
+
+          {/* Versión móvil: tarjetas apiladas */}
+          <div className="mt-4 space-y-3 md:hidden">
+            <div className="rounded-xl border border-border/60 p-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-accent">Monarca · Restaurante</p>
+              <dl className="mt-2 space-y-2 text-sm">
+                <div><dt className="font-semibold text-foreground">Solución</dt><dd className="text-foreground/85">Menú QR + Restaurant Pro (PWA, cocina KDS, gerente)</dd></div>
+                <div><dt className="font-semibold text-foreground">Ahorro en horas</dt><dd className="text-foreground/85">150–175 h/mes</dd></div>
+                <div><dt className="font-semibold text-foreground">Ahorro estimado</dt><dd className="text-foreground/85">$2.5–6M COP/mes</dd></div>
+                <div><dt className="font-semibold text-foreground">Beneficio clave</dt><dd className="text-foreground/85">Cero comandas en papel, caja y reportes automáticos</dd></div>
+              </dl>
+            </div>
+            <div className="rounded-xl border border-border/60 p-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-accent">Dasagro · Agroinsumos</p>
+              <dl className="mt-2 space-y-2 text-sm">
+                <div><dt className="font-semibold text-foreground">Solución</dt><dd className="text-foreground/85">Dasagro 360 — CRM a medida (orden, factura, inventario, contabilidad)</dd></div>
+                <div><dt className="font-semibold text-foreground">Ahorro en horas</dt><dd className="text-foreground/85">250–275 h/mes</dd></div>
+                <div><dt className="font-semibold text-foreground">Ahorro estimado</dt><dd className="text-foreground/85">$3.5–6M COP/mes</dd></div>
+                <div><dt className="font-semibold text-foreground">Beneficio clave</dt><dd className="text-foreground/85">Atención en minutos, cero pedidos perdidos, cartera controlada</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          {/* Versión desktop: tabla */}
+          <div className="mt-4 hidden overflow-x-auto rounded-xl border border-border/60 md:block">
             <table className="w-full min-w-[560px] text-left text-sm">
               <thead className="bg-muted/40 text-xs uppercase tracking-wider text-muted-foreground">
                 <tr>
