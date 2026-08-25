@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { ClipboardList, Menu } from "lucide-react";
 import logoUrl from "@/assets/logo.png";
 import {
@@ -22,28 +22,51 @@ export function Header({
   onOpenWizard?: () => void;
   ctaHref?: string;
 }) {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
-        <a href="#inicio" className="flex items-center gap-2">
-          <img
-            src={logoUrl}
-            alt="IAmkt — Agencia de Ingeniería, IA y Marketing Digital"
-            className="h-10 w-auto"
-          />
-        </a>
+        {isHome ? (
+          <a href="#inicio" className="flex items-center gap-2">
+            <img
+              src={logoUrl}
+              alt="IAmkt — Agencia de Ingeniería, IA y Marketing Digital"
+              className="h-10 w-auto"
+            />
+          </a>
+        ) : (
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src={logoUrl}
+              alt="IAmkt — Agencia de Ingeniería, IA y Marketing Digital"
+              className="h-10 w-auto"
+            />
+          </Link>
+        )}
 
         {/* Menú escritorio */}
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV_ITEMS.map(([label, href]) => (
-            <a
-              key={href}
-              href={href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-accent"
-            >
-              {label}
-            </a>
-          ))}
+          {NAV_ITEMS.map(([label, hash]) =>
+            isHome ? (
+              <a
+                key={hash}
+                href={hash}
+                className="text-sm font-medium text-foreground/80 transition-colors hover:text-accent"
+              >
+                {label}
+              </a>
+            ) : (
+              <Link
+                key={hash}
+                to="/"
+                hash={hash.slice(1)}
+                className="text-sm font-medium text-foreground/80 transition-colors hover:text-accent"
+              >
+                {label}
+              </Link>
+            )
+          )}
           <Link
             to="/blog"
             className="text-sm font-medium text-foreground/80 transition-colors hover:text-accent"
@@ -85,16 +108,28 @@ export function Header({
           </SheetTrigger>
           <SheetContent side="right" className="w-[280px] bg-background/95 backdrop-blur-xl">
             <div className="mt-10 flex flex-col gap-2">
-              {NAV_ITEMS.map(([label, href]) => (
-                <SheetClose asChild key={href}>
-                  <a
-                    href={href}
-                    className="rounded-lg px-4 py-3 text-lg font-semibold text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
-                  >
-                    {label}
-                  </a>
-                </SheetClose>
-              ))}
+              {NAV_ITEMS.map(([label, hash]) =>
+                isHome ? (
+                  <SheetClose asChild key={hash}>
+                    <a
+                      href={hash}
+                      className="rounded-lg px-4 py-3 text-lg font-semibold text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
+                    >
+                      {label}
+                    </a>
+                  </SheetClose>
+                ) : (
+                  <SheetClose asChild key={hash}>
+                    <Link
+                      to="/"
+                      hash={hash.slice(1)}
+                      className="rounded-lg px-4 py-3 text-lg font-semibold text-foreground/80 transition-colors hover:bg-accent/10 hover:text-accent"
+                    >
+                      {label}
+                    </Link>
+                  </SheetClose>
+                )
+              )}
               <SheetClose asChild>
                 <Link
                   to="/blog"
