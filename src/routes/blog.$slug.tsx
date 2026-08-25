@@ -534,6 +534,9 @@ function PostView() {
             <a href="mailto:contacto@iamkt.co" className="transition-colors hover:text-accent">
               contacto@iamkt.co
             </a>
+            <Link to="/casos-de-exito" className="transition-colors hover:text-accent">
+              Casos de éxito
+            </Link>
             <Link to="/privacidad" className="transition-colors hover:text-accent">
               Privacidad
             </Link>

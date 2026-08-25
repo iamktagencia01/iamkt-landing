@@ -928,6 +928,9 @@ function Footer() {
             <span>© {new Date().getFullYear()} Agencia IAmkt</span>
             <span>Todos los derechos reservados</span>
             <div className="mt-1 flex gap-4">
+              <Link to="/casos-de-exito" className="transition-colors hover:text-white">
+                Casos de éxito
+              </Link>
               <Link to="/privacidad" className="transition-colors hover:text-white">
                 Privacidad
               </Link>

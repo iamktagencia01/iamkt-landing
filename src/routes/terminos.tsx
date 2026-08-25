@@ -145,6 +145,9 @@ function TermsPage() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-sm text-muted-foreground md:flex-row md:px-8">
           <span>© {new Date().getFullYear()} IAmkt — Ingeniería, IA y Marketing Digital</span>
           <div className="flex gap-6">
+            <Link to="/casos-de-exito" className="transition-colors hover:text-accent">
+              Casos de éxito
+            </Link>
             <Link to="/privacidad" className="transition-colors hover:text-accent">
               Privacidad
             </Link>
