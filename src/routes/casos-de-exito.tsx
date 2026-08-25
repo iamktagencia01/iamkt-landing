@@ -125,13 +125,20 @@ function CasosPage() {
         <section className="mt-14">
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <div className="flex items-center gap-4">
-              <div className="flex h-16 w-28 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-[#F8EBCB] p-2 shadow-sm">
+              <a
+                href="https://www.instagram.com/monarcagastrobar_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de Monarca Gastro Bar"
+                title="Instagram de Monarca Gastro Bar"
+                className="flex h-16 w-28 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-[#F8EBCB] p-2 shadow-sm transition-opacity hover:opacity-80"
+              >
                 <img
                   src="/casos/monarca-logo.png"
                   alt="Monarca Gastro Bar"
                   className="max-h-12 w-auto object-contain"
                 />
-              </div>
+              </a>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-accent">
                   Caso 1 · Restaurante
@@ -252,13 +259,20 @@ function CasosPage() {
         <section className="mt-16">
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <div className="flex items-center gap-4">
-              <div className="flex h-16 w-28 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-white p-2 shadow-sm">
+              <a
+                href="https://www.dasagrobiotecnologias.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sitio web de DasAgro Biotecnologías"
+                title="Sitio web de DasAgro Biotecnologías"
+                className="flex h-16 w-28 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-white p-2 shadow-sm transition-opacity hover:opacity-80"
+              >
                 <img
                   src="/casos/dasagro-logo.png"
                   alt="DasAgro Biotecnologías"
                   className="max-h-12 w-auto object-contain"
                 />
-              </div>
+              </a>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-accent">
                   Caso 2 · Agroinsumos
