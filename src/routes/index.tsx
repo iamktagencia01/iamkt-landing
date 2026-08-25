@@ -332,7 +332,7 @@ const BENEFITS = [
   {
     icon: DollarSign,
     title: "Más clientes y ventas",
-    body: "Todo nuestro ecosistema de ingeniería e inteligencia artificial tiene un único objetivo final: escalar tu facturación. Transformamos tu presencia digital en una máquina predecible de generación de prospectos calificados listos para comprar.",
+    body: "Todo nuestro ecosistema de ingeniería e inteligencia artificial tiene un único objetivo final: hacer crecer tu facturación. Diseñamos sistemas que convierten tu presencia digital en un canal estable de prospectos calificados, con procesos medibles y resultados verificables.",
   },
 ];
 
@@ -523,7 +523,7 @@ const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       "Falta de embudo de ventas y seguimiento",
     ],
     forWhom:
-      "Empresas que están invirtiendo en publicidad sin ver resultados claros. Negocios que quieren pasar de 'estar en redes' a tener un canal de ventas predecible.",
+      "Empresas que están invirtiendo en publicidad sin ver resultados claros. Negocios que quieren pasar de 'estar en redes' a tener un canal de ventas organizado y medible.",
     deliverables: [
       "Estrategia de canales y segmentación",
       "Campañas configuradas y optimizadas",
@@ -885,8 +885,8 @@ function ContactSection({ onOpenWizard }: { onOpenWizard: () => void }) {
           ¿Listo para construir tu maquinaria de crecimiento?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-white/80">
-          Completa nuestro diagnóstico gratuito y descubre exactamente cómo la IA y
-          la ingeniería pueden multiplicar tus ventas.
+          Completa nuestro diagnóstico gratuito y descubre cómo la IA y la ingeniería pueden
+          aumentar tus ventas, reducir tiempos operativos y darte control sobre tu negocio.
         </p>
         <div className="mt-10 flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
           <button

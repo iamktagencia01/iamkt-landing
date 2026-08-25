@@ -145,7 +145,17 @@ function CasosPage() {
 
             <div className="space-y-6">
               <div>
-                <SectionTitle>El flujo de trabajo hoy</SectionTitle>
+                <SectionTitle>El problema inicial</SectionTitle>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                  Comandas en papel, meseros haciendo viajes extra a cocina para confirmar
+                  disponibilidad, cuadres de caja manuales al cierre, reportes del gerente
+                  armados a mano y un menú del día difícil de comunicar al cliente. Cada
+                  error de anotación se traducía en reprocesos y platos devueltos.
+                </p>
+              </div>
+
+              <div>
+                <SectionTitle>La solución implementada</SectionTitle>
                 <p className="mt-2 text-sm leading-relaxed text-foreground/85">
                   El cliente escanea el QR de la mesa y ve la carta digital con fotos y el
                   menú del día, que cambia a diario desde el panel del administrador. El
@@ -184,6 +194,14 @@ function CasosPage() {
                     <BadgeCheck className="h-3.5 w-3.5" /> PWA instalable + API multi-tenant
                   </Chip>
                 </div>
+              </div>
+
+              <div>
+                <SectionTitle>Tiempo de implementación</SectionTitle>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                  ~3 semanas por fases (jul-ago 2026): carta QR, app de mesero y cocina,
+                  panel admin con caja y arqueo, módulo gerente con reportes, y seguridad.
+                </p>
               </div>
 
               <div>
@@ -245,7 +263,17 @@ function CasosPage() {
 
             <div className="space-y-6">
               <div>
-                <SectionTitle>El flujo de trabajo hoy</SectionTitle>
+                <SectionTitle>El problema inicial</SectionTitle>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                  Pedidos que llegaban por WhatsApp y se transcribían a mano, precios buscados
+                  en listas físicas, cada uno de los 5 almacenes manejando su propia
+                  información, seguimiento de entregas y pagos sin trazabilidad, y un gerente
+                  sin visión consolidada de la operación.
+                </p>
+              </div>
+
+              <div>
+                <SectionTitle>La solución implementada</SectionTitle>
                 <p className="mt-2 text-sm leading-relaxed text-foreground/85">
                   El asesor abre el cliente en segundos (miles de clientes centralizados),
                   arma la orden con precios automáticos por presentación y descuentos, y la
@@ -285,6 +313,15 @@ function CasosPage() {
                     <BadgeCheck className="h-3.5 w-3.5" /> React + Supabase (PostgreSQL + Auth)
                   </Chip>
                 </div>
+              </div>
+
+              <div>
+                <SectionTitle>Tiempo de implementación</SectionTitle>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+                  ~1 semana para las 5 fases (jul 2026): base de datos con roles, órdenes y
+                  cualificación, facturación y logística, seguimiento de venta, dashboards y
+                  refuerzos posteriores.
+                </p>
               </div>
 
               <div>
