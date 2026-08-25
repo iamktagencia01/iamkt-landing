@@ -111,6 +111,17 @@ function renderInline(text: string): ReactNode[] {
         </Link>
       );
     }
+    if (url === "/casos-de-exito") {
+      return (
+        <Link
+          key={i}
+          to="/casos-de-exito"
+          className="font-semibold text-accent underline underline-offset-4 transition-colors hover:text-accent/80"
+        >
+          {label}
+        </Link>
+      );
+    }
     return (
       <a
         key={i}

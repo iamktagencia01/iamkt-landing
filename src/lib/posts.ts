@@ -308,7 +308,7 @@ export const POSTS: Post[] = [
       },
       {
         t: "p",
-        x: "En IAmkt ayudamos a identificar qué procesos tienen mayor retorno, conectamos las herramientas existentes y dejamos reglas que el equipo pueda entender y supervisar. El diagnóstico inicial es gratuito y sirve para priorizar una primera automatización con sentido para tu empresa.",
+        x: "En IAmkt ayudamos a identificar qué procesos tienen mayor retorno, conectamos las herramientas existentes y dejamos reglas que el equipo pueda entender y supervisar. En la página de [casos de éxito](/casos-de-exito) puedes ver dos implementaciones reales con ahorros estimados en horas y dinero. El diagnóstico inicial es gratuito y sirve para priorizar una primera automatización con sentido para tu empresa.",
       },
     ],
     faq: [
@@ -413,7 +413,7 @@ export const POSTS: Post[] = [
       },
       {
         t: "p",
-        x: "En IAmkt diseñamos embudos conversacionales para WhatsApp conectados con los procesos y herramientas reales de cada empresa. El primer paso es mapear las preguntas frecuentes, los momentos de intervención humana y el resultado que quieres medir.",
+        x: "En IAmkt diseñamos embudos conversacionales para WhatsApp conectados con los procesos y herramientas reales de cada empresa. Un caso real es Dasagro 360, que centralizó en un CRM los pedidos que llegaban por WhatsApp, con facturación e inventario integrados; el detalle está en nuestros [casos de éxito](/casos-de-exito). El primer paso es mapear las preguntas frecuentes, los momentos de intervención humana y el resultado que quieres medir.",
       },
     ],
     faq: [
@@ -629,7 +629,7 @@ export const POSTS: Post[] = [
       },
       {
         t: "p",
-        x: "En IAmkt ayudamos a convertir necesidades agrícolas en sistemas simples de registro, análisis y automatización. El punto de partida es un diagnóstico del proceso, los datos disponibles y la decisión que debe mejorar; después se diseña un piloto que el equipo pueda usar en la operación diaria.",
+        x: "En IAmkt ayudamos a convertir necesidades agrícolas en sistemas simples de registro, análisis y automatización. Un ejemplo real es Dasagro 360, un CRM para una distribuidora de insumos con 5 almacenes que ordenó pedidos, facturación e inventario, con ahorros estimados que puedes ver en nuestros [casos de éxito](/casos-de-exito). El punto de partida es un diagnóstico del proceso, los datos disponibles y la decisión que debe mejorar; después se diseña un piloto que el equipo pueda usar en la operación diaria.",
       },
     ],
     faq: [
@@ -779,7 +779,7 @@ export const POSTS: Post[] = [
       },
       {
         t: "p",
-        x: "En IAmkt implementamos atención al cliente con IA conectada a WhatsApp, agenda y CRM, con reglas de escalamiento claras y acompañamiento en las primeras semanas. El diagnóstico inicial es gratuito: mapeamos tus preguntas frecuentes, tus momentos de intervención humana y el indicador que quieres mejorar.",
+        x: "En IAmkt implementamos atención al cliente con IA conectada a WhatsApp, agenda y CRM, con reglas de escalamiento claras y acompañamiento en las primeras semanas. Los resultados que se pueden esperar están ilustrados en nuestros [casos de éxito](/casos-de-exito), con estimaciones de ahorro en horas y dinero para restaurantes y agroinsumos. El diagnóstico inicial es gratuito: mapeamos tus preguntas frecuentes, tus momentos de intervención humana y el indicador que quieres mejorar.",
       },
     ],
     faq: [

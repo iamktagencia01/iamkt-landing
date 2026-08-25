@@ -31,6 +31,8 @@ import {
   Sparkles,
   Menu,
   X,
+  UtensilsCrossed,
+  Sprout,
 } from "lucide-react";
 import logoUrl from "@/assets/logo.png";
 import { TechBackground } from "@/components/TechBackground";
@@ -740,6 +742,75 @@ const STEPS = [
   },
 ];
 
+/* ─── CASOS DE ÉXITO ─── */
+
+const CASOS = [
+  {
+    icon: UtensilsCrossed,
+    title: "Monarca Gastro Bar",
+    sector: "Restaurante · Menú QR y gestión",
+    body: "Pedidos directos del cliente a cocina, alertas al mesero, caja y reportes automáticos. Cero comandas en papel.",
+    metric: "150–175 h/mes · $2.5–6M/mes",
+  },
+  {
+    icon: Sprout,
+    title: "Dasagro 360",
+    sector: "Agroinsumos · CRM con 5 almacenes",
+    body: "Pedidos por WhatsApp ordenados en un flujo de factura, inventario y contabilidad. Atención en minutos, cero pedidos perdidos.",
+    metric: "250–275 h/mes · $3.5–6M/mes",
+  },
+];
+
+function CasosExito() {
+  return (
+    <section
+      id="casos"
+      className="relative overflow-hidden py-20 text-white md:py-28"
+      style={{ backgroundColor: "oklch(0.13 0.06 265)" }}
+    >
+      <TechBackground density={35} />
+      <div className="relative mx-auto max-w-6xl px-4 md:px-8">
+        <SectionHeader
+          tag="Casos de éxito"
+          title="Resultados que ya están en producción"
+          subtitle="Dos implementaciones reales con estimaciones de ahorro basadas en promedios del sector."
+        />
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
+          {CASOS.map(({ icon: Icon, title, sector, body, metric }) => (
+            <Link
+              key={title}
+              to="/casos-de-exito"
+              className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.07] hover:shadow-xl hover:shadow-accent/10 md:p-8"
+            >
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                  <Icon className="h-6 w-6" strokeWidth={1.75} />
+                </span>
+                <div>
+                  <h3 className="text-lg font-bold text-white">{title}</h3>
+                  <p className="text-xs text-white/60">{sector}</p>
+                </div>
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-white/75">{body}</p>
+              <p className="mt-4 inline-flex items-center gap-2 text-base font-extrabold text-accent">
+                {metric}
+              </p>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-10 flex justify-center">
+          <Link
+            to="/casos-de-exito"
+            className="group inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
+          >
+            Ver casos de éxito completos <ArrowRight className="h-5 w-5" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── FAQ ─── */
 
 function FAQ({ onOpenWizard }: { onOpenWizard: () => void }) {
@@ -986,6 +1057,7 @@ function Landing() {
         <Hero onOpenWizard={() => setWizardOpen(true)} />
         <Benefits onOpenWizard={() => setWizardOpen(true)} />
         <Services onOpenWizard={() => setWizardOpen(true)} />
+        <CasosExito />
         <FAQ onOpenWizard={() => setWizardOpen(true)} />
         <ContactSection onOpenWizard={() => setWizardOpen(true)} />
       </main>
