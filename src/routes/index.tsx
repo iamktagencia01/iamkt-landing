@@ -927,6 +927,14 @@ function Footer() {
           <div className="mt-6 flex flex-col gap-2 text-xs text-white/60">
             <span>© {new Date().getFullYear()} Agencia IAmkt</span>
             <span>Todos los derechos reservados</span>
+            <div className="mt-1 flex gap-4">
+              <Link to="/privacidad" className="transition-colors hover:text-white">
+                Privacidad
+              </Link>
+              <Link to="/terminos" className="transition-colors hover:text-white">
+                Términos
+              </Link>
+            </div>
           </div>
         </div>
       </div>
