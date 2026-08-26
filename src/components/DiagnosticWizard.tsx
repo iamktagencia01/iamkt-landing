@@ -516,7 +516,7 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
         // Single select: set and auto-advance
         setAnswers((prev) => ({ ...prev, [key]: value }));
         setTimeout(() => {
-          setCurrentStep((prev) => Math.min(prev + 1, 5));
+          setCurrentStep((prev) => Math.min(prev + 1, 6));
         }, 200);
       }
     },
@@ -609,7 +609,6 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
   if (!open) return null;
 
   const currentStepConfig = STEPS[currentStep - 1] as StepConfig | undefined;
-  const isLastStep = currentStep === 4;
   const isFirstStep = currentStep === 1;
 
   return (
