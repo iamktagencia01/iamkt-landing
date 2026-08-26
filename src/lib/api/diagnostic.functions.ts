@@ -7,6 +7,8 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
   .inputValidator(
     z.object({
       bottleneck: z.array(z.string()).min(1, "Selecciona al menos una opción"),
+      sector: z.string().min(1, "Selecciona una opción"),
+      salesChannel: z.string().min(1, "Selecciona una opción"),
       teamSize: z.string().min(1, "Selecciona una opción"),
       timeline: z.string().min(1, "Selecciona una opción"),
       name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -35,6 +37,23 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
       lack_software: "Falta de software a la medida",
       lack_direction: "Falta de dirección estratégica",
       want_ai: "Quiero implementar IA pero no sé cómo",
+    };
+
+    const sectorLabels: Record<string, string> = {
+      restaurante: "Restaurante / Gastronomía",
+      comercio: "Comercio / Tienda",
+      distribuidor: "Distribuidor / Almacén",
+      agro: "Agroempresa / Agroinsumos",
+      servicios: "PyME de servicios",
+      otro: "Otro sector",
+    };
+
+    const salesChannelLabels: Record<string, string> = {
+      whatsapp: "WhatsApp",
+      presencial: "En el local / Presencial",
+      telefono: "Llamadas telefónicas",
+      online: "Web / Tienda online",
+      mixto: "Varios canales",
     };
 
     const teamSizeLabels: Record<string, string> = {
@@ -102,7 +121,31 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
 
               <tr>
                 <td colspan="2" style="padding: 6px 0 12px;">
-                  <p style="margin: 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #087f99;">Paso 2 — Tamaño del equipo</p>
+                  <p style="margin: 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #087f99;">Paso 2 — Sector del negocio</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px 8px 0; font-size: 13px; color: #6b7280; width: 100px; vertical-align: top;">Respuesta</td>
+                <td style="padding: 8px 0; font-size: 14px; color: #111827; font-weight: 600;">${sectorLabels[data.sector] || data.sector}</td>
+              </tr>
+
+              <tr><td colspan="2" style="border-top: 1px solid #e5e7eb; height: 16px;"></td></tr>
+
+              <tr>
+                <td colspan="2" style="padding: 6px 0 12px;">
+                  <p style="margin: 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #087f99;">Paso 3 — Canal de ventas</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px 8px 0; font-size: 13px; color: #6b7280; width: 100px; vertical-align: top;">Respuesta</td>
+                <td style="padding: 8px 0; font-size: 14px; color: #111827; font-weight: 600;">${salesChannelLabels[data.salesChannel] || data.salesChannel}</td>
+              </tr>
+
+              <tr><td colspan="2" style="border-top: 1px solid #e5e7eb; height: 16px;"></td></tr>
+
+              <tr>
+                <td colspan="2" style="padding: 6px 0 12px;">
+                  <p style="margin: 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #087f99;">Paso 4 — Tamaño del equipo</p>
                 </td>
               </tr>
               <tr>
@@ -114,7 +157,7 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
 
               <tr>
                 <td colspan="2" style="padding: 6px 0 12px;">
-                  <p style="margin: 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #087f99;">Paso 3 — Plazo de implementación</p>
+                  <p style="margin: 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #087f99;">Paso 5 — Plazo de implementación</p>
                 </td>
               </tr>
               <tr>
@@ -126,7 +169,7 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
 
               <tr>
                 <td colspan="2" style="padding: 6px 0 12px;">
-                  <p style="margin: 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #087f99;">Paso 4 — Datos de contacto</p>
+                  <p style="margin: 0; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #087f99;">Paso 6 — Datos de contacto</p>
                 </td>
               </tr>
               <tr>
@@ -161,7 +204,7 @@ export const sendDiagnosticEmail = createServerFn({ method: "POST" })
             <div style="margin-top: 16px; padding: 16px; background: #f8fafc; border-radius: 10px;">
               <p style="margin: 0 0 4px; font-size: 12px; color: #64748b;">🧩 Resumen rápido</p>
               <p style="margin: 0; font-size: 12px; color: #334155;">
-                <strong>${data.name}</strong> — ${teamSizeLabels[data.teamSize] || data.teamSize} |
+                <strong>${data.name}</strong> — ${sectorLabels[data.sector] || data.sector} · ${teamSizeLabels[data.teamSize] || data.teamSize} · canal ${salesChannelLabels[data.salesChannel] || data.salesChannel} |
                 ${bottleneckCount} área(s) crítica(s) identificada(s) |
                 Prioridad: ${timelineLabels[data.timeline] || data.timeline}
               </p>
@@ -185,17 +228,21 @@ NUEVO DIAGNÓSTICO IAMKT
 PASO 1 — Cuello(s) de botella:
 ${bottleneckText}
 
-PASO 2 — Tamaño del equipo: ${teamSizeLabels[data.teamSize] || data.teamSize}
+PASO 2 — Sector: ${sectorLabels[data.sector] || data.sector}
 
-PASO 3 — Plazo: ${timelineLabels[data.timeline] || data.timeline}
+PASO 3 — Canal de ventas: ${salesChannelLabels[data.salesChannel] || data.salesChannel}
 
-PASO 4 — Contacto
+PASO 4 — Tamaño del equipo: ${teamSizeLabels[data.teamSize] || data.teamSize}
+
+PASO 5 — Plazo: ${timelineLabels[data.timeline] || data.timeline}
+
+PASO 6 — Contacto
 Nombre: ${data.name}
 Empresa: ${data.company}
 WhatsApp: ${data.whatsapp}
 Email: ${data.email}
 
-Resumen: ${bottleneckCount} área(s) crítica(s) | ${teamSizeLabels[data.teamSize] || data.teamSize} | Prioridad: ${timelineLabels[data.timeline] || data.timeline}
+Resumen: ${bottleneckCount} área(s) crítica(s) | ${sectorLabels[data.sector] || data.sector} | ${teamSizeLabels[data.teamSize] || data.teamSize} | canal ${salesChannelLabels[data.salesChannel] || data.salesChannel} | Prioridad: ${timelineLabels[data.timeline] || data.timeline}
     `.trim();
 
     try {

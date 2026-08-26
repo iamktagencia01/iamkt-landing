@@ -9,7 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { getPostBySlug, getPublishedPosts, type Block } from "@/lib/posts";
+import { getPostBySlug, getPublishedPosts, getPostCta, type Block } from "@/lib/posts";
 import {
   ArrowDown,
   ArrowLeft,
@@ -373,6 +373,7 @@ const WHATSAPP_URL = `https://wa.me/573228570784?text=${encodeURIComponent(
 
 function PostView() {
   const post = Route.useLoaderData();
+  const postCta = getPostCta(post.slug);
   const related = useMemo(() => {
     const others = getPublishedPosts().filter((p) => p.slug !== post.slug);
     const sameCat = others.filter((p) => p.category === post.category);
@@ -468,18 +469,19 @@ function PostView() {
           style={{ backgroundColor: "oklch(0.13 0.06 265)" }}
         >
           <h2 className="text-2xl font-bold md:text-3xl">
-            ¿Quieres implementar esto en tu empresa?
+            {postCta ? postCta.title : "¿Quieres implementar esto en tu empresa?"}
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-white/70">
-            En IAmkt convertimos estas guías en soluciones reales. El diagnóstico inicial es
-            gratuito y sin compromiso.
+            {postCta
+              ? postCta.text
+              : "En IAmkt convertimos estas guías en soluciones reales. El diagnóstico inicial es gratuito y sin compromiso."}
           </p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
-              to="/?diagnostico=1"
+              to={postCta ? postCta.link : "/?diagnostico=1"}
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5"
             >
-              Diagnóstico Gratuito <ArrowRight className="h-4 w-4" />
+              {postCta ? postCta.button : "Diagnóstico Gratuito"} <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href={WHATSAPP_URL}

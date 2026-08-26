@@ -278,6 +278,10 @@ function Hero({ onOpenWizard }: { onOpenWizard: () => void }) {
             comerciales y operativos. Diseñamos, implementamos y optimizamos sistemas para que tu
             empresa venda más, atienda mejor y opere con mayor eficiencia.
           </p>
+          <p className="mt-4 max-w-2xl text-center text-base leading-relaxed text-cyan-100/90">
+            Ayudamos a comercios, almacenes, restaurantes, tiendas, distribuidores, agroempresas y
+            PyMEs que reciben pedidos por WhatsApp y aún operan en manual.
+          </p>
           <p className="mt-4 text-center text-base font-semibold text-emerald-300">
             ⚡ Empieza hoy con un <span className="text-white">diagnóstico gratuito</span> — sin compromiso, sin costo.
           </p>

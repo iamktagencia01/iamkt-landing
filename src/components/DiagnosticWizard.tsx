@@ -21,6 +21,11 @@ import {
   SendHorizonal,
   Compass,
   BrainCircuit,
+  Store,
+  ShoppingCart,
+  Sprout,
+  Briefcase,
+  Phone,
 } from "lucide-react";
 import { sendDiagnosticEmail } from "../lib/api/diagnostic.functions";
 import { cn } from "../lib/utils";
@@ -60,6 +65,8 @@ type StepKey = "bottleneck" | "teamSize" | "timeline";
 
 interface WizardAnswers {
   bottleneck: string[];
+  sector: string | null;
+  salesChannel: string | null;
   teamSize: string | null;
   timeline: string | null;
 }
@@ -135,6 +142,90 @@ const STEPS: StepConfig[] = [
   },
   {
     step: 2,
+    key: "sector",
+    question: "¿A qué se dedica tu negocio?",
+    subtitle: "Para enfocar la solución a tu tipo de operación",
+    multiSelect: false,
+    options: [
+      {
+        value: "restaurante",
+        label: "Restaurante / Gastronomía",
+        icon: Store,
+        description: "Menú, pedidos, meseros y cocina",
+      },
+      {
+        value: "comercio",
+        label: "Comercio / Tienda",
+        icon: ShoppingCart,
+        description: "Ventas al detal y atención al cliente",
+      },
+      {
+        value: "distribuidor",
+        label: "Distribuidor / Almacén",
+        icon: Building2,
+        description: "Ventas por volumen, catálogo e inventario",
+      },
+      {
+        value: "agro",
+        label: "Agroempresa / Agroinsumos",
+        icon: Sprout,
+        description: "Insumos, cultivos y cadena agro",
+      },
+      {
+        value: "servicios",
+        label: "PyME de servicios",
+        icon: Briefcase,
+        description: "Consultoría, servicios profesionales o técnicos",
+      },
+      {
+        value: "otro",
+        label: "Otro sector",
+        icon: Compass,
+        description: "Cuéntanos en el diagnóstico",
+      },
+    ],
+  },
+  {
+    step: 3,
+    key: "salesChannel",
+    question: "¿Por dónde recibes hoy la mayoría de tus pedidos o consultas?",
+    subtitle: "Para conectar la solución con tu canal real de ventas",
+    multiSelect: false,
+    options: [
+      {
+        value: "whatsapp",
+        label: "WhatsApp",
+        icon: MessageSquare,
+        description: "Pedidos y consultas por chat",
+      },
+      {
+        value: "presencial",
+        label: "En el local / Presencial",
+        icon: Store,
+        description: "Clientes que visitan el punto de venta",
+      },
+      {
+        value: "telefono",
+        label: "Llamadas telefónicas",
+        icon: Phone,
+        description: "Pedidos por voz o teléfono",
+      },
+      {
+        value: "online",
+        label: "Web / Tienda online",
+        icon: ShoppingCart,
+        description: "Ventas por página web o marketplace",
+      },
+      {
+        value: "mixto",
+        label: "Varios canales",
+        icon: Compass,
+        description: "Combino dos o más de los anteriores",
+      },
+    ],
+  },
+  {
+    step: 4,
     key: "teamSize",
     question: "¿De qué tamaño es tu equipo actual?",
     subtitle: "Para dimensionar la solución adecuada",
@@ -167,7 +258,7 @@ const STEPS: StepConfig[] = [
     ],
   },
   {
-    step: 3,
+    step: 5,
     key: "timeline",
     question: "¿Para cuándo necesitas implementar esta solución?",
     subtitle: "Para priorizar tu caso",
@@ -211,7 +302,7 @@ type ContactData = z.infer<typeof contactSchema>;
 function ProgressBar({ currentStep }: { currentStep: number }) {
   return (
     <div className="mb-6 flex items-center justify-center gap-2">
-      {[1, 2, 3, 4].map((step) => (
+      {[1, 2, 3, 4, 5, 6].map((step) => (
         <div key={step} className="flex items-center gap-2">
           <div
             className={cn(
@@ -230,7 +321,7 @@ function ProgressBar({ currentStep }: { currentStep: number }) {
               step
             )}
           </div>
-          {step < 4 && (
+          {step < 6 && (
             <div
               className={cn(
                 "h-px w-6 transition-colors duration-300",
@@ -373,7 +464,7 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
   useEffect(() => {
     if (open) {
       setCurrentStep(1);
-      setAnswers({ bottleneck: [], teamSize: null, timeline: null });
+      setAnswers({ bottleneck: [], sector: null, salesChannel: null, teamSize: null, timeline: null });
       setFormData({ name: "", company: "", whatsapp: "", email: "" });
       setFormErrors({});
       setSubmitting(false);
@@ -425,7 +516,7 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
         // Single select: set and auto-advance
         setAnswers((prev) => ({ ...prev, [key]: value }));
         setTimeout(() => {
-          setCurrentStep((prev) => Math.min(prev + 1, 4));
+          setCurrentStep((prev) => Math.min(prev + 1, 5));
         }, 200);
       }
     },
@@ -434,12 +525,12 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
 
   const goNext = useCallback(() => {
     setAnimDir("forward");
-    if (currentStep < 3) {
+    if (currentStep < 5) {
       // Validate multi-select step has at least one selection
       if (currentStep === 1 && answers.bottleneck.length === 0) return;
       setCurrentStep((prev) => prev + 1);
     } else {
-      setCurrentStep(4);
+      setCurrentStep(6);
     }
   }, [currentStep, answers.bottleneck]);
 
@@ -472,7 +563,13 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
       return;
     }
 
-    if (answers.bottleneck.length === 0 || !answers.teamSize || !answers.timeline) {
+    if (
+      answers.bottleneck.length === 0 ||
+      !answers.sector ||
+      !answers.salesChannel ||
+      !answers.teamSize ||
+      !answers.timeline
+    ) {
       setSubmitError("Faltan respuestas de pasos anteriores. Por favor vuelve a empezar.");
       return;
     }
@@ -484,6 +581,8 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
       const response = await sendDiagnosticEmail({
         data: {
           bottleneck: answers.bottleneck,
+          sector: answers.sector,
+          salesChannel: answers.salesChannel,
           teamSize: answers.teamSize,
           timeline: answers.timeline,
           name: formData.name,
@@ -560,7 +659,7 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
                   {/* Question header */}
                   <div className="mb-1 text-center">
                     <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
-                      Paso {currentStepConfig.step} de 4
+                      Paso {currentStepConfig.step} de 5
                     </p>
                     <h3 className="mt-2 text-lg font-bold text-white">
                       {currentStepConfig.question}
@@ -635,7 +734,7 @@ export default function DiagnosticWizard({ open, onClose }: WizardProps) {
                 <div>
                   <div className="mb-1 text-center">
                     <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
-                      Paso 4 de 4
+                      Paso 6 de 6
                     </p>
                     <h3 className="mt-2 text-lg font-bold text-white">
                       Tus datos de contacto

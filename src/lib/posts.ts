@@ -22,6 +22,11 @@ export type Post = {
   published: boolean;
   faq: { q: string; a: string }[];
   content: Block[];
+  cta?: {
+    title: string;
+    text: string;
+    button: string;
+  };
 };
 
 export const POSTS: Post[] = [
@@ -947,4 +952,58 @@ export function getPublishedPosts(): Post[] {
 
 export function getPostBySlug(slug: string): Post | undefined {
   return POSTS.find((p) => p.slug === slug);
+}
+
+/* ─── CTAs específicos por artículo (recomendación Perplexity: cada artículo → oferta concreta) ─── */
+
+export const POST_CTAS: Record<
+  string,
+  { title: string; text: string; button: string; link: string }
+> = {
+  "que-es-un-agente-de-ia": {
+    title: "¿Listo para poner un agente de IA a trabajar en tu empresa?",
+    text: "Empezamos con un agente simple conectado a WhatsApp o agenda, y escalamos a integraciones con CRM cuando el proceso lo pide. El diagnóstico inicial es gratuito.",
+    button: "Descubre qué agente necesitas",
+    link: "/?diagnostico=1",
+  },
+  "automatizacion-para-pymes-7-procesos": {
+    title: "Automatiza tu primer proceso en semanas, no en meses",
+    text: "Identificamos los 7 procesos tipo de tu operación y priorizamos el que más horas o dinero te cuesta. Conectamos tus herramientas actuales sin cambiar todo tu sistema.",
+    button: "Mapea tus procesos gratis",
+    link: "/?diagnostico=1",
+  },
+  "whatsapp-business-embudo-conversacional": {
+    title: "Convierte tu WhatsApp en un canal de ventas que responde solo",
+    text: "Diseñamos el embudo conversacional sobre tus preguntas reales, conectado a tu inventario y tu CRM, con escalamiento a humano cuando hace falta.",
+    button: "Diseña tu embudo WhatsApp",
+    link: "/?diagnostico=1",
+  },
+  "cuanto-cuesta-marketing-digital-colombia": {
+    title: "Invierte en marketing con una meta medible, no con promesas",
+    text: "Te ayudamos a separar lo urgente de lo importante y a montar una primera fase acorde con tu presupuesto: captación, conversación, calificación y seguimiento conectados.",
+    button: "Recibe tu plan de inversión",
+    link: "/?diagnostico=1",
+  },
+  "ia-en-el-agro-colombiano": {
+    title: "Lleva tu agroempresa del cuaderno al control digital",
+    text: "Como en Dasagro 360: pedidos por WhatsApp ordenados, inventario por almacén y trazabilidad de clientes. Empezamos con un piloto que tu equipo use en el día a día.",
+    button: "Agenda un diagnóstico agro",
+    link: "/?diagnostico=1",
+  },
+  "atencion-al-cliente-con-ia-colombia": {
+    title: "Atiende 24/7 sin perder la calidad humana",
+    text: "Conectamos IA a tu WhatsApp, agenda y CRM con reglas de escalamiento claras. Tus clientes reciben respuesta al instante y tu equipo interviene solo cuando importa.",
+    button: "Prueba un asistente IA",
+    link: "/?diagnostico=1",
+  },
+  "seo-geo-aeo-posicionamiento-2026": {
+    title: "Aparece en Google, ChatGPT y Perplexity — lo aplicamos a tu empresa",
+    text: "Hacemos base SEO, estructura para IA (llms.txt, schema, contenido citable) y acompañamiento en redes para construir reconocimiento. El diagnóstico inicial es gratuito.",
+    button: "Audita tu posicionamiento",
+    link: "/?diagnostico=1",
+  },
+};
+
+export function getPostCta(slug: string) {
+  return POST_CTAS[slug];
 }

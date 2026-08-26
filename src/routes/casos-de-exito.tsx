@@ -47,7 +47,7 @@ function VideoCard({
     <figure className="mx-auto w-full max-w-[280px]">
       <video
         controls
-        preload="metadata"
+        preload="none"
         poster={poster}
         playsInline
         className="aspect-[9/16] w-full rounded-2xl border border-border/60 bg-black object-cover shadow-lg"
