@@ -188,6 +188,25 @@ function CasosPage() {
                 </p>
               </div>
 
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-xl border border-red-400/30 bg-red-400/5 p-4">
+                  <p className="text-xs font-bold uppercase tracking-wider text-red-400">Antes</p>
+                  <ul className="mt-2 space-y-1.5 text-xs leading-relaxed text-foreground/80">
+                    <li>• Comanda a mano: 8-12 min por mesa</li>
+                    <li>• 5-8% de pedidos con errores</li>
+                    <li>• Cuadre de caja manual al cierre</li>
+                  </ul>
+                </div>
+                <div className="rounded-xl border border-emerald-400/30 bg-emerald-400/5 p-4">
+                  <p className="text-xs font-bold uppercase tracking-wider text-emerald-400">Después</p>
+                  <ul className="mt-2 space-y-1.5 text-xs leading-relaxed text-foreground/80">
+                    <li>• Pedido digital: 2-4 min a cocina</li>
+                    <li>• Errores por debajo del 1%</li>
+                    <li>• Caja y reportes automáticos</li>
+                  </ul>
+                </div>
+              </div>
+
               <div>
                 <SectionTitle>Automatización, seguridad y tecnología</SectionTitle>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -321,6 +340,25 @@ function CasosPage() {
                   visión consolidada. <strong>Ahora:</strong> la operación entera queda
                   ordenada, trazable y visible en un solo lugar.
                 </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-xl border border-red-400/30 bg-red-400/5 p-4">
+                  <p className="text-xs font-bold uppercase tracking-wider text-red-400">Antes</p>
+                  <ul className="mt-2 space-y-1.5 text-xs leading-relaxed text-foreground/80">
+                    <li>• 20-35 min por orden a mano</li>
+                    <li>• Precios buscados en listas físicas</li>
+                    <li>• Seguimiento sin trazabilidad</li>
+                  </ul>
+                </div>
+                <div className="rounded-xl border border-emerald-400/30 bg-emerald-400/5 p-4">
+                  <p className="text-xs font-bold uppercase tracking-wider text-emerald-400">Después</p>
+                  <ul className="mt-2 space-y-1.5 text-xs leading-relaxed text-foreground/80">
+                    <li>• Orden en 6-10 min con precios automáticos</li>
+                    <li>• Timeline de 7 estados trazable</li>
+                    <li>• Inventario y facturación automáticos</li>
+                  </ul>
+                </div>
               </div>
 
               <div>

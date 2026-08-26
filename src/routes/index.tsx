@@ -273,10 +273,10 @@ function Hero({ onOpenWizard }: { onOpenWizard: () => void }) {
             </span>
           </h2>
           <p className="mt-6 max-w-2xl text-center text-lg leading-relaxed text-white/80">
-            Diseñamos, implementamos y optimizamos sistemas digitales para que
-            tu empresa venda más, atienda mejor y opere con mayor eficiencia
-            usando inteligencia artificial, automatización y marketing basado
-            en datos.
+            Somos una empresa de <strong className="text-white">transformación digital en Colombia</strong>:
+            usamos ingeniería, inteligencia artificial y automatización para resolver problemas
+            comerciales y operativos. Diseñamos, implementamos y optimizamos sistemas para que tu
+            empresa venda más, atienda mejor y opere con mayor eficiencia.
           </p>
           <p className="mt-4 text-center text-base font-semibold text-emerald-300">
             ⚡ Empieza hoy con un <span className="text-white">diagnóstico gratuito</span> — sin compromiso, sin costo.
@@ -368,18 +368,25 @@ function Benefits({ onOpenWizard }: { onOpenWizard: () => void }) {
           ))}
         </div>
 
-        {/* Metodología compacta */}
+        {/* Metodología visual 01-04 */}
         <div className="mt-16">
           <p className="text-center text-xs font-semibold uppercase tracking-widest text-cyan-300">
             Nuestro método
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-6 md:flex-nowrap md:gap-10">
-            {STEPS.map(({ icon: Icon, title }) => (
-              <div key={title} className="flex flex-col items-center text-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 text-accent">
-                  <Icon className="h-5 w-5" strokeWidth={1.75} />
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {STEPS.map(({ icon: Icon, num, title, tagline }) => (
+              <div
+                key={title}
+                className="rounded-xl border border-white/10 bg-white/[0.04] p-5 text-left backdrop-blur-md transition-colors hover:border-accent/40"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/15 text-accent">
+                    <Icon className="h-5 w-5" strokeWidth={1.75} />
+                  </span>
+                  <span className="text-3xl font-extrabold text-white/10">{num}</span>
                 </div>
-                <p className="mt-2 text-xs font-semibold text-white">{title}</p>
+                <p className="mt-3 text-sm font-bold text-white">{title}</p>
+                <p className="mt-1 text-xs leading-relaxed text-white/65">{tagline}</p>
               </div>
             ))}
           </div>
@@ -414,6 +421,36 @@ function Benefits({ onOpenWizard }: { onOpenWizard: () => void }) {
             <ClipboardList className="h-5 w-5" strokeWidth={2} />
             Diagnóstico Gratuito — Empieza Aquí
           </button>
+        </div>
+
+        {/* Tecnologías y sectores */}
+        <div className="mt-16">
+          <p className="text-center text-xs font-semibold uppercase tracking-widest text-cyan-300">
+            Tecnología y experiencia
+          </p>
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {TECHS.map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/80"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+          <p className="mt-8 text-center text-xs font-semibold uppercase tracking-widest text-cyan-300">
+            Sectores que atendemos
+          </p>
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {SECTORS.map((s) => (
+              <span
+                key={s}
+                className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/80"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -722,24 +759,51 @@ function Services({ onOpenWizard }: { onOpenWizard: () => void }) {
 const STEPS = [
   {
     icon: Search,
-    title: "1. Diagnosticamos",
+    num: "01",
+    title: "Diagnóstico",
+    tagline: "Encontramos dónde pierdes dinero, tiempo o clientes.",
     body: "Entendemos tu negocio, tus procesos y tus datos antes de proponer cualquier solución. No saltamos a implementar sin entender el problema real.",
   },
   {
     icon: Target,
-    title: "2. Diseñamos",
+    num: "02",
+    title: "Diseño",
+    tagline: "Diseñamos la solución tecnológica a tu medida.",
     body: "Construimos la arquitectura de la solución: definimos tecnología, alcance, tiempos y métricas de éxito. Todo queda documentado y validado contigo.",
   },
   {
     icon: Rocket,
-    title: "3. Implementamos",
+    num: "03",
+    title: "Implementación",
+    tagline: "Construimos e integramos las herramientas.",
     body: "Ejecutamos con metodología ágil. Entregas parciales, validación constante, sin sorpresas de última hora. Ves el avance en tiempo real.",
   },
   {
     icon: BarChart3,
-    title: "4. Optimizamos",
+    num: "04",
+    title: "Optimización",
+    tagline: "Medimos resultados y mejoramos continuamente.",
     body: "Medimos resultados, ajustamos, mejoramos. El proyecto no termina con la entrega: termina cuando los resultados están y se sostienen en el tiempo.",
   },
+];
+
+const TECHS = [
+  "React + TypeScript",
+  "Node.js",
+  "Supabase / PostgreSQL",
+  "APIs REST",
+  "WhatsApp Business",
+  "Agentes de IA (LLMs)",
+  "Automatización de procesos",
+  "Cloudflare",
+  "PWA",
+];
+
+const SECTORS = [
+  "Restaurantes y gastronomía",
+  "Agroinsumos y agroindustria",
+  "Comercio y distribución",
+  "PyMEs de servicios",
 ];
 
 /* ─── CASOS DE ÉXITO ─── */
