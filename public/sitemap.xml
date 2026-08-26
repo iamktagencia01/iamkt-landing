@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://iamkt.co/</loc>
     <lastmod>2026-08-25</lastmod>
@@ -56,9 +57,27 @@
   </url>
   <url>
     <loc>https://iamkt.co/casos-de-exito</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://iamkt.co/videos/monarca-poster.jpg</video:thumbnail_loc>
+      <video:title>Monarca Gastro Bar — Sistema de pedidos digital (demo)</video:title>
+      <video:description>Demo del sistema Restaurant Pro para Monarca: carta QR, meseros, cocina y módulo gerente con reportes.</video:description>
+      <video:content_loc>https://iamkt.co/videos/monarca-restaurante.mp4</video:content_loc>
+      <video:duration>25</video:duration>
+      <video:publication_date>2026-08-25</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://iamkt.co/videos/dasagro-poster.jpg</video:thumbnail_loc>
+      <video:title>Dasagro 360 — Automatización agroindustrial (demo)</video:title>
+      <video:description>Demo de la plataforma Dasagro 360: ventas, inventario y seguimiento automatizados para el agro colombiano.</video:description>
+      <video:content_loc>https://iamkt.co/videos/dasagro-ventas.mp4</video:content_loc>
+      <video:duration>34</video:duration>
+      <video:publication_date>2026-08-25</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
   <url>
     <loc>https://iamkt.co/privacidad</loc>
