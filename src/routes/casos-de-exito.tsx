@@ -14,13 +14,13 @@ import {
 export const Route = createFileRoute("/casos-de-exito")({
   head: () => ({
     meta: [
-      { title: "Casos de Éxito — IAmkt" },
+      { title: "Casos de Éxito — IAmkt Colombia" },
       {
         name: "description",
         content:
-          "Casos reales de IAmkt: sistema de pedidos para restaurantes y CRM para agroinsumos. Flujo de trabajo, automatización, seguridad y estimaciones de ahorro en horas y dinero.",
+          "Casos reales de IAmkt Colombia: sistema de pedidos para restaurantes y CRM para agroinsumos. Flujo de trabajo, automatización, seguridad y estimaciones de ahorro en horas y dinero.",
       },
-      { property: "og:title", content: "Casos de Éxito — IAmkt" },
+      { property: "og:title", content: "Casos de Éxito — IAmkt Colombia" },
       { property: "og:url", content: "https://iamkt.co/casos-de-exito" },
       { property: "og:type", content: "website" },
     ],

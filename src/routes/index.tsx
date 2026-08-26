@@ -187,17 +187,17 @@ const geoJsonLd = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "IAmkt — Arquitectos Tecnológicos para Empresas que Quieren Crecer" },
+      { title: "IAmkt Colombia — Arquitectos Tecnológicos para Empresas que Quieren Crecer" },
       {
         name: "description",
         content:
-          "Agencia de ingeniería aplicada, inteligencia artificial y marketing digital. Automatización, agentes de IA, desarrollo de software y estrategias de crecimiento para empresas.",
+          "Agencia colombiana de ingeniería aplicada, inteligencia artificial y marketing digital. Automatización, agentes de IA, desarrollo de software y estrategias de crecimiento para empresas.",
       },
-      { property: "og:title", content: "IAmkt — Ingeniería, IA y Marketing Digital" },
+      { property: "og:title", content: "IAmkt Colombia — Ingeniería, IA y Marketing Digital" },
       {
         property: "og:description",
         content:
-          "Transformamos negocios combinando ingeniería, inteligencia artificial y marketing digital. Soluciones estratégicas con resultados medibles.",
+          "Transformamos negocios en Colombia combinando ingeniería, inteligencia artificial y marketing digital. Soluciones estratégicas con resultados medibles.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://iamkt.co/" },

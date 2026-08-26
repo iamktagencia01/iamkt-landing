@@ -5,13 +5,13 @@ import { ArrowLeft } from "lucide-react";
 export const Route = createFileRoute("/terminos")({
   head: () => ({
     meta: [
-      { title: "Términos de Uso — IAmkt" },
+      { title: "Términos de Uso — IAmkt Colombia" },
       {
         name: "description",
         content:
-          "Términos de uso del sitio web de IAmkt: condiciones de uso del contenido, el diagnóstico gratuito y la contratación de servicios.",
+          "Términos de uso del sitio web de IAmkt Colombia: condiciones de uso del contenido, el diagnóstico gratuito y la contratación de servicios.",
       },
-      { property: "og:title", content: "Términos de Uso — IAmkt" },
+      { property: "og:title", content: "Términos de Uso — IAmkt Colombia" },
       { property: "og:url", content: "https://iamkt.co/terminos" },
       { property: "og:type", content: "website" },
     ],

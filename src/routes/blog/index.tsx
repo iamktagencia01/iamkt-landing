@@ -8,14 +8,14 @@ export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       {
-        title: "Blog IAmkt — IA, Automatización y Marketing Digital para Empresas",
+        title: "Blog IAmkt Colombia — IA, Automatización y Marketing Digital para Empresas",
       },
       {
         name: "description",
         content:
-          "Guías prácticas de IAmkt sobre inteligencia artificial aplicada, automatización de procesos, WhatsApp Business, marketing digital e IA en el agro colombiano.",
+          "Guías prácticas de IAmkt Colombia sobre inteligencia artificial aplicada, automatización de procesos, WhatsApp Business, marketing digital e IA en el agro colombiano.",
       },
-      { property: "og:title", content: "Blog IAmkt — IA, Automatización y Marketing Digital" },
+      { property: "og:title", content: "Blog IAmkt Colombia — IA, Automatización y Marketing Digital" },
       {
         property: "og:description",
         content:

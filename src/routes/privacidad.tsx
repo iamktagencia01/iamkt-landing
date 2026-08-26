@@ -5,13 +5,13 @@ import { ArrowLeft } from "lucide-react";
 export const Route = createFileRoute("/privacidad")({
   head: () => ({
     meta: [
-      { title: "Política de Privacidad — IAmkt" },
+      { title: "Política de Privacidad — IAmkt Colombia" },
       {
         name: "description",
         content:
-          "Política de privacidad de IAmkt: qué datos recopilamos, para qué los usamos, tus derechos y cómo contactarnos.",
+          "Política de privacidad de IAmkt Colombia: qué datos recopilamos, para qué los usamos, tus derechos y cómo contactarnos.",
       },
-      { property: "og:title", content: "Política de Privacidad — IAmkt" },
+      { property: "og:title", content: "Política de Privacidad — IAmkt Colombia" },
       { property: "og:url", content: "https://iamkt.co/privacidad" },
       { property: "og:type", content: "website" },
     ],
