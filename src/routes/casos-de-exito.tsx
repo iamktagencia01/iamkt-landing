@@ -437,9 +437,20 @@ function CasosPage() {
         <section className="mt-16">
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <div className="flex items-center gap-4">
-              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-muted text-sm font-extrabold text-muted-foreground">
-                RB
-              </span>
+              <a
+                href="https://www.instagram.com/royalbite_mm/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de Royal Bite"
+                title="Instagram de Royal Bite"
+                className="flex h-16 w-28 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-white p-2 shadow-sm transition-opacity hover:opacity-80"
+              >
+                <img
+                  src="/casos/royal-bite-logo.png"
+                  alt="Royal Bite"
+                  className="max-h-12 w-auto object-contain"
+                />
+              </a>
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <h2 className="text-2xl font-extrabold tracking-tight">Royal Bite</h2>

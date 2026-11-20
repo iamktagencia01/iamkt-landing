@@ -770,6 +770,20 @@ function ProductoSaaS() {
     <section id="comandatec" className="relative py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <div className="overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-accent/[0.07] via-transparent to-transparent p-8 md:p-12">
+          <a
+            href="https://comandatec.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ComandaTec — sitio oficial"
+            title="ComandaTec — sitio oficial"
+            className="mb-5 inline-block transition-opacity hover:opacity-80"
+          >
+            <img
+              src="/brand/comandatec-logo.svg"
+              alt="ComandaTec"
+              className="h-12 w-auto md:h-14"
+            />
+          </a>
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">
             Producto propio · En producción
           </p>
