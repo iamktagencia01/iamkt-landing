@@ -9,8 +9,6 @@ import {
   Search,
   Smartphone,
   Bot,
-  Settings2,
-  BrainCircuit,
   Megaphone,
   MessageCircle,
   TrendingUp,
@@ -96,24 +94,16 @@ const FAQS = [
 
 const GEO_SERVICES = [
   {
-    name: "IA Aplicada y Agentes Autónomos",
-    description: "Programación de agentes de IA autónomos como trabajadores virtuales para empresas: atención, análisis y tareas repetitivas sin supervisión constante.",
+    name: "Automatización Comercial y WhatsApp con IA",
+    description: "Agentes de IA 24/7 y embudos conversacionales que atienden clientes, cotizan y toman pedidos por WhatsApp, sin perder conversaciones ni aumentar la nómina.",
   },
   {
-    name: "Optimización y Automatización de Procesos",
-    description: "Flujos de trabajo, scripts e integración de APIs para reducir errores operativos y liberar horas de trabajo manual.",
+    name: "Software y Sistemas Operativos a la Medida",
+    description: "Aplicaciones web, cartas digitales y CRMs diseñados para el flujo real de la operación: pedidos, inventarios, caja, facturación y reportes en tiempo real.",
   },
   {
-    name: "Marketing Digital, Publicidad y Posicionamiento",
-    description: "Sistemas de adquisición, estrategias de conversión, copywriting y campañas de ads segmentadas orientadas a resultados medibles.",
-  },
-  {
-    name: "Desarrollo de Aplicaciones a la Medida",
-    description: "Módulos de código y aplicaciones para optimizar la organización y productividad de cada empresa.",
-  },
-  {
-    name: "WhatsApp Business y Automatización",
-    description: "Webhooks, embudos de venta conversacionales e integración con CRMs para vender y atender desde WhatsApp.",
+    name: "Sistemas de Adquisición y Pauta Digital",
+    description: "Campañas segmentadas y posicionamiento digital conectados al WhatsApp o CRM del negocio para medir prospectos calificados y retorno real de inversión.",
   },
 ];
 
@@ -160,9 +150,9 @@ const geoJsonLd = {
       "@type": "WebPage",
       "@id": "https://iamkt.co/#webpage",
       url: "https://iamkt.co/",
-      name: "IAmkt — Arquitectos Tecnológicos para Empresas que Quieren Crecer",
+      name: "IAmkt Colombia | Automatización de WhatsApp, Agentes de IA y Software a la Medida",
       description:
-        "Agencia de ingeniería aplicada, inteligencia artificial y marketing digital. Automatización, agentes de IA, desarrollo de software y estrategias de crecimiento para empresas.",
+        "Arquitectos tecnológicos en Colombia. Creadores de ComandaTec. Automatizamos WhatsApp con agentes de IA y desarrollamos software a la medida para distribuidoras, restaurantes y PyMEs.",
       isPartOf: { "@id": "https://iamkt.co/#website" },
       about: { "@id": "https://iamkt.co/#org" },
     },
@@ -188,17 +178,17 @@ const geoJsonLd = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "IAmkt Colombia — Arquitectos Tecnológicos para Empresas que Quieren Crecer" },
+      { title: "IAmkt Colombia | Automatización de WhatsApp, Agentes de IA y Software a la Medida" },
       {
         name: "description",
         content:
-          "Agencia colombiana de ingeniería aplicada, inteligencia artificial y marketing digital. Automatización, agentes de IA, desarrollo de software y estrategias de crecimiento para empresas.",
+          "Arquitectos tecnológicos en Colombia. Creadores de ComandaTec. Automatizamos WhatsApp con agentes de IA y desarrollamos software a la medida para distribuidoras, restaurantes y PyMEs.",
       },
-      { property: "og:title", content: "IAmkt Colombia — Ingeniería, IA y Marketing Digital" },
+      { property: "og:title", content: "IAmkt Colombia | Automatización de WhatsApp, Agentes de IA y Software a la Medida" },
       {
         property: "og:description",
         content:
-          "Transformamos negocios en Colombia combinando ingeniería, inteligencia artificial y marketing digital. Soluciones estratégicas con resultados medibles.",
+          "Arquitectos tecnológicos en Colombia. Creadores de ComandaTec. Automatizamos WhatsApp con agentes de IA y desarrollamos software a la medida para distribuidoras, restaurantes y PyMEs.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://iamkt.co/" },
@@ -488,107 +478,55 @@ const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       "Proyección de retorno esperado",
     ],
   },
-  "Desarrollo de Aplicaciones a la Medida": {
+  "Automatización Comercial y WhatsApp con IA": {
     problems: [
-      "Procesos que dependen de Excel, WhatsApp o tareas manuales",
-      "Falta de sistemas internos que se adapten a tu flujo",
-      "Información dispersa entre herramientas",
-      "Necesidad de dashboards, portales o herramientas propias",
+      "Pedidos y consultas que se pierden fuera de horario",
+      "El equipo responde lo mismo cien veces al día",
+      "Cotizaciones que tardan horas o días",
+      "Todo depende de una persona para atender WhatsApp",
     ],
     forWhom:
-      "Empresas que han superado las herramientas genéricas y necesitan un sistema que se adapte a su flujo de trabajo, no al revés.",
+      "Comercios, restaurantes y distribuidores que reciben pedidos por WhatsApp y todavía atienden de forma manual.",
     deliverables: [
-      "Aplicación web funcional (responsive)",
-      "Panel de control con métricas en tiempo real",
-      "Integraciones con tus sistemas existentes",
-      "Documentación técnica y manual de usuario",
-      "Soporte y mantenimiento post-entrega",
+      "Agente de IA entrenado con tu catálogo y precios",
+      "Flujo de pedidos y cotizaciones por WhatsApp",
+      "Integración con tu CRM o sistema de pedidos",
+      "Panel de conversaciones y métricas",
+      "Traspaso a persona cuando haga falta",
     ],
   },
-  "Implementación de Agentes de IA": {
+  "Software y Sistemas Operativos a la Medida": {
     problems: [
-      "Demoras en atención al cliente",
-      "Alto volumen de preguntas repetitivas",
-      "Falta de seguimiento comercial",
-      "Equipos saturados que necesitan escalar sin contratar",
+      "Excel y WhatsApp funcionando como sistema de gestión",
+      "Inventarios y caja que no cuadran",
+      "Software genérico que no se adapta a tu operación",
+      "Sin reportes en tiempo real para decidir",
     ],
     forWhom:
-      "Empresas con procesos repetitivos que consumen horas de talento humano. Negocios que quieren escalar sin multiplicar costos fijos.",
+      "Empresas que ya superaron las herramientas genéricas y necesitan un sistema propio que siga su flujo real de trabajo.",
     deliverables: [
-      "Agente de IA configurado y operativo 24/7",
-      "Base de conocimiento del negocio",
-      "Flujos conversacionales diseñados",
-      "Integración con WhatsApp, web o CRM",
-      "Panel de monitoreo de rendimiento",
+      "Aplicación web o PWA a la medida",
+      "Módulos de pedidos, inventario, caja o facturación",
+      "Panel administrativo con reportes en tiempo real",
+      "Control de roles y permisos",
+      "Despliegue en la nube y capacitación del equipo",
     ],
   },
-  "Optimización y Automatización de Procesos": {
+  "Sistemas de Adquisición y Pauta Digital": {
     problems: [
-      "Tareas manuales repetitivas que consumen tiempo",
-      "Seguimiento comercial desordenado",
-      "Falta de trazabilidad en procesos",
-      "Información dispersa entre WhatsApp, Excel, correo y redes",
+      "Inviertes en pauta sin saber qué retorna",
+      "Llegan prospectos y nadie los atiende a tiempo",
+      "La marca es invisible frente a la competencia",
+      "No hay medición de leads calificados",
     ],
     forWhom:
-      "Empresas donde los procesos manuales están frenando el crecimiento. Negocios que dependen de tareas repetitivas que consumen tiempo y recursos.",
+      "Negocios que quieren captar demanda de forma medible y conectarla directamente con su canal de venta.",
     deliverables: [
-      "Mapa de proceso actual vs. automatizado",
-      "Flujo de trabajo inteligente implementado",
-      "Integraciones entre herramientas",
-      "Reducción de tiempo operativo (medible)",
-      "Soporte continuo y optimización iterativa",
-    ],
-  },
-  "Inteligencia Artificial Aplicada": {
-    problems: [
-      "Uso improvisado de IA sin resultados concretos",
-      "Equipos que no saben aprovechar herramientas actuales",
-      "Procesos de contenido, análisis o soporte lentos",
-      "Falta de estandarización en tareas repetitivas",
-    ],
-    forWhom:
-      "Empresas que quieren entender y aprovechar la IA sin perderse en el ruido tecnológico. Negocios que buscan ventajas competitivas reales.",
-    deliverables: [
-      "Solución de IA implementada y funcional",
-      "Guía de uso y mejores prácticas",
-      "Capacitación al equipo",
-      "Documentación de casos de uso",
-      "Roadmap de evolución tecnológica",
-    ],
-  },
-  "Marketing Digital, Publicidad y Posicionamiento": {
-    problems: [
-      "Baja visibilidad digital",
-      "Redes sociales sin estrategia",
-      "Campañas publicitarias sin medición",
-      "Pocos prospectos calificados",
-      "Falta de embudo de ventas y seguimiento",
-    ],
-    forWhom:
-      "Empresas que están invirtiendo en publicidad sin ver resultados claros. Negocios que quieren pasar de 'estar en redes' a tener un canal de ventas organizado y medible.",
-    deliverables: [
-      "Estrategia de canales y segmentación",
-      "Campañas configuradas y optimizadas",
-      "Creatividades y copys profesionales",
-      "Panel de rendimiento en tiempo real",
-      "Reportes periódicos con recomendaciones",
-    ],
-  },
-  "WhatsApp Business y Automatización": {
-    problems: [
-      "Mensajes sin responder o con demora",
-      "Conversaciones desordenadas sin seguimiento",
-      "Prospectos no cualificados que saturan al equipo",
-      "Ventas perdidas por atención lenta",
-    ],
-    forWhom:
-      "Negocios con alto volumen de consultas por WhatsApp. Empresas que quieren automatizar su atención sin perder la calidez humana.",
-    deliverables: [
-      "Perfil de WhatsApp Business optimizado",
-      "Catálogo de productos o servicios",
-      "Embudo conversacional configurado",
-      "Automatización de respuestas y seguimientos",
-      "Métricas de conversión y satisfacción",
+      "Estrategia y segmentación de campañas",
+      "Landing y creatividades orientadas a conversión",
+      "Conexión de la pauta a WhatsApp o CRM",
+      "Medición de prospectos calificados y costo por lead",
+      "Reporte de retorno y optimización continua",
     ],
   },
 };
@@ -596,45 +534,27 @@ const SERVICE_DETAILS: Record<string, ServiceDetail> = {
 const SERVICES = [
   {
     icon: Search,
-    title: "🔍 Diagnóstico y Estrategia",
+    title: "Diagnóstico y Estrategia",
     summary:
       "Análisis profundo basado en datos para identificar cuellos de botella, oportunidades de mejora y áreas de fuga en tu operación actual. 100% gratuito.",
   },
   {
-    icon: Smartphone,
-    title: "Desarrollo de Aplicaciones a la Medida",
-    summary:
-      "Software personalizado que se adapta al flujo real de tu negocio para optimizar organización, gestión y productividad de tu equipo.",
-  },
-  {
     icon: Bot,
-    title: "Implementación de Agentes de IA",
+    title: "Automatización Comercial y WhatsApp con IA",
     summary:
-      "Trabajadores virtuales autónomos 24/7 que refuerzan procesos operativos y comerciales sin aumentar tu nómina.",
+      "Agentes de IA 24/7 y embudos conversacionales que atienden clientes, cotizan y toman pedidos por WhatsApp en segundos, sin perder conversaciones ni aumentar tu nómina.",
   },
   {
-    icon: Settings2,
-    title: "Optimización y Automatización de Procesos",
+    icon: Smartphone,
+    title: "Software y Sistemas Operativos a la Medida",
     summary:
-      "Flujos de trabajo inteligentes que conectan tus herramientas, reducen errores humanos y hacen tu operación más rápida y rentable.",
-  },
-  {
-    icon: BrainCircuit,
-    title: "Inteligencia Artificial Aplicada",
-    summary:
-      "IA generativa, análisis predictivo y asistentes virtuales avanzados implementados para resolver problemas concretos de tu negocio.",
+      "Aplicaciones web, cartas digitales y CRMs diseñados para el flujo real de tu operación: pedidos, inventarios, caja, facturación y reportes en tiempo real.",
   },
   {
     icon: Megaphone,
-    title: "Marketing Digital, Publicidad y Posicionamiento",
+    title: "Sistemas de Adquisición y Pauta Digital",
     summary:
-      "Sistemas de adquisición, campañas altamente segmentadas y estrategias de conversión probadas respaldadas por datos.",
-  },
-  {
-    icon: MessageCircle,
-    title: "WhatsApp Business y Automatización",
-    summary:
-      "Embudos de venta conversacionales que convierten WhatsApp en tu mejor canal de ventas, con automatización inteligente.",
+      "Campañas segmentadas y posicionamiento digital conectados a tu WhatsApp o CRM para medir prospectos calificados y retorno real de inversión.",
   },
 ];
 
@@ -741,7 +661,7 @@ function Services({ onOpenWizard }: { onOpenWizard: () => void }) {
           title="Un ecosistema completo para escalar"
           subtitle="Combinamos ingeniería, IA y marketing digital en una sola maquinaria."
         />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2">
           {SERVICES.map((svc) => (
             <ServiceCard key={svc.title} {...svc} />
           ))}
@@ -829,6 +749,62 @@ const CASOS = [
     metric: "250–275 h/mes · $3.5–6M/mes",
   },
 ];
+
+/* ─── Producto propio: ComandaTec ─── */
+
+function ProductoSaaS() {
+  const bullets = [
+    "Carta QR por mesa y pedidos directos a cocina",
+    "Pantalla de cocina (KDS) y control de meseros",
+    "Caja, inventario con recetas y domicilios",
+  ];
+  return (
+    <section id="comandatec" className="relative py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-accent/[0.07] via-transparent to-transparent p-8 md:p-12">
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+            Producto propio · En producción
+          </p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-bold text-foreground md:text-4xl">
+            ComandaTec — Sistema de gestión en tiempo real para restaurantes y gastrobares
+          </h2>
+          <p className="mt-4 max-w-3xl text-base text-muted-foreground">
+            Nuestra plataforma SaaS para digitalizar el servicio completo: carta QR por
+            mesa, pantalla de cocina (KDS), control de meseros, caja, inventario con
+            recetas y domicilios. Sin instalaciones y con 10 días de prueba gratis.
+          </p>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-3">
+            {bullets.map((b) => (
+              <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                {b}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://comandatec.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-xl bg-accent px-7 py-3.5 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
+            >
+              Conocer ComandaTec
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href="https://demo.comandatec.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-border px-7 py-3.5 text-base font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+            >
+              Ver demo en vivo
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function CasosExito() {
   return (
@@ -1019,6 +995,7 @@ function Landing() {
         <Hero onOpenWizard={() => setWizardOpen(true)} />
         <Benefits onOpenWizard={() => setWizardOpen(true)} />
         <Services onOpenWizard={() => setWizardOpen(true)} />
+        <ProductoSaaS />
         <CasosExito />
         <FAQ onOpenWizard={() => setWizardOpen(true)} />
         <ContactSection onOpenWizard={() => setWizardOpen(true)} />
