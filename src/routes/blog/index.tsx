@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { TechBackground } from "@/components/TechBackground";
 import { getPublishedPosts } from "@/lib/posts";
-import { ArrowRight, CalendarDays, Clock } from "lucide-react";
+import { ArrowRight, CalendarDays, Clock, FileDown } from "lucide-react";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -70,6 +70,35 @@ function BlogIndex() {
             Contenido claro, directo y listo para aplicar.
           </p>
         </div>
+      </section>
+
+      {/* Guía descargable */}
+      <section className="mx-auto max-w-6xl px-4 pt-12 md:px-8">
+        <a
+          href="/guias/costo-proceso-manual.pdf"
+          download
+          className="group flex flex-col items-start justify-between gap-4 rounded-2xl border border-accent/30 bg-accent/5 p-6 transition-colors hover:border-accent md:flex-row md:items-center"
+        >
+          <div className="flex items-center gap-4">
+            <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent">
+              <FileDown className="h-6 w-6" />
+            </span>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-accent">
+                Guía gratuita · PDF
+              </p>
+              <h2 className="mt-1 text-lg font-extrabold tracking-tight">
+                Cuánto te cuesta un proceso manual
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Calcula en 15 minutos el costo real de tus procesos y decide qué automatizar primero.
+              </p>
+            </div>
+          </div>
+          <span className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground">
+            Descargar <ArrowRight className="h-4 w-4" />
+          </span>
+        </a>
       </section>
 
       {/* Lista de artículos */}
