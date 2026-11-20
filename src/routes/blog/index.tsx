@@ -1,3 +1,4 @@
+import { SiteFooter } from "@/components/SiteFooter";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { TechBackground } from "@/components/TechBackground";
@@ -204,25 +205,7 @@ function BlogIndex() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/40 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-sm text-muted-foreground md:flex-row md:px-8">
-          <span>© {new Date().getFullYear()} IAmkt — Ingeniería, IA y Marketing Digital</span>
-          <div className="flex gap-6">
-            <a href="mailto:contacto@iamkt.co" className="transition-colors hover:text-accent">
-              contacto@iamkt.co
-            </a>
-            <Link to="/privacidad" className="transition-colors hover:text-accent">
-              Privacidad
-            </Link>
-            <Link to="/terminos" className="transition-colors hover:text-accent">
-              Términos
-            </Link>
-            <Link to="/" className="transition-colors hover:text-accent">
-              Inicio
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
