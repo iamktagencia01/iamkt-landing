@@ -399,6 +399,10 @@ function Benefits({ onOpenWizard }: { onOpenWizard: () => void }) {
             <p className="text-sm text-white/70">
               CEO — Arquitecto Tecnológico Principal
             </p>
+            <p className="mt-3 text-sm leading-relaxed text-white/60">
+              Sistemas en producción: ComandaTec (SaaS para restaurantes), Dasagro 360
+              (CRM con 5 almacenes) y agentes de IA para atención y ventas.
+            </p>
             <a
               href="https://www.facebook.com/Ing.Marlio.CEO.IAmkt/"
               target="_blank"
@@ -422,6 +426,10 @@ function Benefits({ onOpenWizard }: { onOpenWizard: () => void }) {
         <div className="mt-16">
           <p className="text-center text-xs font-semibold uppercase tracking-widest text-cyan-300">
             Tecnología y experiencia
+          </p>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-white/65">
+            Infraestructura empresarial rápida, segura en la nube y accesible desde
+            cualquier celular, sin instalaciones complejas.
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
             {TECHS.map((t) => (
