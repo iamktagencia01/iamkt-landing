@@ -760,6 +760,17 @@ const CASOS = [
     hash: "dasagro",
     urlLabel: "Ver el caso de Dasagro 360",
   },
+  {
+    title: "Royal Bite",
+    sector: "Comidas rápidas · Carta digital y domicilios",
+    body: "Carta digital interactiva con pedidos directos a WhatsApp, reservas y pagos digitales. Pensada para vender sin intermediarios.",
+    metric: "",
+    soon: true,
+    logo: "/casos/royal-bite-logo.png",
+    logoBg: "#ffffff",
+    hash: "royal-bite",
+    urlLabel: "Ver el caso de Royal Bite",
+  },
 ];
 
 /* ─── Producto propio: ComandaTec ─── */
@@ -844,10 +855,10 @@ function CasosExito() {
         <SectionHeader
           tag="Casos de éxito"
           title="Resultados que ya están en producción"
-          subtitle="Dos implementaciones reales con estimaciones de ahorro basadas en promedios del sector."
+          subtitle="Dos implementaciones en producción y un lanzamiento en camino. Estimaciones basadas en promedios del sector."
         />
-        <div className="mt-14 grid gap-5 md:grid-cols-2">
-          {CASOS.map(({ title, sector, body, metric, logo, logoBg, hash, urlLabel }) => (
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {CASOS.map(({ title, sector, body, metric, soon, logo, logoBg, hash, urlLabel }) => (
             <div
               key={title}
               className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.07] hover:shadow-xl hover:shadow-accent/10 md:p-8"
@@ -873,9 +884,15 @@ function CasosExito() {
                 </div>
               </div>
               <p className="mt-4 text-sm leading-relaxed text-white/75">{body}</p>
-              <p className="mt-4 inline-flex items-center gap-2 text-base font-extrabold text-accent">
-                {metric}
-              </p>
+              {soon ? (
+                <span className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+                  En despliegue · Próximamente
+                </span>
+              ) : (
+                <p className="mt-4 inline-flex items-center gap-2 text-base font-extrabold text-accent">
+                  {metric}
+                </p>
+              )}
               <Link
                 to="/casos-de-exito"
                 hash={hash}
