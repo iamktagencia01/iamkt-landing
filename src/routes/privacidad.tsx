@@ -1,3 +1,4 @@
+import { SiteFooter } from "@/components/SiteFooter";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { ArrowLeft } from "lucide-react";
@@ -51,12 +52,6 @@ function PrivacyPage() {
           Última actualización: 24 de agosto de 2026 · IAmkt · contacto@iamkt.co · WhatsApp
           +57 322 857 0784
         </p>
-
-        <div className="mt-6 rounded-xl border border-amber-400/40 bg-amber-400/10 p-4 text-sm text-amber-700 dark:text-amber-300">
-          <strong>Nota de actualización:</strong> esta política se completará con la razón
-          social, NIT y domicilio oficial de la empresa una vez concluya su proceso de
-          constitución legal (en curso). La protección de tus datos aplica desde ya.
-        </div>
 
         <Section title="1. Responsable del tratamiento">
           <p>
@@ -168,25 +163,7 @@ function PrivacyPage() {
         </div>
       </main>
 
-      <footer className="border-t border-border/40 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-sm text-muted-foreground md:flex-row md:px-8">
-          <span>© {new Date().getFullYear()} IAmkt — Ingeniería, IA y Marketing Digital</span>
-          <div className="flex gap-6">
-            <Link to="/casos-de-exito" className="transition-colors hover:text-accent">
-              Casos de éxito
-            </Link>
-            <Link to="/privacidad" className="transition-colors hover:text-accent">
-              Privacidad
-            </Link>
-            <Link to="/terminos" className="transition-colors hover:text-accent">
-              Términos
-            </Link>
-            <Link to="/" className="transition-colors hover:text-accent">
-              Inicio
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

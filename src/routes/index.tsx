@@ -1,3 +1,4 @@
+import { SiteFooter } from "@/components/SiteFooter";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -291,7 +292,7 @@ function Hero({ onOpenWizard }: { onOpenWizard: () => void }) {
               className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50 md:text-lg"
             >
               <ClipboardList className="h-5 w-5" strokeWidth={2.2} />
-              Diagnóstico Gratuito — Empieza Aquí
+              Agendar Diagnóstico Gratuito
               <Sparkles className="h-4 w-4 text-accent-foreground/70 transition-transform group-hover:rotate-12" strokeWidth={1.8} />
             </button>
             <a
@@ -423,7 +424,7 @@ function Benefits({ onOpenWizard }: { onOpenWizard: () => void }) {
             className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
           >
             <ClipboardList className="h-5 w-5" strokeWidth={2} />
-            Diagnóstico Gratuito — Empieza Aquí
+            Agendar Diagnóstico Gratuito
           </button>
         </div>
 
@@ -931,7 +932,7 @@ function FAQ({ onOpenWizard }: { onOpenWizard: () => void }) {
             className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
           >
             <ClipboardList className="h-4 w-4" strokeWidth={2} />
-            Diagnóstico Gratuito — Empieza Aquí
+            Agendar Diagnóstico Gratuito
           </button>
         </div>
       </div>
@@ -962,7 +963,7 @@ function ContactSection({ onOpenWizard }: { onOpenWizard: () => void }) {
             className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50 md:text-lg"
           >
             <ClipboardList className="h-5 w-5" strokeWidth={2.2} />
-            Iniciar Diagnóstico Gratuito
+            Agendar Diagnóstico Gratuito
           </button>
           <a
             href={`tel:+${WHATSAPP_NUMBER}`}
@@ -974,113 +975,6 @@ function ContactSection({ onOpenWizard }: { onOpenWizard: () => void }) {
         </div>
       </div>
     </section>
-  );
-}
-
-/* ─── Footer ─── */
-
-function Footer() {
-  return (
-    <footer
-      className="text-white"
-      style={{ backgroundColor: "oklch(0.18 0.08 260)" }}
-    >
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3 md:px-8">
-        <div>
-          <img
-            src={logoUrl}
-            alt="IAmkt"
-            className="h-12 w-auto brightness-0 invert"
-          />
-          <p className="mt-4 max-w-xs text-justify text-sm text-white/70">
-            Ingeniería, IA y Marketing Digital para empresas que quieren crecer.
-          </p>
-          <p className="mt-2 max-w-xs text-justify text-xs text-white/50">
-            Hecho en Colombia 🇨🇴 con ingeniería e inteligencia artificial.
-          </p>
-        </div>
-
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
-            Contacto directo
-          </p>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-3 rounded-xl bg-accent px-5 py-3 font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-transform hover:-translate-y-0.5"
-          >
-            <MessageCircle className="h-5 w-5" />
-            WhatsApp 322 857 0784
-          </a>
-          <a
-            href={`tel:+${WHATSAPP_NUMBER}`}
-            className="mt-3 flex items-center gap-2 text-sm text-white/80 hover:text-white"
-          >
-            <Phone className="h-4 w-4" /> +57 322 857 0784
-          </a>
-          <a
-            href="mailto:contacto@iamkt.co"
-            className="mt-2 flex items-center gap-2 text-sm text-white/80 hover:text-white"
-          >
-            <Mail className="h-4 w-4" /> contacto@iamkt.co
-          </a>
-          <a
-            href="mailto:ceo.marliodt@iamkt.co"
-            className="mt-2 flex items-center gap-2 text-sm text-white/80 hover:text-white"
-          >
-            <Mail className="h-4 w-4" /> ceo.marliodt@iamkt.co
-          </a>
-        </div>
-
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
-            Síguenos
-          </p>
-          <div className="mt-3 flex flex-col gap-2 text-sm">
-            <a
-              href="https://www.facebook.com/iamktco"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white"
-            >
-              <Facebook className="h-4 w-4" /> IAmkt Agencia
-            </a>
-            <a
-              href="https://www.instagram.com/iamkt.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white"
-            >
-              <Instagram className="h-4 w-4" /> Instagram @iamkt.co
-            </a>
-            <a
-              href="https://www.facebook.com/Ing.Marlio.CEO.IAmkt/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white"
-            >
-              <Facebook className="h-4 w-4" /> Ing. Marlio — CEO
-            </a>
-          </div>
-          <div className="mt-6 flex flex-col gap-2 text-xs text-white/60">
-            <span>© {new Date().getFullYear()} Agencia IAmkt</span>
-            <span>Todos los derechos reservados</span>
-            <div className="mt-1 flex gap-4">
-              <Link to="/casos-de-exito" className="transition-colors hover:text-white">
-                Casos de éxito
-              </Link>
-              <Link to="/privacidad" className="transition-colors hover:text-white">
-                Privacidad
-              </Link>
-              <Link to="/terminos" className="transition-colors hover:text-white">
-                Términos
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
 
@@ -1129,7 +1023,7 @@ function Landing() {
         <FAQ onOpenWizard={() => setWizardOpen(true)} />
         <ContactSection onOpenWizard={() => setWizardOpen(true)} />
       </main>
-      <Footer />
+      <SiteFooter />
       <WhatsAppFloating />
 
       <DiagnosticWizard
