@@ -747,8 +747,8 @@ const CASOS = [
     metric: "150–175 h/mes · $2.5–6M/mes",
     logo: "/casos/monarca-logo.png",
     logoBg: "#F8EBCB",
-    url: "https://www.instagram.com/monarcagastrobar_/",
-    urlLabel: "Ver Monarca Gastro Bar en Instagram",
+    hash: "monarca",
+    urlLabel: "Ver el caso de Monarca Gastro Bar",
   },
   {
     title: "Dasagro 360",
@@ -757,8 +757,8 @@ const CASOS = [
     metric: "250–275 h/mes · $3.5–6M/mes",
     logo: "/casos/dasagro-logo.png",
     logoBg: "#ffffff",
-    url: "https://www.dasagrobiotecnologias.com/",
-    urlLabel: "Visitar el sitio de DasAgro Biotecnologías",
+    hash: "dasagro",
+    urlLabel: "Ver el caso de Dasagro 360",
   },
 ];
 
@@ -847,16 +847,15 @@ function CasosExito() {
           subtitle="Dos implementaciones reales con estimaciones de ahorro basadas en promedios del sector."
         />
         <div className="mt-14 grid gap-5 md:grid-cols-2">
-          {CASOS.map(({ title, sector, body, metric, logo, logoBg, url, urlLabel }) => (
+          {CASOS.map(({ title, sector, body, metric, logo, logoBg, hash, urlLabel }) => (
             <div
               key={title}
               className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.07] hover:shadow-xl hover:shadow-accent/10 md:p-8"
             >
               <div className="flex items-center gap-3">
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/casos-de-exito"
+                  hash={hash}
                   aria-label={urlLabel}
                   title={urlLabel}
                   className="flex h-14 w-24 shrink-0 items-center justify-center rounded-xl border border-white/10 p-2 transition-opacity hover:opacity-80"
@@ -867,7 +866,7 @@ function CasosExito() {
                     alt={title}
                     className="max-h-9 w-auto object-contain"
                   />
-                </a>
+                </Link>
                 <div>
                   <h3 className="text-lg font-bold text-white">{title}</h3>
                   <p className="text-xs text-white/60">{sector}</p>
@@ -879,6 +878,7 @@ function CasosExito() {
               </p>
               <Link
                 to="/casos-de-exito"
+                hash={hash}
                 className="mt-3 flex w-fit items-center gap-1.5 text-sm font-semibold text-cyan-300 transition-colors hover:text-accent"
               >
                 Ver caso completo <ArrowRight className="h-4 w-4" />

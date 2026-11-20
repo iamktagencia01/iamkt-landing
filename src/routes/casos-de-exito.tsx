@@ -123,7 +123,7 @@ function CasosPage() {
         </p>
 
         {/* ═══════════ CASO 1: MONARCA ═══════════ */}
-        <section className="mt-14">
+        <section id="monarca" className="mt-14 scroll-mt-24">
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <div className="flex items-center gap-4">
               <a
@@ -275,7 +275,7 @@ function CasosPage() {
         </section>
 
         {/* ═══════════ CASO 2: DASAGRO ═══════════ */}
-        <section className="mt-16">
+        <section id="dasagro" className="mt-16 scroll-mt-24">
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <div className="flex items-center gap-4">
               <a
@@ -434,7 +434,7 @@ function CasosPage() {
         </section>
 
         {/* ═══════════ CASO 3: ROYAL BITE ═══════════ */}
-        <section className="mt-16">
+        <section id="royal-bite" className="mt-16 scroll-mt-24">
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <div className="flex items-center gap-4">
               <a
