@@ -30,6 +30,9 @@ export const Route = createFileRoute("/casos-de-exito")({
   component: CasosPage,
 });
 
+const ROYAL_BITE_LIVE = false;
+const ROYAL_BITE_URL = "https://royalbite.co";
+
 const DISCLAIMER =
   "Las cifras de ahorro son estimaciones de implementación basadas en promedios del sector para empresas de tamaño similar. Pueden fluctuar según el volumen, la operación y el contexto de cada negocio.";
 
@@ -113,14 +116,11 @@ function CasosPage() {
           Casos de éxito
         </h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-foreground/85">
-          Dos implementaciones reales de IAmkt: un sistema de pedidos y gestión para un
-          restaurante, y un CRM completo para una distribuidora de insumos agropecuarios con
-          5 almacenes. Así se ve la tecnología aplicada a la operación del día a día.
+          Dos implementaciones en producción y un proyecto en despliegue: un sistema de
+          pedidos y gestión para un restaurante, un CRM completo para una distribuidora de
+          insumos agropecuarios con 5 almacenes, y una carta digital con pedidos por WhatsApp
+          para comidas rápidas. Así se ve la tecnología aplicada a la operación del día a día.
         </p>
-
-        <div className="mt-4 rounded-xl border border-amber-400/40 bg-amber-400/10 p-4 text-sm text-amber-700 dark:text-amber-300">
-          <strong>Transparencia:</strong> {DISCLAIMER}
-        </div>
 
         {/* ═══════════ CASO 1: MONARCA ═══════════ */}
         <section className="mt-14">
@@ -215,19 +215,19 @@ function CasosPage() {
                     <Workflow className="h-3.5 w-3.5" /> Flujo pedido → cocina → cobro → reportes
                   </Chip>
                   <Chip>
-                    <Sparkles className="h-3.5 w-3.5" /> Menú del día en tiempo real (SSE)
+                    <Sparkles className="h-3.5 w-3.5" /> Menú del día actualizado en tiempo real
                   </Chip>
                   <Chip>
                     <Clock className="h-3.5 w-3.5" /> Alertas sonoras al mesero y timers de cocina
                   </Chip>
                   <Chip>
-                    <ShieldCheck className="h-3.5 w-3.5" /> JWT con expiración, contraseñas con scrypt, PIN para meseros
+                    <ShieldCheck className="h-3.5 w-3.5" /> Acceso seguro con sesiones que expiran y PIN para meseros
                   </Chip>
                   <Chip>
-                    <ShieldCheck className="h-3.5 w-3.5" /> Rate limiting y roles separados (admin/gerente/mesero/cocina)
+                    <ShieldCheck className="h-3.5 w-3.5" /> Protección contra accesos masivos y roles separados (admin/gerente/mesero/cocina)
                   </Chip>
                   <Chip>
-                    <BadgeCheck className="h-3.5 w-3.5" /> PWA instalable + API multi-tenant
+                    <BadgeCheck className="h-3.5 w-3.5" /> App instalable y plataforma multi-negocio
                   </Chip>
                 </div>
               </div>
@@ -266,8 +266,7 @@ function CasosPage() {
                   <li>
                     • <strong>Ticket medio:</strong> la carta digital con fotos y el menú del
                     día tienen potencial de aumentar el ticket medio entre 5% y 10%. Es un
-                    beneficio potencial que puede mejorar con la implementación a largo plazo,
-                    no una cifra garantizada.
+                    beneficio potencial que puede mejorar con la implementación a largo plazo.
                   </li>
                 </ul>
               </div>
@@ -375,13 +374,13 @@ function CasosPage() {
                     <Clock className="h-3.5 w-3.5" /> Alertas de seguimientos vencidos + timeline de 7 estados
                   </Chip>
                   <Chip>
-                    <ShieldCheck className="h-3.5 w-3.5" /> 68 políticas de seguridad por rol (RLS)
+                    <ShieldCheck className="h-3.5 w-3.5" /> Control estricto de permisos por rol
                   </Chip>
                   <Chip>
                     <ShieldCheck className="h-3.5 w-3.5" /> Precios editables solo por gerente + backup diario
                   </Chip>
                   <Chip>
-                    <BadgeCheck className="h-3.5 w-3.5" /> React + Supabase (PostgreSQL + Auth)
+                    <BadgeCheck className="h-3.5 w-3.5" /> Base de datos segura en la nube
                   </Chip>
                 </div>
               </div>
@@ -434,6 +433,74 @@ function CasosPage() {
           </div>
         </section>
 
+        {/* ═══════════ CASO 3: ROYAL BITE ═══════════ */}
+        <section className="mt-16">
+          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+            <div className="flex items-center gap-4">
+              <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-muted text-sm font-extrabold text-muted-foreground">
+                RB
+              </span>
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h2 className="text-2xl font-extrabold tracking-tight">Royal Bite</h2>
+                  <span className="rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-[11px] font-semibold text-accent">
+                    En despliegue · Próximamente royalbite.co
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Comidas rápidas · Web + carta digital + pedidos por WhatsApp · La Plata, Huila
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-foreground/85">
+            Presencia web de marca y carta digital interactiva con flujo de pedidos directos a
+            WhatsApp, reservas y pagos digitales (Bre-B, Nequi, Daviplata). El objetivo es que
+            el cliente pida en pocos toques, sin llamadas y sin intermediarios.
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            <Chip>
+              <Workflow className="h-3.5 w-3.5" /> Pedido directo a WhatsApp
+            </Chip>
+            <Chip>
+              <Sparkles className="h-3.5 w-3.5" /> Carta digital con fotos y precios
+            </Chip>
+            <Chip>
+              <Clock className="h-3.5 w-3.5" /> Horario y domicilios visibles
+            </Chip>
+            <Chip>
+              <BadgeCheck className="h-3.5 w-3.5" /> Pagos digitales (Bre-B, Nequi, Daviplata)
+            </Chip>
+          </div>
+
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <a
+              href="https://www.instagram.com/royalbite_mm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent underline underline-offset-4"
+            >
+              Ver Royal Bite en Instagram (@royalbite_mm)
+            </a>
+            {ROYAL_BITE_LIVE ? (
+              <a
+                href={ROYAL_BITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                Visitar royalbite.co <ArrowRight className="h-4 w-4" />
+              </a>
+            ) : (
+              <span className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-muted-foreground">
+                royalbite.co — disponible al lanzar
+              </span>
+            )}
+          </div>
+        </section>
+
         {/* ═══════════ COMPARATIVA ═══════════ */}
         <section className="mt-16">
           <SectionTitle>Resumen comparativo</SectionTitle>
@@ -443,7 +510,7 @@ function CasosPage() {
             <div className="rounded-xl border border-border/60 p-4">
               <p className="text-xs font-bold uppercase tracking-wider text-accent">Monarca · Restaurante</p>
               <dl className="mt-2 space-y-2 text-sm">
-                <div><dt className="font-semibold text-foreground">Solución</dt><dd className="text-foreground/85">Menú QR + Restaurant Pro (PWA, cocina KDS, gerente)</dd></div>
+                <div><dt className="font-semibold text-foreground">Solución</dt><dd className="text-foreground/85">Menú QR + <a href="https://comandatec.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-accent underline underline-offset-4">ComandaTec</a> (PWA, cocina KDS, gerente)</dd></div>
                 <div><dt className="font-semibold text-foreground">Ahorro en horas</dt><dd className="text-foreground/85">150–175 h/mes</dd></div>
                 <div><dt className="font-semibold text-foreground">Ahorro estimado</dt><dd className="text-foreground/85">$2.5–6M COP/mes</dd></div>
                 <div><dt className="font-semibold text-foreground">Beneficio clave</dt><dd className="text-foreground/85">Cero comandas en papel, caja y reportes automáticos</dd></div>
@@ -473,7 +540,7 @@ function CasosPage() {
               <tbody className="divide-y divide-border/60 text-foreground/85">
                 <tr>
                   <td className="px-4 py-3 font-medium text-foreground">Solución</td>
-                  <td className="px-4 py-3">Menú QR + Restaurant Pro (PWA, cocina KDS, gerente)</td>
+                  <td className="px-4 py-3">Menú QR + <a href="https://comandatec.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-accent underline underline-offset-4">ComandaTec</a> (PWA, cocina KDS, gerente)</td>
                   <td className="px-4 py-3">Dasagro 360 — CRM a medida (orden, factura, inventario, contabilidad)</td>
                 </tr>
                 <tr>
