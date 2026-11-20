@@ -372,9 +372,53 @@ const WHATSAPP_URL = `https://wa.me/573228570784?text=${encodeURIComponent(
   "Hola IAmkt, leí el artículo del blog y quiero mi diagnóstico gratuito.",
 )}`;
 
+/* Enlazado contextual: cada artículo conecta con un caso real o con el producto */
+
+const RELATED_CASE: Record<
+  string,
+  { eyebrow: string; name: string; text: string; hash: string; label: string }
+> = {
+  "que-es-un-agente-de-ia": {
+    eyebrow: "Caso real",
+    name: "Monarca Gastro Bar",
+    text: "Un restaurante que pasó de comandas en papel a pedidos directos a cocina, con alertas al mesero y reportes automáticos.",
+    hash: "monarca",
+    label: "Ver el caso de Monarca",
+  },
+  "automatizacion-para-pymes-7-procesos": {
+    eyebrow: "Producto propio",
+    name: "ComandaTec",
+    text: "Nuestro SaaS para restaurantes: carta QR, pantalla de cocina, caja e inventario en tiempo real. Es la automatización de procesos aplicada a un negocio real.",
+    hash: "monarca",
+    label: "Ver el caso real con ComandaTec",
+  },
+  "whatsapp-business-embudo-conversacional": {
+    eyebrow: "En despliegue",
+    name: "Royal Bite",
+    text: "Carta digital con pedidos directos a WhatsApp, reservas y pagos digitales para comidas rápidas en La Plata, Huila.",
+    hash: "royal-bite",
+    label: "Ver el caso de Royal Bite",
+  },
+  "ia-en-el-agro-colombiano": {
+    eyebrow: "Caso real",
+    name: "Dasagro 360",
+    text: "CRM para una distribuidora de insumos agropecuarios con 5 almacenes: pedidos, inventario, facturación y cartera en un solo flujo.",
+    hash: "dasagro",
+    label: "Ver el caso de Dasagro 360",
+  },
+  "atencion-al-cliente-con-ia-colombia": {
+    eyebrow: "En despliegue",
+    name: "Royal Bite",
+    text: "Atención y pedidos por WhatsApp sin llamadas ni intermediarios, con carta digital y pagos integrados.",
+    hash: "royal-bite",
+    label: "Ver el caso de Royal Bite",
+  },
+};
+
 function PostView() {
   const post = Route.useLoaderData();
   const postCta = getPostCta(post.slug);
+  const relatedCase = RELATED_CASE[post.slug];
   const related = useMemo(() => {
     const others = getPublishedPosts().filter((p) => p.slug !== post.slug);
     const sameCat = others.filter((p) => p.category === post.category);
@@ -462,6 +506,28 @@ function PostView() {
               ))}
             </Accordion>
           </section>
+        )}
+
+        {/* Enlazado con el ecosistema */}
+        {relatedCase && (
+          <aside className="mt-14 rounded-2xl border border-border/60 bg-muted/30 p-6 md:p-8">
+            <p className="text-xs font-bold uppercase tracking-wider text-accent">
+              {relatedCase.eyebrow}
+            </p>
+            <h2 className="mt-1 text-xl font-extrabold tracking-tight">
+              {relatedCase.name}
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/85">
+              {relatedCase.text}
+            </p>
+            <Link
+              to="/casos-de-exito"
+              hash={relatedCase.hash}
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:underline"
+            >
+              {relatedCase.label} <ArrowRight className="h-4 w-4" />
+            </Link>
+          </aside>
         )}
 
         {/* CTA final */}
