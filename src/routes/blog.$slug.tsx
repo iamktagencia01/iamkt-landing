@@ -510,16 +510,15 @@ function PostView() {
 
         {/* Guía descargable */}
         <div className="mt-10 rounded-xl border border-border/60 bg-muted/20 p-4 text-sm">
-          <strong className="text-foreground">Guía gratuita:</strong>{" "}
-          <a
-            href="/guias/costo-proceso-manual.pdf"
-            download
+          <strong className="text-foreground">Herramienta gratuita:</strong>{" "}
+          <Link
+            to="/herramientas/costo-proceso"
             className="font-semibold text-accent underline underline-offset-4"
           >
-            Cuánto te cuesta un proceso manual (PDF)
-          </a>{" "}
+            Calcula cuánto te cuestan tus procesos manuales
+          </Link>{" "}
           <span className="text-muted-foreground">
-            — calcula el costo real de tus procesos en 15 minutos y decide qué automatizar primero.
+            — tres pasos, tu cifra real y un pre-diagnóstico en PDF.
           </span>
         </div>
 

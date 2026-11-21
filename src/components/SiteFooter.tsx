@@ -82,6 +82,9 @@ export function SiteFooter() {
             >
               ComandaTec <ExternalLink className="h-3.5 w-3.5" />
             </a>
+            <Link to="/herramientas/costo-proceso" className="text-white/80 hover:text-white">
+              Calculadora de costos
+            </Link>
             <Link to="/casos-de-exito" className="text-white/80 hover:text-white">
               Casos de éxito
             </Link>

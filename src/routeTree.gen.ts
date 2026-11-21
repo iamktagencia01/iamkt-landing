@@ -15,6 +15,7 @@ import { Route as CasosDeExitoRouteImport } from './routes/casos-de-exito'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as HerramientasCostoProcesoRouteImport } from './routes/herramientas/costo-proceso'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const TerminosRoute = TerminosRouteImport.update({
@@ -47,6 +48,12 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/',
   getParentRoute: () => BlogRoute,
 } as any)
+const HerramientasCostoProcesoRoute =
+  HerramientasCostoProcesoRouteImport.update({
+    id: '/herramientas/costo-proceso',
+    path: '/herramientas/costo-proceso',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -60,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/privacidad': typeof PrivacidadRoute
   '/terminos': typeof TerminosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/herramientas/costo-proceso': typeof HerramientasCostoProcesoRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -68,6 +76,7 @@ export interface FileRoutesByTo {
   '/privacidad': typeof PrivacidadRoute
   '/terminos': typeof TerminosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/herramientas/costo-proceso': typeof HerramientasCostoProcesoRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
@@ -78,6 +87,7 @@ export interface FileRoutesById {
   '/privacidad': typeof PrivacidadRoute
   '/terminos': typeof TerminosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/herramientas/costo-proceso': typeof HerramientasCostoProcesoRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/privacidad'
     | '/terminos'
     | '/blog/$slug'
+    | '/herramientas/costo-proceso'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/privacidad'
     | '/terminos'
     | '/blog/$slug'
+    | '/herramientas/costo-proceso'
     | '/blog'
   id:
     | '__root__'
@@ -106,6 +118,7 @@ export interface FileRouteTypes {
     | '/privacidad'
     | '/terminos'
     | '/blog/$slug'
+    | '/herramientas/costo-proceso'
     | '/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -115,6 +128,7 @@ export interface RootRouteChildren {
   CasosDeExitoRoute: typeof CasosDeExitoRoute
   PrivacidadRoute: typeof PrivacidadRoute
   TerminosRoute: typeof TerminosRoute
+  HerramientasCostoProcesoRoute: typeof HerramientasCostoProcesoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -161,6 +175,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/herramientas/costo-proceso': {
+      id: '/herramientas/costo-proceso'
+      path: '/herramientas/costo-proceso'
+      fullPath: '/herramientas/costo-proceso'
+      preLoaderRoute: typeof HerramientasCostoProcesoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
@@ -189,6 +210,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasosDeExitoRoute: CasosDeExitoRoute,
   PrivacidadRoute: PrivacidadRoute,
   TerminosRoute: TerminosRoute,
+  HerramientasCostoProcesoRoute: HerramientasCostoProcesoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
