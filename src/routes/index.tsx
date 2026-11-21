@@ -918,6 +918,82 @@ function CasosExito() {
 
 /* ─── FAQ ─── */
 
+/* ─── Calculadora de costos (CTA a la herramienta) ─── */
+
+function CalculadoraCTA() {
+  const chips = ["Sin registro", "3 pasos", "PDF inmediato", "Tus datos no se guardan"];
+  return (
+    <section id="calculadora" className="relative py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-accent/[0.08] via-transparent to-transparent p-8 md:p-12">
+          <div className="grid gap-10 md:grid-cols-[1fr_320px] md:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+                Herramienta gratuita
+              </p>
+              <h2 className="mt-3 max-w-2xl text-3xl font-bold text-foreground md:text-4xl">
+                Calcula cuánto te cuestan tus procesos manuales
+              </h2>
+              <p className="mt-4 max-w-2xl text-base text-muted-foreground">
+                Tres pasos con tus propios datos. Al final ves tu costo mensual, las horas
+                que pierdes cada mes y un pre-diagnóstico en PDF con el plan de qué
+                automatizar primero.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {chips.map((c) => (
+                  <span
+                    key={c}
+                    className="rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted-foreground"
+                  >
+                    {c}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  to="/herramientas/costo-proceso"
+                  className="group inline-flex items-center gap-2 rounded-xl bg-accent px-7 py-3.5 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
+                >
+                  Abrir la calculadora
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+                <a
+                  href="/guias/costo-proceso-manual.pdf"
+                  download
+                  className="inline-flex items-center gap-2 rounded-xl border border-border px-7 py-3.5 text-base font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+                >
+                  Descargar la guía (PDF)
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-2xl p-6 text-white shadow-xl" style={{ backgroundColor: "oklch(0.13 0.06 265)" }}>
+              <p className="text-[11px] font-bold uppercase tracking-widest text-cyan-300">
+                Tu pre-diagnóstico
+              </p>
+              <div className="mt-4 space-y-4">
+                {[
+                  ["Costo mensual", "$ —"],
+                  ["Horas al mes", "— h"],
+                  ["Proceso prioritario", "—"],
+                ].map(([label, value]) => (
+                  <div key={label} className="border-b border-white/10 pb-3 last:border-0 last:pb-0">
+                    <p className="text-[11px] uppercase tracking-wider text-white/50">{label}</p>
+                    <p className="mt-1 text-xl font-extrabold">{value}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5 inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-xs font-semibold text-white/80">
+                <Sparkles className="h-3.5 w-3.5" /> Se genera en PDF al terminar
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FAQ({ onOpenWizard }: { onOpenWizard: () => void }) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
@@ -1057,6 +1133,7 @@ function Landing() {
         <Services onOpenWizard={() => setWizardOpen(true)} />
         <ProductoSaaS />
         <CasosExito />
+        <CalculadoraCTA />
         <FAQ onOpenWizard={() => setWizardOpen(true)} />
         <ContactSection onOpenWizard={() => setWizardOpen(true)} />
       </main>
