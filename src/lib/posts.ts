@@ -946,6 +946,160 @@ export const POSTS: Post[] = [
   },
 ];
 
+POSTS.push({
+  slug: "automatizar-cobranza-cartera-colombia",
+  title: "Cartera vencida: cuánto te cuesta cobrar a mano y cómo automatizarlo",
+  description:
+    "Cobrar a mano consume horas, depende de la memoria del vendedor y alarga los días de cartera. Guía práctica para automatizar recordatorios, acuerdos de pago y seguimiento sin perder el trato personal.",
+  image: "/blog-images/automatizacion.png",
+  imageAlt: "Flujo automatizado de cobranza con recordatorios, acuerdos de pago y seguimiento de cartera",
+  date: "2026-11-20",
+  category: "Automatización",
+  readTime: "8 min",
+  published: true,
+  content: [
+    {
+      t: "p",
+      x: "La cobranza manual es el proceso de perseguir cada factura vencida con llamadas, mensajes sueltos y una planilla que alguien actualiza cuando se acuerda. Funciona mientras el negocio es pequeño. Cuando hay 40 o 60 facturas abiertas al mes, deja de ser un trámite y se convierte en un trabajo de tiempo completo que nadie tiene asignado de forma formal.",
+    },
+    {
+      t: "quote",
+      x: "El problema no es solo que falte plata: es que nadie sabe con certeza quién debe, cuánto y desde cuándo.",
+    },
+    { t: "h2", x: "¿Qué es la cobranza automatizada?" },
+    {
+      t: "p",
+      x: "La cobranza automatizada es un sistema que envía el recordatorio correcto en el momento correcto, registra la respuesta del cliente y actualiza el estado de cada factura sin que alguien tenga que acordarse. No es un robot que amenaza ni un mensaje masivo igual para todos: es una secuencia con reglas, conectada a tu facturación y a tu canal de contacto, donde la persona interviene en los casos que piden conversación.",
+    },
+    {
+      t: "p",
+      x: "La diferencia práctica está en el orden. Hoy el cobro ocurre cuando la caja aprieta; con un sistema, ocurre en el día que definiste, todos los meses, sin depender del ánimo de nadie.",
+    },
+    { t: "h2", x: "Por qué duele: el costo en horas y en pesos" },
+    {
+      t: "p",
+      x: "Pongamos un ejemplo con supuestos explícitos, no con estadísticas: una distribuidora con 30 facturas vencidas al mes. Un auxiliar dedica 15 minutos por factura entre buscar el dato, escribir el mensaje, llamar y anotar el resultado. Son 7,5 horas al mes solo en gestión de cobro. Si se suman la revisión de la planilla, la conciliación de pagos con el banco y las respuestas de clientes que escriben por WhatsApp para avisar que ya consignaron, el bloque realista se acerca a 12 o 15 horas.",
+    },
+    {
+      t: "p",
+      x: "En pesos: si la hora cargada de esa persona cuesta, por ejemplo, $18.000 COP (salario, prestaciones y tiempo administrativo), 12 horas al mes son unos $216.000. Ese número no quiebra a nadie, y por eso casi nadie lo mira. El daño real está en otra parte: en los días de cartera.",
+    },
+    {
+      t: "p",
+      x: "Cada día que una factura sigue abierta es capital que ya salió de tu caja y todavía no volvió. Si vendes con un margen del 8% y cobras 30 días tarde, ese margen se consume financiando a tu propio cliente. La cobranza no es un tema de cartera: es un tema de flujo de caja.",
+    },
+    {
+      t: "table",
+      head: ["Síntoma", "Qué está pasando", "Costo real"],
+      rows: [
+        ["Nadie sabe la cartera exacta", "La planilla no coincide con la facturación", "Decisiones de compra y de crédito a ciegas"],
+        ["Se cobra solo cuando aprieta la caja", "Recordatorios irregulares y tardíos", "Días de cartera más largos cada trimestre"],
+        ["El vendedor cobra y deja de vender", "La misma persona persigue pagos y visita clientes", "Menos visitas nuevas, menos ventas"],
+        ["Clientes molestos por el tono", "Mensajes improvisados según el día", "Desgaste de una relación que costó conseguir"],
+        ["Pagos ya hechos que siguen en la lista", "Sin conciliación entre banco y factura", "Llamadas incómodas y doble gestión"],
+      ],
+    },
+    { t: "h2", x: "Lo que se hace hoy y no funciona" },
+    {
+      t: "ol",
+      x: [
+        "Una planilla en Excel que solo entiende una persona, y que se rompe cuando esa persona se va de vacaciones.",
+        "Cobrar cuando la factura ya lleva 60 días vencida, cuando la conversación ya es incómoda para las dos partes.",
+        "El mismo mensaje para el cliente que paga siempre a tiempo y para el que lleva tres acuerdos incumplidos.",
+        "No registrar los acuerdos de pago: se promete el viernes y nadie sabe qué se prometió.",
+        "Mezclar cobranza con venta en la misma persona, con la misma prioridad y el mismo horario.",
+        "Medir solo cuánta plata entró, sin mirar cuánto se demoró en entrar.",
+      ],
+    },
+    { t: "h2", x: "Cómo automatizarla paso a paso" },
+    {
+      t: "ol",
+      x: [
+        "Ordena la cartera en una sola fuente: una tabla o un sistema donde cada factura tenga cliente, valor, fecha de emisión, fecha de vencimiento y estado. Si hay dos versiones de la verdad, automatizar solo acelera el error.",
+        "Define la política de cobro por escrito: aviso preventivo tres días antes del vencimiento, primer recordatorio al día siguiente, segundo a los ocho días, llamada humana a los quince y escalamiento a los treinta. Esta es una decisión del dueño, no del software.",
+        "Segmenta por comportamiento: cliente que paga puntual, cliente que paga tarde pero paga, cliente con acuerdo vigente y cliente en mora crítica. Cada grupo recibe un tono y una frecuencia distintos.",
+        "Automatiza los tramos de bajo riesgo: el aviso preventivo, el recordatorio del primer día y la confirmación de pago recibido. Son mensajes que no negocian nada y que casi siempre agradecen.",
+        "Deja a una persona los casos con historia: acuerdos incumplidos, clientes estratégicos, saldos en disputa. Ahí la automatización prepara el contexto y el humano decide.",
+        "Registra cada respuesta y cada acuerdo con fecha y valor, para que el siguiente contacto sepa exactamente qué se prometió.",
+        "Mide tres indicadores: días de cartera promedio, porcentaje de facturas pagadas en fecha y horas del equipo dedicadas a cobro. Sin estos tres, no sabrás si funcionó.",
+      ],
+    },
+    {
+      t: "p",
+      x: "El orden importa más que la herramienta. Un negocio con la cartera desordenada que compra un software de cobranza solo consigue equivocarse más rápido. Primero la fuente única, después las reglas, al final la automatización.",
+    },
+    { t: "h2", x: "Qué automatizar primero" },
+    {
+      t: "p",
+      x: "Empieza por el aviso preventivo. Es el mensaje más barato, el menos incómodo y el que más mueve la aguja: un recordatorio tres días antes del vencimiento evita la mitad de las llamadas de la semana siguiente. El segundo paso es la confirmación automática cuando el pago se registra, porque elimina las llamadas a clientes que ya pagaron.",
+    },
+    {
+      t: "p",
+      x: "Cuando esos dos funcionen sin supervisión, suma los recordatorios de acuerdos de pago. Y solo después conecta canales distintos: WhatsApp para el aviso corto, correo para el estado de cuenta, llamada para el caso crítico. Este patrón es el mismo que aplicamos en los [procesos de automatización para PyMEs](/blog/automatizacion-para-pymes-7-procesos): una tarea, un dueño, un indicador.",
+    },
+    { t: "h2", x: "Cuándo NO vale la pena automatizar la cobranza" },
+    {
+      t: "ul",
+      x: [
+        "Cuando tienes menos de diez facturas abiertas al mes: dos llamadas resuelven más rápido que configurar un sistema.",
+        "Cuando la relación es tan cercana que un mensaje automático suena frío o fuera de lugar. Ahí conviene automatizar solo el registro, no el mensaje.",
+        "Cuando la cartera ya está en cobro jurídico o en disputa: eso no se automatiza, se negocia.",
+        "Cuando el problema real es el crédito y no la cobranza: si vendes a quien no puede pagar, ningún recordatorio arregla la decisión de venta.",
+        "Cuando no hay datos confiables. Automatizar sobre una base sucia multiplica los errores y le quita credibilidad al proceso.",
+      ],
+    },
+    { t: "h2", x: "Cómo se conecta con el resto del negocio" },
+    {
+      t: "p",
+      x: "La cobranza no vive sola: empieza en la cotización, sigue en el pedido, pasa por la factura y termina en el pago. Si la cotización se demora dos días y el pedido se transcribe a mano, la cobranza está pagando los errores de los pasos anteriores. Por eso conviene revisar la cadena completa antes de comprar cualquier herramienta.",
+    },
+    {
+      t: "p",
+      x: "El mismo principio aplica al cliente que escribe para preguntar por su factura: si la [atención por WhatsApp](/blog/atencion-al-cliente-con-ia-colombia) puede responder el estado del pedido con datos reales, el equipo de cartera deja de repetir la misma consulta diez veces al día.",
+    },
+    { t: "h2", x: "Cómo saber si tu caso lo justifica" },
+    {
+      t: "p",
+      x: "Antes de cotizar una implementación, mide. Toma una semana y anota cuántas horas reales se van en cobrar, cuántas facturas están vencidas y cuántos días pasan en promedio desde el vencimiento hasta el pago. Con esos tres datos ya tienes una cifra propia, no una promesa de proveedor.",
+    },
+    {
+      t: "p",
+      x: "Puedes hacer ese cálculo en tres pasos con la calculadora de [costo de procesos manuales](/herramientas/costo-proceso): te devuelve el costo mensual y anual de la tarea y un pre-diagnóstico en PDF. Si prefieres hacerlo en papel primero, descarga la [guía del cálculo manual](/guias/costo-proceso-manual.pdf) y sigue la misma lógica con tu equipo.",
+    },
+    {
+      t: "p",
+      x: "La regla final es sencilla: automatiza lo que ya sabes medir. Si no puedes decir cuántas horas te cuesta cobrar hoy, tampoco podrás demostrar que mejoró mañana.",
+    },
+  ],
+  cta: {
+    title: "Pon tu cobranza en orden antes de automatizarla",
+    text: "Revisamos tu cartera, definimos la política de cobro y conectamos los recordatorios a tu facturación y a WhatsApp. El diagnóstico inicial es gratuito.",
+    button: "Agenda un diagnóstico de cartera",
+  },
+  faq: [
+    {
+      q: "¿Qué es la cobranza automatizada?",
+      a: "Es un sistema que envía recordatorios de pago según reglas definidas, registra la respuesta del cliente y actualiza el estado de cada factura sin intervención manual. Las decisiones delicadas, como negociar un acuerdo o un saldo en disputa, siguen en manos de una persona.",
+    },
+    {
+      q: "¿La automatización de cobranza reemplaza al equipo?",
+      a: "No. Elimina las tareas repetitivas de avisar, recordar y confirmar pagos, para que la persona se concentre en los casos que requieren conversación: acuerdos, clientes estratégicos y mora crítica.",
+    },
+    {
+      q: "¿Sirve para una PyME con pocas facturas?",
+      a: "Con menos de diez facturas abiertas al mes, normalmente no. Dos llamadas bien hechas resuelven más rápido que configurar un sistema. La automatización se justifica cuando el volumen hace que el cobro dependa de la memoria de una sola persona.",
+    },
+    {
+      q: "¿Qué necesito para empezar?",
+      a: "Una lista confiable de facturas con fecha de vencimiento y estado, los datos de contacto actualizados de cada cliente, un medio de pago claro y una política de cobro escrita con los días de aviso y escalamiento.",
+    },
+    {
+      q: "¿Cómo evito que el cliente se sienta presionado?",
+      a: "Con tono y frecuencia diferenciados por comportamiento. El cliente que paga puntual recibe un aviso preventivo cordial; el que tiene mora recurrente recibe una secuencia más firme y un contacto humano antes de escalar.",
+    },
+  ],
+});
+
 export function getPublishedPosts(): Post[] {
   return POSTS.filter((p) => p.published).sort((a, b) => (a.date < b.date ? 1 : -1));
 }
@@ -1000,6 +1154,12 @@ export const POST_CTAS: Record<
     title: "Aparece en Google, ChatGPT y Perplexity — lo aplicamos a tu empresa",
     text: "Hacemos base SEO, estructura para IA (llms.txt, schema, contenido citable) y acompañamiento en redes para construir reconocimiento. El diagnóstico inicial es gratuito.",
     button: "Audita tu posicionamiento",
+    link: "/?diagnostico=1",
+  },
+  "automatizar-cobranza-cartera-colombia": {
+    title: "Pon tu cobranza en orden antes de automatizarla",
+    text: "Revisamos tu cartera, definimos la política de cobro y conectamos los recordatorios a tu facturación y a WhatsApp. El diagnóstico inicial es gratuito.",
+    button: "Agenda un diagnóstico de cartera",
     link: "/?diagnostico=1",
   },
 };
