@@ -7,7 +7,7 @@ import {
   Instagram,
   ExternalLink,
 } from "lucide-react";
-import logoUrl from "@/assets/logo.png";
+import logoWordmark from "@/assets/logo-trimmed.png";
 
 const WHATSAPP_NUMBER = "573228570784";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -28,9 +28,9 @@ export function SiteFooter() {
         {/* Marca */}
         <div>
           <img
-            src={logoUrl}
+            src={logoWordmark}
             alt="IAmkt"
-            className="h-12 w-auto brightness-0 invert"
+            className="h-9 w-auto brightness-0 invert"
           />
           <p className="mt-4 max-w-xs text-sm text-white/70">
             Ingeniería, IA y Marketing Digital para empresas que quieren crecer.

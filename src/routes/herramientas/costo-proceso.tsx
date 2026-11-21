@@ -140,7 +140,7 @@ function CalculadoraPage() {
     setBusy(true);
     try {
       const [logoRes] = await Promise.all([
-        fetch("/brand/iamkt-logo.png"),
+        fetch("/brand/iamkt-logo.png?v=2"),
         loadScript("/js/prediagnostico.js"),
       ]);
       const buildDiagnosticoPdf = (
