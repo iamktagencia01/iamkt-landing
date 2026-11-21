@@ -9,8 +9,6 @@ import {
 } from "@/components/ui/sheet";
 
 const NAV_ITEMS = [
-  ["Inicio", "#inicio"],
-  ["Beneficios", "#beneficios"],
   ["Servicios", "#servicios"],
   ["FAQ", "#faq"],
 ] as const;

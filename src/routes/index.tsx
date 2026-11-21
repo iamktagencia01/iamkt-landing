@@ -293,16 +293,13 @@ function Hero({ onOpenWizard }: { onOpenWizard: () => void }) {
               O escribe por WhatsApp
             </a>
           </div>
-          <p className="mt-5 flex items-center gap-2 text-sm text-white/70">
-            <Phone className="h-4 w-4 text-cyan-300" />
-            Contáctanos al{" "}
-            <a
-              href={`tel:+${WHATSAPP_NUMBER}`}
-              className="font-semibold text-white underline-offset-4 hover:underline"
-            >
-              322 857 0784
-            </a>
-          </p>
+          <Link
+            to="/herramientas/costo-proceso"
+            className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition-colors hover:text-white"
+          >
+            O calcula cuánto te cuestan tus procesos manuales
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
         </div>
       </div>
     </section>
