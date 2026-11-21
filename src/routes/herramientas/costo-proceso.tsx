@@ -51,6 +51,22 @@ export const Route = createFileRoute("/herramientas/costo-proceso")({
   component: CalculadoraPage,
 });
 
+function loadScript(src: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (document.querySelector(`script[data-src="${src}"]`)) {
+      resolve();
+      return;
+    }
+    const el = document.createElement("script");
+    el.src = src;
+    el.async = true;
+    el.dataset.src = src;
+    el.onload = () => resolve();
+    el.onerror = () => reject(new Error(`No se pudo cargar ${src}`));
+    document.body.appendChild(el);
+  });
+}
+
 const STEPS = ["Contexto", "Procesos", "Errores", "Resultado"];
 
 function StepBar({ step }: { step: number }) {
@@ -123,10 +139,17 @@ function CalculadoraPage() {
   const downloadPdf = async () => {
     setBusy(true);
     try {
-      const [{ buildDiagnosticoPdf }, logoRes] = await Promise.all([
-        import("@/lib/pdf-diagnostico"),
+      const [logoRes] = await Promise.all([
         fetch("/brand/iamkt-logo.png"),
+        loadScript("/js/prediagnostico.js"),
       ]);
+      const buildDiagnosticoPdf = (
+        window as unknown as {
+          IAmktPdf: {
+            buildDiagnosticoPdf: (input: unknown, logo: Uint8Array) => Promise<Uint8Array>;
+          };
+        }
+      ).IAmktPdf.buildDiagnosticoPdf;
       const logoBytes = new Uint8Array(await logoRes.arrayBuffer());
       const dateLabel = new Date().toLocaleDateString("es-CO", {
         day: "numeric",
