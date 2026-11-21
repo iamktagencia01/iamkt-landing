@@ -150,12 +150,12 @@
   50%      { transform: translate(-50px, -30px) scale(1.1); }
 }
 .animate-tech-grid {
-  animation: tech-grid-drift 18s linear infinite;
+  animation: tech-grid-drift 12s linear infinite;
 }
 .animate-aurora-1 {
-  animation: aurora-float-1 14s ease-in-out infinite;
+  animation: aurora-float-1 10s ease-in-out infinite;
 }
 .animate-aurora-2 {
-  animation: aurora-float-2 18s ease-in-out infinite;
+  animation: aurora-float-2 13s ease-in-out infinite;
 }
 

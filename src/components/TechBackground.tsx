@@ -47,13 +47,13 @@ export function TechBackground({
       nodes = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
-        r: Math.random() * 1.6 + 0.6,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 1.8 + 0.7,
       }));
     };
 
-    const MAX_DIST = 130;
+    const MAX_DIST = 145;
 
     const tick = () => {
       ctx.clearRect(0, 0, width, height);
@@ -76,8 +76,8 @@ export function TechBackground({
           const d2 = dx * dx + dy * dy;
           if (d2 < MAX_DIST * MAX_DIST) {
             const alpha = 1 - Math.sqrt(d2) / MAX_DIST;
-            ctx.strokeStyle = `rgba(125, 211, 252, ${alpha * 0.35})`;
-            ctx.lineWidth = 0.6;
+            ctx.strokeStyle = `rgba(125, 211, 252, ${alpha * 0.5})`;
+            ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -88,7 +88,7 @@ export function TechBackground({
 
       // nodes
       for (const n of nodes) {
-        ctx.fillStyle = "rgba(186, 230, 253, 0.85)";
+        ctx.fillStyle = "rgba(186, 230, 253, 0.95)";
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx.fill();
@@ -124,7 +124,7 @@ export function TechBackground({
 
       {/* Drifting grid */}
       <div
-        className="absolute inset-0 opacity-[0.18] animate-tech-grid"
+        className="absolute inset-0 opacity-[0.26] animate-tech-grid"
         style={{
           backgroundImage:
             "linear-gradient(rgba(125,211,252,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(125,211,252,0.35) 1px, transparent 1px)",
@@ -138,14 +138,14 @@ export function TechBackground({
 
       {/* Aurora blobs */}
       <div
-        className="absolute -top-32 -left-24 h-[480px] w-[480px] rounded-full blur-3xl opacity-50 animate-aurora-1"
+        className="absolute -top-32 -left-24 h-[480px] w-[480px] rounded-full blur-3xl opacity-[0.62] animate-aurora-1"
         style={{
           background:
             "radial-gradient(circle, oklch(0.72 0.18 220 / 0.55), transparent 70%)",
         }}
       />
       <div
-        className="absolute -bottom-40 -right-24 h-[520px] w-[520px] rounded-full blur-3xl opacity-50 animate-aurora-2"
+        className="absolute -bottom-40 -right-24 h-[520px] w-[520px] rounded-full blur-3xl opacity-[0.62] animate-aurora-2"
         style={{
           background:
             "radial-gradient(circle, oklch(0.55 0.20 270 / 0.55), transparent 70%)",

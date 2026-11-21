@@ -1,6 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { ClipboardList, Menu } from "lucide-react";
 import logoUrl from "@/assets/logo.png";
+import logoWordmark from "@/assets/logo-trimmed.png";
 import {
   Sheet,
   SheetTrigger,
@@ -24,21 +25,21 @@ export function Header({
   const isHome = location.pathname === "/";
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
+      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between px-4 py-3 md:px-8">
         {isHome ? (
           <a href="#inicio" className="flex items-center gap-2">
             <img
-              src={logoUrl}
+              src={logoWordmark}
               alt="IAmkt — Agencia de Ingeniería, IA y Marketing Digital"
-              className="h-10 w-auto"
+              className="h-6 w-auto"
             />
           </a>
         ) : (
           <Link to="/" className="flex items-center gap-2">
             <img
-              src={logoUrl}
+              src={logoWordmark}
               alt="IAmkt — Agencia de Ingeniería, IA y Marketing Digital"
-              className="h-10 w-auto"
+              className="h-6 w-auto"
             />
           </Link>
         )}
