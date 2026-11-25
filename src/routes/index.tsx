@@ -676,7 +676,7 @@ function Services({ onOpenWizard }: { onOpenWizard: () => void }) {
             className="group inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-accent/50"
           >
             <ClipboardList className="h-5 w-5" strokeWidth={2} />
-            ¿Cuál necesitas? Diagnóstico Gratis aquí
+            Agendar Diagnóstico Gratuito
           </button>
         </div>
       </div>

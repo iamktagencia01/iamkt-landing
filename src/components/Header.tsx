@@ -87,7 +87,7 @@ export function Header({
             className="hidden items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5 md:inline-flex"
           >
             <ClipboardList className="h-4 w-4" strokeWidth={2} />
-            Comienza Tu Diagnóstico Gratuito
+            Agendar Diagnóstico Gratuito
           </Link>
         ) : (
           <button
@@ -95,7 +95,7 @@ export function Header({
             className="hidden items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5 md:inline-flex"
           >
             <ClipboardList className="h-4 w-4" strokeWidth={2} />
-            Comienza Tu Diagnóstico Gratuito
+            Agendar Diagnóstico Gratuito
           </button>
         )}
 
@@ -154,7 +154,7 @@ export function Header({
                     className="flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5"
                   >
                     <ClipboardList className="h-4 w-4" strokeWidth={2} />
-                    Diagnóstico Gratuito
+                    Agendar Diagnóstico
                   </Link>
                 ) : (
                   <button
@@ -162,7 +162,7 @@ export function Header({
                     className="flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground shadow-md shadow-accent/30 transition-all hover:-translate-y-0.5"
                   >
                     <ClipboardList className="h-4 w-4" strokeWidth={2} />
-                    Diagnóstico Gratuito
+                    Agendar Diagnóstico
                   </button>
                 )}
               </SheetClose>

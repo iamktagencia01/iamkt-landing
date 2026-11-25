@@ -145,6 +145,14 @@ function CasosPage() {
                   Caso 1 · Restaurante
                 </p>
                 <SectionTitle>Monarca Gastro Bar — menú QR y gestión completa</SectionTitle>
+                <a
+                  href="https://www.instagram.com/monarcagastrobar_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent hover:underline"
+                >
+                  Ver Instagram <ArrowRight className="h-3 w-3" />
+                </a>
               </div>
             </div>
             <Chip>
@@ -297,6 +305,14 @@ function CasosPage() {
                   Caso 2 · Agroinsumos
                 </p>
                 <SectionTitle>Dasagro 360 — CRM para 5 almacenes</SectionTitle>
+                <a
+                  href="https://www.dasagrobiotecnologias.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent hover:underline"
+                >
+                  Visitar sitio web <ArrowRight className="h-3 w-3" />
+                </a>
               </div>
             </div>
             <Chip>
@@ -461,6 +477,14 @@ function CasosPage() {
                 <p className="text-sm text-muted-foreground">
                   Comidas rápidas · Web + carta digital + pedidos por WhatsApp · La Plata, Huila
                 </p>
+                <a
+                  href="https://www.instagram.com/royalbite_mm/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent hover:underline"
+                >
+                  Ver Instagram <ArrowRight className="h-3 w-3" />
+                </a>
               </div>
             </div>
           </div>
@@ -589,7 +613,7 @@ function CasosPage() {
             search={{ diagnostico: 1 }}
             className="mt-6 inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Diagnóstico gratuito <ArrowRight className="h-4 w-4" />
+            Agendar Diagnóstico Gratuito <ArrowRight className="h-4 w-4" />
           </Link>
         </section>
       </main>
